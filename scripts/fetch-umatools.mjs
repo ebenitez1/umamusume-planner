@@ -65,9 +65,11 @@ const SLIMMERS = {
   "skills_all.json": (arr) =>
     arr.map((s) => ({
       id: s.id,
-      // prefer the more "natural" name; fall back to internal
-      name_en: s.name_en || s.enname,
-      desc_en: s.desc_en || s.endesc,
+      // Prefer Global EN flavor (enname/endesc) over the formal
+      // JP-translated fan version (name_en/desc_en). For skills that only
+      // have one of the two, the other fills in.
+      name_en: s.enname || s.name_en,
+      desc_en: s.endesc || s.desc_en,
       jpname: s.jpname,
       rarity: s.rarity,
       type: s.type,

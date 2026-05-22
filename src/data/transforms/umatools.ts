@@ -325,8 +325,12 @@ function preferredStyleFrom(apt: RawUma["UmaAptitudes"]): Style {
 // Skill transform
 // -----------------------------------------------------------------------------
 export function transformSkill(raw: RawSkill): Skill {
-  const name = raw.name_en || raw.enname || raw.jpname || `Skill ${raw.id}`;
-  const description = raw.desc_en || raw.endesc || raw.jpdesc || "";
+  // Prefer Global EN (enname/endesc) over JP-translated (name_en/desc_en).
+  // After the slim step, only name_en/desc_en survive — but they hold the
+  // Global EN value because the slimmer flipped the priority. Belt-and-
+  // suspenders by preferring enname here too in case raw shape changes.
+  const name = raw.enname || raw.name_en || raw.jpname || `Skill ${raw.id}`;
+  const description = raw.endesc || raw.desc_en || raw.jpdesc || "";
   const { category, tags } = tagsFor(raw.type || []);
   const rarity = SKILL_RARITY_MAP[raw.rarity] ?? "normal";
   const ratingPoints = ratingPointsFor(raw, category);
