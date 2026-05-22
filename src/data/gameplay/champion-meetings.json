@@ -1,0 +1,72 @@
+[
+  {
+    "id": "cm_japan_cup",
+    "name": "Japan Cup (Tokyo 2400m Turf)",
+    "track": "Tokyo Racecourse",
+    "surface": "turf",
+    "distance": "medium",
+    "distanceMeters": 2400,
+    "metaStyles": ["early", "late"],
+    "notes": "Long final straight (~525m). Late surgers and end closers with strong final-leg skills dominate. Stamina ~550+ recommended."
+  },
+  {
+    "id": "cm_arima_kinen",
+    "name": "Arima Kinen (Nakayama 2500m Turf)",
+    "track": "Nakayama Racecourse",
+    "surface": "turf",
+    "distance": "long",
+    "distanceMeters": 2500,
+    "metaStyles": ["early", "late"],
+    "notes": "Right-handed, sharp slope before the final straight. Short straight (~310m) — positioning + acceleration matters more than top-end speed."
+  },
+  {
+    "id": "cm_tenno_sho_spring",
+    "name": "Tenno Sho Spring (Kyoto 3200m Turf)",
+    "track": "Kyoto Racecourse",
+    "surface": "turf",
+    "distance": "long",
+    "distanceMeters": 3200,
+    "metaStyles": ["late", "end"],
+    "notes": "Longest classic. Stamina-heavy build (650+). McQueen-style late surgers shine."
+  },
+  {
+    "id": "cm_yasuda_kinen",
+    "name": "Yasuda Kinen (Tokyo 1600m Turf)",
+    "track": "Tokyo Racecourse",
+    "surface": "turf",
+    "distance": "mile",
+    "distanceMeters": 1600,
+    "metaStyles": ["runner", "early"],
+    "notes": "Mile classic on Tokyo. Front runners and pace chasers with mile aptitude dominate."
+  },
+  {
+    "id": "cm_takamatsunomiya",
+    "name": "Takamatsunomiya Kinen (Chukyo 1200m Turf)",
+    "track": "Chukyo Racecourse",
+    "surface": "turf",
+    "distance": "sprint",
+    "distanceMeters": 1200,
+    "metaStyles": ["runner"],
+    "notes": "Sprint classic. Front runner with high power + early-leg acceleration wins."
+  },
+  {
+    "id": "cm_february_stakes",
+    "name": "February Stakes (Tokyo 1600m Dirt)",
+    "track": "Tokyo Racecourse",
+    "surface": "dirt",
+    "distance": "mile",
+    "distanceMeters": 1600,
+    "metaStyles": ["runner", "early"],
+    "notes": "Dirt mile. Few umas have dirt A — pick wisely (Vodka, El Condor, Smart Falcon)."
+  },
+  {
+    "id": "cm_satsuki_sho",
+    "name": "Satsuki Sho (Nakayama 2000m Turf)",
+    "track": "Nakayama Racecourse",
+    "surface": "turf",
+    "distance": "medium",
+    "distanceMeters": 2000,
+    "metaStyles": ["early", "late"],
+    "notes": "Classic medium. Right-handed, slope before straight. Balanced builds suited."
+  }
+]

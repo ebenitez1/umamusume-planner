@@ -1,0 +1,293 @@
+[
+  {
+    "id": "skill_speed_star",
+    "name": "Speed Star",
+    "rarity": "rare",
+    "category": "speed",
+    "description": "Slightly increase velocity in the final leg.",
+    "ratingPoints": 170,
+    "sim": { "trigger": "phase==final", "effectKind": "speed", "effectValue": 0.35, "durationS": 12 },
+    "tags": { "phase": ["final"] }
+  },
+  {
+    "id": "skill_swinging_maestro",
+    "name": "Swinging Maestro",
+    "rarity": "rare",
+    "category": "acceleration",
+    "description": "Accelerate when overtaking in the final leg.",
+    "ratingPoints": 160,
+    "sim": { "trigger": "phase==final && overtaking", "effectKind": "accel", "effectValue": 0.25, "durationS": 3 },
+    "tags": { "phase": ["final"], "styles": ["late", "end"] }
+  },
+  {
+    "id": "skill_corner_recovery",
+    "name": "Corner Recovery",
+    "rarity": "normal",
+    "category": "recovery",
+    "description": "Recover a small amount of HP on corners in the middle of the race.",
+    "ratingPoints": 110,
+    "sim": { "trigger": "phase==middle && in_corner", "effectKind": "heal", "effectValue": 60, "cooldownS": 12 },
+    "tags": { "phase": ["middle"] }
+  },
+  {
+    "id": "skill_practiced_perfection",
+    "name": "Practiced Perfection",
+    "rarity": "rare",
+    "category": "recovery",
+    "description": "Recover a large amount of HP in the middle of the race.",
+    "ratingPoints": 180,
+    "sim": { "trigger": "phase==middle", "effectKind": "heal", "effectValue": 200 },
+    "tags": { "phase": ["middle"] }
+  },
+  {
+    "id": "skill_final_push",
+    "name": "Final Push",
+    "rarity": "normal",
+    "category": "speed",
+    "description": "Slightly increase velocity at the end of the final leg.",
+    "ratingPoints": 90,
+    "sim": { "trigger": "phase==spurt", "effectKind": "speed", "effectValue": 0.2 },
+    "tags": { "phase": ["spurt"] }
+  },
+  {
+    "id": "skill_late_surger_corners",
+    "name": "Late Surger Corners",
+    "rarity": "normal",
+    "category": "speed",
+    "description": "Slightly increase velocity on the final corner as a Late Surger.",
+    "ratingPoints": 100,
+    "sim": { "trigger": "phase==final && in_corner && style==late", "effectKind": "speed", "effectValue": 0.3, "durationS": 4 },
+    "tags": { "phase": ["final"], "styles": ["late"] }
+  },
+  {
+    "id": "skill_end_closer_straightaways",
+    "name": "End Closer Straightaways",
+    "rarity": "normal",
+    "category": "speed",
+    "description": "Slightly increase velocity on the final straight as an End Closer.",
+    "ratingPoints": 100,
+    "sim": { "trigger": "phase==spurt && on_straight && style==end", "effectKind": "speed", "effectValue": 0.3, "durationS": 5 },
+    "tags": { "phase": ["spurt"], "styles": ["end"] }
+  },
+  {
+    "id": "skill_front_runner_corners",
+    "name": "Front Runner Corners",
+    "rarity": "normal",
+    "category": "speed",
+    "description": "Slightly increase velocity on corners as a Front Runner.",
+    "ratingPoints": 100,
+    "sim": { "trigger": "in_corner && style==runner", "effectKind": "speed", "effectValue": 0.25 },
+    "tags": { "styles": ["runner"] }
+  },
+  {
+    "id": "skill_pace_chaser_savings",
+    "name": "Pace Chaser Savings",
+    "rarity": "normal",
+    "category": "recovery",
+    "description": "Recover HP on the final corner as a Pace Chaser.",
+    "ratingPoints": 110,
+    "sim": { "trigger": "phase==final && in_corner && style==early", "effectKind": "heal", "effectValue": 80 },
+    "tags": { "phase": ["final"], "styles": ["early"] }
+  },
+  {
+    "id": "skill_slipstream",
+    "name": "Slipstream",
+    "rarity": "rare",
+    "category": "positional",
+    "description": "Activates when running directly behind another umamusume — slight speed boost.",
+    "ratingPoints": 130,
+    "sim": { "trigger": "drafting", "effectKind": "speed", "effectValue": 0.2, "durationS": 6 },
+    "tags": { "styles": ["early", "late"] }
+  },
+  {
+    "id": "skill_concentration",
+    "name": "Concentration",
+    "rarity": "normal",
+    "category": "passive",
+    "description": "Reduces chance of poor start.",
+    "ratingPoints": 60,
+    "sim": { "trigger": "race_start", "effectKind": "buff", "effectValue": 0.1 }
+  },
+  {
+    "id": "skill_left_handed",
+    "name": "Left-Handed *",
+    "rarity": "normal",
+    "category": "passive",
+    "description": "Slight stat boost on left-handed (counter-clockwise) courses.",
+    "ratingPoints": 70,
+    "tags": { "phase": ["opening", "middle", "final"] }
+  },
+  {
+    "id": "skill_right_handed",
+    "name": "Right-Handed *",
+    "rarity": "normal",
+    "category": "passive",
+    "description": "Slight stat boost on right-handed (clockwise) courses.",
+    "ratingPoints": 70
+  },
+  {
+    "id": "skill_long_runner",
+    "name": "Long Runner",
+    "rarity": "normal",
+    "category": "passive",
+    "description": "Slight stat boost in Long distance races.",
+    "ratingPoints": 80,
+    "tags": { "distances": ["long"] }
+  },
+  {
+    "id": "skill_medium_runner",
+    "name": "Medium Runner",
+    "rarity": "normal",
+    "category": "passive",
+    "description": "Slight stat boost in Medium distance races.",
+    "ratingPoints": 80,
+    "tags": { "distances": ["medium"] }
+  },
+  {
+    "id": "skill_mile_runner",
+    "name": "Mile Runner",
+    "rarity": "normal",
+    "category": "passive",
+    "description": "Slight stat boost in Mile distance races.",
+    "ratingPoints": 80,
+    "tags": { "distances": ["mile"] }
+  },
+  {
+    "id": "skill_sprint_runner",
+    "name": "Sprint Runner",
+    "rarity": "normal",
+    "category": "passive",
+    "description": "Slight stat boost in Sprint distance races.",
+    "ratingPoints": 80,
+    "tags": { "distances": ["sprint"] }
+  },
+  {
+    "id": "skill_intimidate",
+    "name": "Intimidate",
+    "rarity": "rare",
+    "category": "debuff",
+    "description": "Lowers the velocity of nearby umamusume in the final leg.",
+    "ratingPoints": 150,
+    "sim": { "trigger": "phase==final", "effectKind": "debuff", "effectValue": -0.15, "durationS": 5 }
+  },
+  {
+    "id": "skill_homestretch_haste",
+    "name": "Homestretch Haste",
+    "rarity": "normal",
+    "category": "acceleration",
+    "description": "Accelerate on the final straight.",
+    "ratingPoints": 95,
+    "sim": { "trigger": "phase==spurt && on_straight", "effectKind": "accel", "effectValue": 0.25 },
+    "tags": { "phase": ["spurt"] }
+  },
+  {
+    "id": "skill_shifting_gears",
+    "name": "Shifting Gears",
+    "rarity": "rare",
+    "category": "acceleration",
+    "description": "Accelerate when entering the final corner.",
+    "ratingPoints": 140,
+    "sim": { "trigger": "phase==final && entering_corner", "effectKind": "accel", "effectValue": 0.3 },
+    "tags": { "phase": ["final"] }
+  },
+  {
+    "id": "uniq_special_week",
+    "name": "Smile for the Crowd",
+    "rarity": "unique",
+    "category": "speed",
+    "description": "Special Week's unique — significant speed boost in the final leg when in 1st-5th.",
+    "ratingPoints": 260,
+    "sim": { "trigger": "phase==final && position<=5", "effectKind": "speed", "effectValue": 0.45, "durationS": 12 },
+    "tags": { "phase": ["final"], "styles": ["early"] }
+  },
+  {
+    "id": "uniq_silence_suzuka",
+    "name": "Unrestrained Charge",
+    "rarity": "unique",
+    "category": "speed",
+    "description": "Silence Suzuka's unique — strong sustained speed boost when leading.",
+    "ratingPoints": 270,
+    "sim": { "trigger": "phase==middle && position==1 && style==runner", "effectKind": "speed", "effectValue": 0.4, "durationS": 14 },
+    "tags": { "phase": ["middle", "final"], "styles": ["runner"] }
+  },
+  {
+    "id": "uniq_tokai_teio",
+    "name": "Hopeful Stride",
+    "rarity": "unique",
+    "category": "acceleration",
+    "description": "Tokai Teio's unique — strong acceleration in the final leg.",
+    "ratingPoints": 260,
+    "sim": { "trigger": "phase==final", "effectKind": "accel", "effectValue": 0.5, "durationS": 4 },
+    "tags": { "phase": ["final"] }
+  },
+  {
+    "id": "uniq_mejiro_mcqueen",
+    "name": "Pride of Mejiro",
+    "rarity": "unique",
+    "category": "speed",
+    "description": "Mejiro McQueen's unique — speed boost in long races during the final leg.",
+    "ratingPoints": 270,
+    "sim": { "trigger": "phase==final && distance==long", "effectKind": "speed", "effectValue": 0.45, "durationS": 12 },
+    "tags": { "phase": ["final"], "distances": ["long"], "styles": ["late"] }
+  },
+  {
+    "id": "uniq_gold_ship",
+    "name": "Sea of Lights",
+    "rarity": "unique",
+    "category": "acceleration",
+    "description": "Gold Ship's unique — wild acceleration in long races.",
+    "ratingPoints": 260,
+    "sim": { "trigger": "phase==final && distance==long", "effectKind": "accel", "effectValue": 0.55, "durationS": 4 },
+    "tags": { "phase": ["final"], "distances": ["long"] }
+  },
+  {
+    "id": "uniq_daiwa_scarlet",
+    "name": "Beautiful Brilliance",
+    "rarity": "unique",
+    "category": "speed",
+    "description": "Daiwa Scarlet's unique — speed boost when leading from the front.",
+    "ratingPoints": 260,
+    "sim": { "trigger": "position<=2 && style==runner", "effectKind": "speed", "effectValue": 0.4, "durationS": 10 },
+    "tags": { "styles": ["runner"] }
+  },
+  {
+    "id": "uniq_vodka",
+    "name": "Lady's Pride",
+    "rarity": "unique",
+    "category": "speed",
+    "description": "Vodka's unique — speed boost in the final leg of mile/medium races.",
+    "ratingPoints": 260,
+    "sim": { "trigger": "phase==final && (distance==mile || distance==medium)", "effectKind": "speed", "effectValue": 0.42, "durationS": 11 },
+    "tags": { "phase": ["final"], "distances": ["mile", "medium"] }
+  },
+  {
+    "id": "uniq_taiki_shuttle",
+    "name": "Victorious Liberty",
+    "rarity": "unique",
+    "category": "speed",
+    "description": "Taiki Shuttle's unique — speed boost in mile races.",
+    "ratingPoints": 260,
+    "sim": { "trigger": "phase==final && distance==mile", "effectKind": "speed", "effectValue": 0.45, "durationS": 10 },
+    "tags": { "phase": ["final"], "distances": ["mile"] }
+  },
+  {
+    "id": "uniq_grass_wonder",
+    "name": "Pure Heart, Wondering Steps",
+    "rarity": "unique",
+    "category": "speed",
+    "description": "Grass Wonder's unique — speed boost when surging in the final leg.",
+    "ratingPoints": 260,
+    "sim": { "trigger": "phase==final && style==late", "effectKind": "speed", "effectValue": 0.42, "durationS": 11 },
+    "tags": { "phase": ["final"], "styles": ["late"] }
+  },
+  {
+    "id": "uniq_el_condor_pasa",
+    "name": "Flashing Wing",
+    "rarity": "unique",
+    "category": "acceleration",
+    "description": "El Condor Pasa's unique — acceleration on overseas-style turf medium courses.",
+    "ratingPoints": 250,
+    "sim": { "trigger": "phase==final && distance==medium", "effectKind": "accel", "effectValue": 0.45, "durationS": 4 },
+    "tags": { "phase": ["final"], "distances": ["medium"] }
+  }
+]

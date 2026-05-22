@@ -1,0 +1,5362 @@
+[
+  {
+    "id": 10001,
+    "chara_id": 1001,
+    "gametora": "10001-special-week",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10002,
+    "chara_id": 1002,
+    "gametora": "10002-silence-suzuka",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10003,
+    "chara_id": 1003,
+    "gametora": "10003-tokai-teio",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10004,
+    "chara_id": 1004,
+    "gametora": "10004-maruzensky",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10005,
+    "chara_id": 1006,
+    "gametora": "10005-oguri-cap",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10006,
+    "chara_id": 1007,
+    "gametora": "10006-gold-ship",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10007,
+    "chara_id": 1008,
+    "gametora": "10007-vodka",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10008,
+    "chara_id": 1010,
+    "gametora": "10008-taiki-shuttle",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10009,
+    "chara_id": 1011,
+    "gametora": "10009-grass-wonder",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10010,
+    "chara_id": 1013,
+    "gametora": "10010-mejiro-mcqueen",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10011,
+    "chara_id": 1014,
+    "gametora": "10011-el-condor-pasa",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10012,
+    "chara_id": 1015,
+    "gametora": "10012-tm-opera-o",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10013,
+    "chara_id": 1017,
+    "gametora": "10013-symboli-rudolf",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10014,
+    "chara_id": 1020,
+    "gametora": "10014-seiun-sky",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10015,
+    "chara_id": 1030,
+    "gametora": "10015-rice-shower",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10016,
+    "chara_id": 1035,
+    "gametora": "10016-winning-ticket",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10017,
+    "chara_id": 1040,
+    "gametora": "10017-gold-city",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10018,
+    "chara_id": 1041,
+    "gametora": "10018-sakura-bakushin-o",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10019,
+    "chara_id": 1045,
+    "gametora": "10019-super-creek",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10020,
+    "chara_id": 1052,
+    "gametora": "10020-haru-urara",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10021,
+    "chara_id": 9001,
+    "gametora": "10021-tazuna-hayakawa",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 10022,
+    "chara_id": 9004,
+    "gametora": "10022-aoi-kiryuin",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 10023,
+    "chara_id": 1009,
+    "gametora": "10023-daiwa-scarlet",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10024,
+    "chara_id": 1012,
+    "gametora": "10024-hishi-amazon",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10025,
+    "chara_id": 1018,
+    "gametora": "10025-air-groove",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10026,
+    "chara_id": 1019,
+    "gametora": "10026-agnes-digital",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10027,
+    "chara_id": 1021,
+    "gametora": "10027-tamamo-cross",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10028,
+    "chara_id": 1022,
+    "gametora": "10028-fine-motion",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10029,
+    "chara_id": 1023,
+    "gametora": "10029-biwa-hayahide",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10030,
+    "chara_id": 1024,
+    "gametora": "10030-mayano-top-gun",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10031,
+    "chara_id": 1025,
+    "gametora": "10031-manhattan-cafe",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10032,
+    "chara_id": 1026,
+    "gametora": "10032-mihono-bourbon",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10033,
+    "chara_id": 1027,
+    "gametora": "10033-mejiro-ryan",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10034,
+    "chara_id": 1029,
+    "gametora": "10034-yukino-bijin",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10035,
+    "chara_id": 1031,
+    "gametora": "10035-ines-fujin",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10036,
+    "chara_id": 1032,
+    "gametora": "10036-agnes-tachyon",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10037,
+    "chara_id": 1036,
+    "gametora": "10037-air-shakur",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10038,
+    "chara_id": 1037,
+    "gametora": "10038-eishin-flash",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10039,
+    "chara_id": 1046,
+    "gametora": "10039-smart-falcon",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10040,
+    "chara_id": 1050,
+    "gametora": "10040-narita-taishin",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10041,
+    "chara_id": 1051,
+    "gametora": "10041-nishino-flower",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10042,
+    "chara_id": 1054,
+    "gametora": "10042-biko-pegasus",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10043,
+    "chara_id": 1055,
+    "gametora": "10043-marvelous-sunday",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10044,
+    "chara_id": 1056,
+    "gametora": "10044-matikanefukukitaru",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10045,
+    "chara_id": 1058,
+    "gametora": "10045-meisho-doto",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10046,
+    "chara_id": 1059,
+    "gametora": "10046-mejiro-dober",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10047,
+    "chara_id": 1060,
+    "gametora": "10047-nice-nature",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10048,
+    "chara_id": 1061,
+    "gametora": "10048-king-halo",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10049,
+    "chara_id": 1005,
+    "gametora": "10049-fuji-kiseki",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10050,
+    "chara_id": 1044,
+    "gametora": "10050-sweep-tosho",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10051,
+    "chara_id": 1066,
+    "gametora": "10051-twin-turbo",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10052,
+    "chara_id": 1065,
+    "gametora": "10052-daitaku-helios",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10053,
+    "chara_id": 1063,
+    "gametora": "10053-ikuno-dictus",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10054,
+    "chara_id": 1064,
+    "gametora": "10054-mejiro-palmer",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10055,
+    "chara_id": 1068,
+    "gametora": "10055-kitasan-black",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10056,
+    "chara_id": 1067,
+    "gametora": "10056-satono-diamond",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10057,
+    "chara_id": 1062,
+    "gametora": "10057-matikanetannhauser",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10058,
+    "chara_id": 1072,
+    "gametora": "10058-yaeno-muteki",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10059,
+    "chara_id": 1047,
+    "gametora": "10059-zenno-rob-roy",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10060,
+    "chara_id": 9006,
+    "gametora": "10060-riko-kashimoto",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 10061,
+    "chara_id": 1042,
+    "gametora": "10061-seeking-the-pearl",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10062,
+    "chara_id": 1069,
+    "gametora": "10062-sakura-chiyono-o",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10063,
+    "chara_id": 1039,
+    "gametora": "10063-kawakami-princess",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10064,
+    "chara_id": 1028,
+    "gametora": "10064-hishi-akebono",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10065,
+    "chara_id": 1053,
+    "gametora": "10065-bamboo-memory",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10066,
+    "chara_id": 1043,
+    "gametora": "10066-shinko-windy",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10067,
+    "chara_id": 1049,
+    "gametora": "10067-nakayama-festa",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10068,
+    "chara_id": 1034,
+    "gametora": "10068-inari-one",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10069,
+    "chara_id": 1071,
+    "gametora": "10069-mejiro-ardan",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10070,
+    "chara_id": 1048,
+    "gametora": "10070-tosen-jordan",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10071,
+    "chara_id": 1070,
+    "gametora": "10071-sirius-symboli",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10072,
+    "chara_id": 1016,
+    "gametora": "10072-narita-brian",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10073,
+    "chara_id": 1038,
+    "gametora": "10073-curren-chan",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10074,
+    "chara_id": 9005,
+    "gametora": "10074-sasami-anshinzawa",
+    "title_en": "[Acupuncturist]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 10075,
+    "chara_id": 1033,
+    "gametora": "10075-admire-vega",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10076,
+    "chara_id": 1074,
+    "gametora": "10076-mejiro-bright",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10077,
+    "chara_id": 1077,
+    "gametora": "10077-narita-top-road",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10078,
+    "chara_id": 1057,
+    "gametora": "10078-mr-cb",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10079,
+    "chara_id": 1085,
+    "gametora": "10079-daiichi-ruby",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10080,
+    "chara_id": 1093,
+    "gametora": "10080-ksmiracle",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10081,
+    "chara_id": 1073,
+    "gametora": "10081-tsurumaru-tsuyoshi",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10082,
+    "chara_id": 1083,
+    "gametora": "10082-symboli-kris-s",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10083,
+    "chara_id": 9008,
+    "gametora": "10083-light-hello",
+    "title_en": "[Event Producer]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 10084,
+    "chara_id": 1084,
+    "gametora": "10084-tanino-gimlet",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10085,
+    "chara_id": 1076,
+    "gametora": "10085-sakura-laurel",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10086,
+    "chara_id": 1078,
+    "gametora": "10086-yamanin-zephyr",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10087,
+    "chara_id": 1087,
+    "gametora": "10087-aston-machan",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10088,
+    "chara_id": 1086,
+    "gametora": "10088-mejiro-ramonu",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10089,
+    "chara_id": 1094,
+    "gametora": "10089-jungle-pocket",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10090,
+    "chara_id": 1099,
+    "gametora": "10090-hokko-tarumae",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10091,
+    "chara_id": 1104,
+    "gametora": "10091-katsuragi-ace",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10092,
+    "chara_id": 1098,
+    "gametora": "10092-copano-rickey",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10093,
+    "chara_id": 1100,
+    "gametora": "10093-wonder-acute",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10094,
+    "chara_id": 9043,
+    "gametora": "10094-mei-satake",
+    "title_en": "[URA Staff]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 10095,
+    "chara_id": 1107,
+    "gametora": "10095-tap-dance-city",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10096,
+    "chara_id": 1097,
+    "gametora": "10096-still-in-love",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10097,
+    "chara_id": 1090,
+    "gametora": "10097-verxina",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10098,
+    "chara_id": 1102,
+    "gametora": "10098-sounds-of-earth",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10099,
+    "chara_id": 1091,
+    "gametora": "10099-vivlos",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10100,
+    "chara_id": 1103,
+    "gametora": "10100-royce-and-royce",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10101,
+    "chara_id": 1108,
+    "gametora": "10101-duramente",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10102,
+    "chara_id": 1082,
+    "gametora": "10102-north-flight",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10103,
+    "chara_id": 1115,
+    "gametora": "10103-orfevre",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10104,
+    "chara_id": 9044,
+    "gametora": "10104-ryoka-tsurugi",
+    "title_en": "[Producer]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 10105,
+    "chara_id": 1089,
+    "gametora": "10105-cheval-grand",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10106,
+    "chara_id": 1105,
+    "gametora": "10106-neo-universe",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10107,
+    "chara_id": 1106,
+    "gametora": "10107-hishi-miracle",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10108,
+    "chara_id": 1092,
+    "gametora": "10108-dantsu-flame",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10109,
+    "chara_id": 9002,
+    "gametora": "10109-yayoi-akikawa",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 10110,
+    "chara_id": 1081,
+    "gametora": "10110-espoir-city",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10111,
+    "chara_id": 1124,
+    "gametora": "10111-bubble-gum-fellow",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10113,
+    "chara_id": 1116,
+    "gametora": "10113-gentildonna",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10114,
+    "chara_id": 1109,
+    "gametora": "10114-rhein-kraft",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10115,
+    "chara_id": 1110,
+    "gametora": "10115-cesario",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10116,
+    "chara_id": 1128,
+    "gametora": "10116-blast-onepiece",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10117,
+    "chara_id": 1096,
+    "gametora": "10117-no-reason",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10118,
+    "chara_id": 1114,
+    "gametora": "10118-buena-vista",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10119,
+    "chara_id": 1119,
+    "gametora": "10119-dream-journey",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10120,
+    "chara_id": 1075,
+    "gametora": "10120-daring-tact",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10121,
+    "chara_id": 1112,
+    "gametora": "10121-daring-heart",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10122,
+    "chara_id": 1129,
+    "gametora": "10122-almond-eye",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10123,
+    "chara_id": 1130,
+    "gametora": "10123-lucky-lilac",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10124,
+    "chara_id": 1131,
+    "gametora": "10124-gran-alegria",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 10125,
+    "chara_id": 1080,
+    "gametora": "10125-transcend",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10126,
+    "chara_id": 1134,
+    "gametora": "10126-curren-bouquetdor",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10127,
+    "chara_id": 1111,
+    "gametora": "10127-air-messiah",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10128,
+    "chara_id": 9049,
+    "gametora": "10128-tucker-bryne",
+    "title_en": null,
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 10129,
+    "chara_id": 1113,
+    "gametora": "10129-fusaichi-pandora",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10131,
+    "chara_id": 1117,
+    "gametora": "10131-win-variation",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10132,
+    "chara_id": 1135,
+    "gametora": "10132-stay-gold",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10133,
+    "chara_id": 1118,
+    "gametora": "10133-admire-groove",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10134,
+    "chara_id": 1133,
+    "gametora": "10134-chrono-genesis",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10135,
+    "chara_id": 1120,
+    "gametora": "10135-calstone-light-o",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10136,
+    "chara_id": 1121,
+    "gametora": "10136-durandal",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10137,
+    "chara_id": 1126,
+    "gametora": "10137-sakura-chitose-o",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10138,
+    "chara_id": 9050,
+    "gametora": "10138-kiyoko-hoshina",
+    "title_en": null,
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 10139,
+    "chara_id": 1127,
+    "gametora": "10139-fenomeno",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 10140,
+    "chara_id": 1138,
+    "gametora": "10140-forever-young",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 10141,
+    "chara_id": 1139,
+    "gametora": "10141-casino-drive",
+    "title_en": null,
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 10142,
+    "chara_id": 1136,
+    "gametora": "10142-red-desire",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 10143,
+    "chara_id": 1143,
+    "gametora": "10143-victoire-pisa",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 10144,
+    "chara_id": 1140,
+    "gametora": "10144-marche-lorraine",
+    "title_en": "[Tracen Academy]",
+    "rarity": 1,
+    "rarity_string": "R",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20001,
+    "chara_id": 1005,
+    "gametora": "20001-fuji-kiseki",
+    "title_en": "[Good Grief, Welcome Back]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20002,
+    "chara_id": 1009,
+    "gametora": "20002-daiwa-scarlet",
+    "title_en": "[Effort Does Not Betray!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20003,
+    "chara_id": 1012,
+    "gametora": "20003-hishi-amazon",
+    "title_en": "[Stand at the Top!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20004,
+    "chara_id": 1018,
+    "gametora": "20004-air-groove",
+    "title_en": "[Vice President's Swift Justice]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20005,
+    "chara_id": 1019,
+    "gametora": "20005-agnes-digital",
+    "title_en": "[Digital Charging in Progress+]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20006,
+    "chara_id": 1023,
+    "gametora": "20006-biwa-hayahide",
+    "title_en": "[Verification, Start]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20007,
+    "chara_id": 1024,
+    "gametora": "20007-mayano-top-gun",
+    "title_en": "[Cute + Cute is～?]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20008,
+    "chara_id": 1025,
+    "gametora": "20008-manhattan-cafe",
+    "title_en": "[Rain's Recital, My Original]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20009,
+    "chara_id": 1026,
+    "gametora": "20009-mihono-bourbon",
+    "title_en": "[Workout Companion]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20010,
+    "chara_id": 1027,
+    "gametora": "20010-mejiro-ryan",
+    "title_en": "[Exercise and Excel!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20011,
+    "chara_id": 1029,
+    "gametora": "20011-yukino-bijin",
+    "title_en": "[City Girl Training, Begin♯]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20012,
+    "chara_id": 1032,
+    "gametora": "20012-agnes-tachyon",
+    "title_en": "[Experimental Study of Lifeform A]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20013,
+    "chara_id": 1037,
+    "gametora": "20013-eishin-flash",
+    "title_en": "[05:00​・​Just As Scheduled]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20014,
+    "chara_id": 1050,
+    "gametora": "20014-narita-taishin",
+    "title_en": "[Rippling Feelings]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20015,
+    "chara_id": 1055,
+    "gametora": "20015-marvelous-sunday",
+    "title_en": "[Marvelous​☆​Masterplan]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20016,
+    "chara_id": 1056,
+    "gametora": "20016-matikanefukukitaru",
+    "title_en": "[Whereabouts of Luck]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20017,
+    "chara_id": 1058,
+    "gametora": "20017-meisho-doto",
+    "title_en": "[Back-to-Back with Happiness]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20018,
+    "chara_id": 1059,
+    "gametora": "20018-mejiro-dober",
+    "title_en": "[Don't Mind the Gazes]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20019,
+    "chara_id": 1060,
+    "gametora": "20019-nice-nature",
+    "title_en": "[…Just a Drop of Water]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20020,
+    "chara_id": 1061,
+    "gametora": "20020-king-halo",
+    "title_en": "[First-class Planning]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20021,
+    "chara_id": 9004,
+    "gametora": "20021-aoi-kiryuin",
+    "title_en": "[Together on the Same Path!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 20022,
+    "chara_id": 1021,
+    "gametora": "20022-tamamo-cross",
+    "title_en": "[Taste my Ikayaki!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20023,
+    "chara_id": 1044,
+    "gametora": "20023-sweep-tosho",
+    "title_en": "[The Apprentice Witch and the Long Night]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20024,
+    "chara_id": 1065,
+    "gametora": "20024-daitaku-helios",
+    "title_en": "[Party People​・​Party Night!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20025,
+    "chara_id": 1063,
+    "gametora": "20025-ikuno-dictus",
+    "title_en": "[Thou Shan't Neglect Warming Up]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20026,
+    "chara_id": 1060,
+    "gametora": "20026-nice-nature",
+    "title_en": "[Disheveled Innocence]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20027,
+    "chara_id": 1051,
+    "gametora": "20027-nishino-flower",
+    "title_en": "[Devoted to You]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20028,
+    "chara_id": 1047,
+    "gametora": "20028-zenno-rob-roy",
+    "title_en": "[Book Recommendations Available!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20029,
+    "chara_id": 1042,
+    "gametora": "20029-seeking-the-pearl",
+    "title_en": "[Pearl of the World]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20030,
+    "chara_id": 1031,
+    "gametora": "20030-ines-fujin",
+    "title_en": "[To Your Hard-working Self!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20031,
+    "chara_id": 1043,
+    "gametora": "20031-shinko-windy",
+    "title_en": "[///WARNING GATE///]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20032,
+    "chara_id": 1034,
+    "gametora": "20032-inari-one",
+    "title_en": "[Smiling Through the Mud]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20033,
+    "chara_id": 1014,
+    "gametora": "20033-el-condor-pasa",
+    "title_en": "[Muddied Campanello]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20034,
+    "chara_id": 1071,
+    "gametora": "20034-mejiro-ardan",
+    "title_en": "[Blustering in That Heart]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20035,
+    "chara_id": 1048,
+    "gametora": "20035-tosen-jordan",
+    "title_en": "[nail on Turf]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20036,
+    "chara_id": 1064,
+    "gametora": "20036-mejiro-palmer",
+    "title_en": "[Here's your Salvation♪]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20037,
+    "chara_id": 1022,
+    "gametora": "20037-fine-motion",
+    "title_en": "[GRMA Ramen♪]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20038,
+    "chara_id": 1070,
+    "gametora": "20038-sirius-symboli",
+    "title_en": "[A First-magnitude Star Does Not Waver]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20039,
+    "chara_id": 1008,
+    "gametora": "20039-vodka",
+    "title_en": "[Fussy Supervisor]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20040,
+    "chara_id": 1027,
+    "gametora": "20040-mejiro-ryan",
+    "title_en": "[Pulse-Quickening Cooldown]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20041,
+    "chara_id": 1033,
+    "gametora": "20041-admire-vega",
+    "title_en": "[First Magnitude Desire]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20042,
+    "chara_id": 1041,
+    "gametora": "20042-sakura-bakushin-o",
+    "title_en": "[Hear! An Exemplary Greeting!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20043,
+    "chara_id": 1001,
+    "gametora": "20043-special-week",
+    "title_en": "[At Day's End]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20044,
+    "chara_id": 1038,
+    "gametora": "20044-curren-chan",
+    "title_en": "[Hot​♪​Cute Memory]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20045,
+    "chara_id": 1046,
+    "gametora": "20045-smart-falcon",
+    "title_en": "[On the Limit!? UMA♡DOL]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20046,
+    "chara_id": 1044,
+    "gametora": "20046-sweep-tosho",
+    "title_en": "[Tomboy Witch In Training]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20047,
+    "chara_id": 1003,
+    "gametora": "20047-tokai-teio",
+    "title_en": "[Step! Smile! Wink!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20048,
+    "chara_id": 1006,
+    "gametora": "20048-oguri-cap",
+    "title_en": "[Rice, My Favourite]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20049,
+    "chara_id": 1040,
+    "gametora": "20049-gold-city",
+    "title_en": "[Go For the Gold]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20050,
+    "chara_id": 1020,
+    "gametora": "20050-seiun-sky",
+    "title_en": "[On The Slow Waves]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20051,
+    "chara_id": 1093,
+    "gametora": "20051-ksmiracle",
+    "title_en": "[The 3rd MIRACLE]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20052,
+    "chara_id": 1073,
+    "gametora": "20052-tsurumaru-tsuyoshi",
+    "title_en": "[\"Go! Go! Tsuyoshi!\"]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20053,
+    "chara_id": 1077,
+    "gametora": "20053-narita-top-road",
+    "title_en": "[Stop, Prez!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20054,
+    "chara_id": 1015,
+    "gametora": "20054-tm-opera-o",
+    "title_en": "[Grand Fotografia]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20055,
+    "chara_id": 1087,
+    "gametora": "20055-aston-machan",
+    "title_en": "[Would you like your attachment heated?]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20056,
+    "chara_id": 1094,
+    "gametora": "20056-jungle-pocket",
+    "title_en": "[Dead End: Blocking The Way]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20057,
+    "chara_id": 1059,
+    "gametora": "20057-mejiro-dober",
+    "title_en": "[Gentle & Sleek]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20058,
+    "chara_id": 1017,
+    "gametora": "20058-symboli-rudolf",
+    "title_en": "[Your smile after school]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20059,
+    "chara_id": 1032,
+    "gametora": "20059-agnes-tachyon",
+    "title_en": "[Oh, Wonderful Sweetness]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20060,
+    "chara_id": 1028,
+    "gametora": "20060-hishi-akebono",
+    "title_en": "[Have a Sweet Swim Ring]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20061,
+    "chara_id": 1007,
+    "gametora": "20061-gold-ship",
+    "title_en": "[Chef Golshi's Specialty]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20062,
+    "chara_id": 1004,
+    "gametora": "20062-maruzensky",
+    "title_en": "[A Helluva Drive♪]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20063,
+    "chara_id": 1002,
+    "gametora": "20063-silence-suzuka",
+    "title_en": "[Peeking Through the Evening Shower]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20064,
+    "chara_id": 1098,
+    "gametora": "20064-copano-rickey",
+    "title_en": "[The Gods of Luck Rise Early]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20065,
+    "chara_id": 1011,
+    "gametora": "20065-grass-wonder",
+    "title_en": "[Good Tea leaves an Aftertaste]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20066,
+    "chara_id": 1068,
+    "gametora": "20066-kitasan-black",
+    "title_en": "[The Helpful Captain and the Little Witch]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20067,
+    "chara_id": 1010,
+    "gametora": "20067-taiki-shuttle",
+    "title_en": "[A Spoiled Kid's Night]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20068,
+    "chara_id": 1060,
+    "gametora": "20068-nice-nature",
+    "title_en": "[Unequalled Gold Medal]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20069,
+    "chara_id": 1062,
+    "gametora": "20069-matikanetannhauser",
+    "title_en": "[Fleeing From Evil?!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20070,
+    "chara_id": 1090,
+    "gametora": "20070-verxina",
+    "title_en": "[Is the Older Sister a Big Deal?]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20071,
+    "chara_id": 1103,
+    "gametora": "20071-royce-and-royce",
+    "title_en": "[Making the \"Strongest\"!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20072,
+    "chara_id": 1084,
+    "gametora": "20072-tanino-gimlet",
+    "title_en": "[Polishing the Gjallarhorn]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20073,
+    "chara_id": 1048,
+    "gametora": "20073-tosen-jordan",
+    "title_en": "[Time flies]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20074,
+    "chara_id": 1072,
+    "gametora": "20074-yaeno-muteki",
+    "title_en": "[Pure Eyes are to be Protected]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20075,
+    "chara_id": 1107,
+    "gametora": "20075-tap-dance-city",
+    "title_en": "[Cheers!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20076,
+    "chara_id": 1036,
+    "gametora": "20076-air-shakur",
+    "title_en": "[Roadside Feedback]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20077,
+    "chara_id": 1092,
+    "gametora": "20077-dantsu-flame",
+    "title_en": "[In Shape with Lotion]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20078,
+    "chara_id": 1056,
+    "gametora": "20078-matikanefukukitaru",
+    "title_en": "[May this Charm bring Prosperity!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20079,
+    "chara_id": 1055,
+    "gametora": "20079-marvelous-sunday",
+    "title_en": "[Good Marvelous to Everyone☆]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20080,
+    "chara_id": 1076,
+    "gametora": "20080-sakura-laurel",
+    "title_en": "[Hanagoromo for You]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20081,
+    "chara_id": 1082,
+    "gametora": "20081-north-flight",
+    "title_en": "[Leave the Haute Couture to Me!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20082,
+    "chara_id": 1124,
+    "gametora": "20082-bubble-gum-fellow",
+    "title_en": "[Vanguard Splash!]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20083,
+    "chara_id": 1086,
+    "gametora": "20083-mejiro-ramonu",
+    "title_en": "[Beauty and the Moon]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20084,
+    "chara_id": 1130,
+    "gametora": "20084-lucky-lilac",
+    "title_en": "[When Happiness Blooms]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20085,
+    "chara_id": 1013,
+    "gametora": "20085-mejiro-mcqueen",
+    "title_en": "[Whispers of Melon]",
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20086,
+    "chara_id": 1030,
+    "gametora": "20086-rice-shower",
+    "title_en": null,
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20087,
+    "chara_id": 1112,
+    "gametora": "20087-daring-heart",
+    "title_en": null,
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20088,
+    "chara_id": 1134,
+    "gametora": "20088-curren-bouquetdor",
+    "title_en": null,
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20089,
+    "chara_id": 1039,
+    "gametora": "20089-kawakami-princess",
+    "title_en": null,
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20090,
+    "chara_id": 1054,
+    "gametora": "20090-biko-pegasus",
+    "title_en": null,
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20091,
+    "chara_id": 1126,
+    "gametora": "20091-sakura-chitose-o",
+    "title_en": null,
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20092,
+    "chara_id": 1099,
+    "gametora": "20092-hokko-tarumae",
+    "title_en": null,
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20093,
+    "chara_id": 1059,
+    "gametora": "20093-mejiro-dober",
+    "title_en": null,
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 20094,
+    "chara_id": 1067,
+    "gametora": "20094-satono-diamond",
+    "title_en": null,
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 20095,
+    "chara_id": 1136,
+    "gametora": "20095-red-desire",
+    "title_en": null,
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20096,
+    "chara_id": 1010,
+    "gametora": "20096-taiki-shuttle",
+    "title_en": null,
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 20097,
+    "chara_id": 1045,
+    "gametora": "20097-super-creek",
+    "title_en": null,
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 20098,
+    "chara_id": 1012,
+    "gametora": "20098-hishi-amazon",
+    "title_en": null,
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 20099,
+    "chara_id": 1071,
+    "gametora": "20099-mejiro-ardan",
+    "title_en": null,
+    "rarity": 2,
+    "rarity_string": "SR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30001,
+    "chara_id": 1001,
+    "gametora": "30001-special-week",
+    "title_en": "[Japan's Number 1 Stage]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30002,
+    "chara_id": 1002,
+    "gametora": "30002-silence-suzuka",
+    "title_en": "[Beyond the Brilliant Scenery]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30003,
+    "chara_id": 1003,
+    "gametora": "30003-tokai-teio",
+    "title_en": "[Let Your Dreams Be Known!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30004,
+    "chara_id": 1007,
+    "gametora": "30004-gold-ship",
+    "title_en": "[Advance of the Unsinkable Battleship]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30005,
+    "chara_id": 1008,
+    "gametora": "30005-vodka",
+    "title_en": "[Road of Vodka]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30006,
+    "chara_id": 1011,
+    "gametora": "30006-grass-wonder",
+    "title_en": "[A Myriad of Colors, a Noble Bloom]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30007,
+    "chara_id": 1014,
+    "gametora": "30007-el-condor-pasa",
+    "title_en": "[Passion Campeóna!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30008,
+    "chara_id": 1020,
+    "gametora": "30008-seiun-sky",
+    "title_en": "[Long-Awaited Masterplan]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30009,
+    "chara_id": 1021,
+    "gametora": "30009-tamamo-cross",
+    "title_en": "[Heaven-Piercing Lightning Girl!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30010,
+    "chara_id": 1022,
+    "gametora": "30010-fine-motion",
+    "title_en": "[Gratitude Up to One's Fingertips]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30011,
+    "chara_id": 1031,
+    "gametora": "30011-ines-fujin",
+    "title_en": "[Jump Out and Shine]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30012,
+    "chara_id": 1035,
+    "gametora": "30012-winning-ticket",
+    "title_en": "[B・N・Winner!!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30013,
+    "chara_id": 1036,
+    "gametora": "30013-air-shakur",
+    "title_en": "[Beyond the 7 cm]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30014,
+    "chara_id": 1040,
+    "gametora": "30014-gold-city",
+    "title_en": "[Run(my)way]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30015,
+    "chara_id": 1041,
+    "gametora": "30015-sakura-bakushin-o",
+    "title_en": "[Fast! Delicious! Fast!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30016,
+    "chara_id": 1045,
+    "gametora": "30016-super-creek",
+    "title_en": "[A Grain of Peace]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30017,
+    "chara_id": 1046,
+    "gametora": "30017-smart-falcon",
+    "title_en": "[This Is My 'Umadol' Way☆]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30018,
+    "chara_id": 1051,
+    "gametora": "30018-nishino-flower",
+    "title_en": "[Even as a Tiny Bud]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30019,
+    "chara_id": 1052,
+    "gametora": "30019-haru-urara",
+    "title_en": "[Urara～n Holiday]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30020,
+    "chara_id": 1054,
+    "gametora": "30020-biko-pegasus",
+    "title_en": "[Special Move! W Carrot Punch!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30021,
+    "chara_id": 9001,
+    "gametora": "30021-tazuna-hayakawa",
+    "title_en": "[Welcome to Tracen Academy!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 30022,
+    "chara_id": 1013,
+    "gametora": "30022-mejiro-mcqueen",
+    "title_en": "[As the Ace]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30023,
+    "chara_id": 1030,
+    "gametora": "30023-rice-shower",
+    "title_en": "[When Happiness Dances]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30024,
+    "chara_id": 1006,
+    "gametora": "30024-oguri-cap",
+    "title_en": "['You'll Be Dearly Beloved']",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30025,
+    "chara_id": 1001,
+    "gametora": "30025-special-week",
+    "title_en": "[Sunset-Colored Aspiration]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30026,
+    "chara_id": 1066,
+    "gametora": "30026-twin-turbo",
+    "title_en": "[Turbo Engine, Full Power!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30027,
+    "chara_id": 1064,
+    "gametora": "30027-mejiro-palmer",
+    "title_en": "[Laugh All You Want]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30028,
+    "chara_id": 1068,
+    "gametora": "30028-kitasan-black",
+    "title_en": "[Pushed by the Approaching Passion]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30029,
+    "chara_id": 1067,
+    "gametora": "30029-satono-diamond",
+    "title_en": "[Surpassing That Back]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30030,
+    "chara_id": 1062,
+    "gametora": "30030-matikanetannhauser",
+    "title_en": "[Just keep going.]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30031,
+    "chara_id": 1029,
+    "gametora": "30031-yukino-bijin",
+    "title_en": "[Hometown Cheering Express!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30032,
+    "chara_id": 1072,
+    "gametora": "30032-yaeno-muteki",
+    "title_en": "[Unrestrainably Burning With Passion]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30033,
+    "chara_id": 1035,
+    "gametora": "30033-winning-ticket",
+    "title_en": "[Dreams Do Come True!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30034,
+    "chara_id": 1030,
+    "gametora": "30034-rice-shower",
+    "title_en": "[Happiness is Just Around the Corner]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30036,
+    "chara_id": 9006,
+    "gametora": "30036-riko-kashimoto",
+    "title_en": "[Thorough Management]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 30037,
+    "chara_id": 1017,
+    "gametora": "30037-symboli-rudolf",
+    "title_en": "[Absolute Emperor]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30038,
+    "chara_id": 1069,
+    "gametora": "30038-sakura-chiyono-o",
+    "title_en": "[Sakura in Full Bloom]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30039,
+    "chara_id": 1039,
+    "gametora": "30039-kawakami-princess",
+    "title_en": "[What Makes a Bride!!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30040,
+    "chara_id": 1028,
+    "gametora": "30040-hishi-akebono",
+    "title_en": "[Have the First Bite!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30041,
+    "chara_id": 1059,
+    "gametora": "30041-mejiro-dober",
+    "title_en": "[A Feeling, A Wish]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30042,
+    "chara_id": 1053,
+    "gametora": "30042-bamboo-memory",
+    "title_en": "[Head-on fight!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30043,
+    "chara_id": 1049,
+    "gametora": "30043-nakayama-festa",
+    "title_en": "[43, 8, 1]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30044,
+    "chara_id": 1016,
+    "gametora": "30044-narita-brian",
+    "title_en": "[Two Pieces]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30045,
+    "chara_id": 1044,
+    "gametora": "30045-sweep-tosho",
+    "title_en": "[Chilly Hogging?]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30046,
+    "chara_id": 1035,
+    "gametora": "30046-winning-ticket",
+    "title_en": "[Full Power! Tantrum!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30047,
+    "chara_id": 1009,
+    "gametora": "30047-daiwa-scarlet",
+    "title_en": "[Trifle​☆​Vacation]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30048,
+    "chara_id": 1027,
+    "gametora": "30048-mejiro-ryan",
+    "title_en": "[Invigorating! Winning Shot!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30052,
+    "chara_id": 9008,
+    "gametora": "30052-light-hello",
+    "title_en": "[from the GROUND UP]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 30053,
+    "chara_id": 1010,
+    "gametora": "30053-taiki-shuttle",
+    "title_en": "[Hands up, crook!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30054,
+    "chara_id": 1060,
+    "gametora": "30054-nice-nature",
+    "title_en": "[My Hope You Can't Erase]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30055,
+    "chara_id": 1020,
+    "gametora": "30055-seiun-sky",
+    "title_en": "[Tomorrow the Entire Country Will Be Dyed Red♪]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30056,
+    "chara_id": 1061,
+    "gametora": "30056-king-halo",
+    "title_en": "[Tonight, Let's Dance to the Waltz]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30057,
+    "chara_id": 1007,
+    "gametora": "30057-gold-ship",
+    "title_en": "[Legend of the Strongest Uma King]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30058,
+    "chara_id": 1003,
+    "gametora": "30058-tokai-teio",
+    "title_en": "[Two Noble Lights]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30059,
+    "chara_id": 1026,
+    "gametora": "30059-mihono-bourbon",
+    "title_en": "[Blessings are Fugues]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30060,
+    "chara_id": 1066,
+    "gametora": "30060-twin-turbo",
+    "title_en": "[Gathering Constellations]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30061,
+    "chara_id": 1023,
+    "gametora": "30061-biwa-hayahide",
+    "title_en": "[Resonating Strain]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30062,
+    "chara_id": 1002,
+    "gametora": "30062-silence-suzuka",
+    "title_en": "[WINNING DREAM]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30063,
+    "chara_id": 1063,
+    "gametora": "30063-ikuno-dictus",
+    "title_en": "[Gentle Heart, Gentle Step]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30064,
+    "chara_id": 1021,
+    "gametora": "30064-tamamo-cross",
+    "title_en": "[Let's go, Halloween Night!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30065,
+    "chara_id": 1047,
+    "gametora": "30065-zenno-rob-roy",
+    "title_en": "[Heroine Blessed with Magic]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30066,
+    "chara_id": 1026,
+    "gametora": "30066-mihono-bourbon",
+    "title_en": "[Ghosts and the Magic of Halloween]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30067,
+    "chara_id": 1017,
+    "gametora": "30067-the-thrones-assemblage",
+    "title_en": "[Love Beyond Affection]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Group",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_06.png"
+  },
+  {
+    "id": 30068,
+    "chara_id": 1038,
+    "gametora": "30068-curren-chan",
+    "title_en": "[Your Sorrow, Your Beauty]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30069,
+    "chara_id": 1016,
+    "gametora": "30069-narita-brian",
+    "title_en": "[Arrow Whistling Through the Skies]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30070,
+    "chara_id": 1029,
+    "gametora": "30070-yukino-bijin",
+    "title_en": "[Ceremonial Dance Lighting Up the Night]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30071,
+    "chara_id": 1065,
+    "gametora": "30071-daitaku-helios",
+    "title_en": "[Get Movin'! Live It Up! Party On!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30072,
+    "chara_id": 1024,
+    "gametora": "30072-mayano-top-gun",
+    "title_en": "[Formation: PARTY]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30073,
+    "chara_id": 1050,
+    "gametora": "30073-narita-taishin",
+    "title_en": "[Stubborn Malkuth]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30074,
+    "chara_id": 1055,
+    "gametora": "30074-marvelous-sunday",
+    "title_en": "[Snow-Crystal Day]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30075,
+    "chara_id": 1025,
+    "gametora": "30075-manhattan-cafe",
+    "title_en": "[Solo​・​Chase Helix]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30076,
+    "chara_id": 1002,
+    "gametora": "30076-silence-suzuka",
+    "title_en": "[Seeking Sights Unseen]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30077,
+    "chara_id": 1033,
+    "gametora": "30077-admire-vega",
+    "title_en": "[Dawn to Night, Stars to Their Heavens]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30078,
+    "chara_id": 1056,
+    "gametora": "30078-matikanefukukitaru",
+    "title_en": "[Touching Sleeves Bring Fortune♪]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30079,
+    "chara_id": 1058,
+    "gametora": "30079-meisho-doto",
+    "title_en": "[Wishing to Leap Out]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30080,
+    "chara_id": 9005,
+    "gametora": "30080-sasami-anshinzawa",
+    "title_en": "[Want a Stab?]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 30081,
+    "chara_id": 1001,
+    "gametora": "30081-team-sirius",
+    "title_en": "[Accumulating Feelings]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Group",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_06.png"
+  },
+  {
+    "id": 30082,
+    "chara_id": 1051,
+    "gametora": "30082-nishino-flower",
+    "title_en": "[Affections in a Small Cup]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30083,
+    "chara_id": 1041,
+    "gametora": "30083-sakura-bakushin-o",
+    "title_en": "[Blustering! Breakneck! Flower Storm!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30084,
+    "chara_id": 1048,
+    "gametora": "30084-tosen-jordan",
+    "title_en": "[In my way]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30085,
+    "chara_id": 1019,
+    "gametora": "30085-agnes-digital",
+    "title_en": "[The Joy \"There\"]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30086,
+    "chara_id": 1077,
+    "gametora": "30086-narita-top-road",
+    "title_en": "[Peachy Backshot!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30087,
+    "chara_id": 1074,
+    "gametora": "30087-mejiro-bright",
+    "title_en": "[Little By Little]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30088,
+    "chara_id": 1067,
+    "gametora": "30088-satono-diamond",
+    "title_en": "[SPECIAL DREAMERS!!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30089,
+    "chara_id": 1055,
+    "gametora": "30089-marvelous-sunday",
+    "title_en": "[A More Marvelous​☆​World]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30090,
+    "chara_id": 1017,
+    "gametora": "30090-symboli-rudolf",
+    "title_en": "[Enchaînement]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30091,
+    "chara_id": 1070,
+    "gametora": "30091-sirius-symboli",
+    "title_en": "[Escorte étoile]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30092,
+    "chara_id": 1036,
+    "gametora": "30092-air-shakur",
+    "title_en": "[mag!c number]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30093,
+    "chara_id": 1009,
+    "gametora": "30093-daiwa-scarlet",
+    "title_en": "[Outfit as No.1]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30094,
+    "chara_id": 1053,
+    "gametora": "30094-bamboo-memory",
+    "title_en": "[Spread My Feelings!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30095,
+    "chara_id": 1042,
+    "gametora": "30095-seeking-the-pearl",
+    "title_en": "[The Cheer That Changed the World]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30096,
+    "chara_id": 1039,
+    "gametora": "30096-kawakami-princess",
+    "title_en": "[Go! Go!​☆​Princess!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30097,
+    "chara_id": 1057,
+    "gametora": "30097-mr-cb",
+    "title_en": "[Dear Mr. C.B.]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30098,
+    "chara_id": 1052,
+    "gametora": "30098-haru-urara",
+    "title_en": "[Bruraright Passion♪]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30099,
+    "chara_id": 1063,
+    "gametora": "30099-ikuno-dictus",
+    "title_en": "[Bonds Like a Golden Orchid Bouquet]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30100,
+    "chara_id": 1030,
+    "gametora": "30100-rice-shower",
+    "title_en": "[A Scene From Dreams]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30101,
+    "chara_id": 1032,
+    "gametora": "30101-agnes-tachyon",
+    "title_en": "[Q≠0]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30102,
+    "chara_id": 1014,
+    "gametora": "30102-el-condor-pasa",
+    "title_en": "[Glittering Gallop∞]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30103,
+    "chara_id": 1062,
+    "gametora": "30103-matikanetannhauser",
+    "title_en": "[Matikane​☆​Adventure]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30104,
+    "chara_id": 1047,
+    "gametora": "30104-zenno-rob-roy",
+    "title_en": "[\"Rhodonite and the Dreamstone\"]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30105,
+    "chara_id": 1001,
+    "gametora": "30105-special-week",
+    "title_en": "[Let's Seize Our Dreams!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30106,
+    "chara_id": 1018,
+    "gametora": "30106-air-groove",
+    "title_en": "[A Summer Gale Towards Ideals]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30107,
+    "chara_id": 1004,
+    "gametora": "30107-maruzensky",
+    "title_en": "[Sentimentality Advisory♪]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30108,
+    "chara_id": 1049,
+    "gametora": "30108-nakayama-festa",
+    "title_en": "[Surrender to the Dice]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30109,
+    "chara_id": 1069,
+    "gametora": "30109-sakura-chiyono-o",
+    "title_en": "[A Fab Heart is a Blooming Heart]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30110,
+    "chara_id": 1025,
+    "gametora": "30110-manhattan-cafe",
+    "title_en": "[It's on the house.]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30111,
+    "chara_id": 1003,
+    "gametora": "30111-tokai-teio",
+    "title_en": "[Teio-oo-ooo!!!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30112,
+    "chara_id": 1066,
+    "gametora": "30112-twin-turbo",
+    "title_en": "[TT Ignition!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30113,
+    "chara_id": 1023,
+    "gametora": "30113-biwa-hayahide",
+    "title_en": "[Uchronia Architect]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30114,
+    "chara_id": 1085,
+    "gametora": "30114-daiichi-ruby",
+    "title_en": "[Behold the Majestic Bloodline]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30115,
+    "chara_id": 1064,
+    "gametora": "30115-mejiro-palmer",
+    "title_en": "[Devils In the Moonlight♪]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30116,
+    "chara_id": 1065,
+    "gametora": "30116-daitaku-helios",
+    "title_en": "[Angels In the Sunlight♪]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30117,
+    "chara_id": 1043,
+    "gametora": "30117-shinko-windy",
+    "title_en": "[Onwards! The Fearsome Demon Queen Forces]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30118,
+    "chara_id": 1083,
+    "gametora": "30118-symboli-kris-s",
+    "title_en": "[A Win Foreshadowed]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30119,
+    "chara_id": 1071,
+    "gametora": "30119-mejiro-ardan",
+    "title_en": "[Ride the Night Winds, Flowers of Prayer]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30120,
+    "chara_id": 1072,
+    "gametora": "30120-yaeno-muteki",
+    "title_en": "[Scorch Even the Heavens, Flame of Devotion]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30121,
+    "chara_id": 1026,
+    "gametora": "30121-mihono-bourbon",
+    "title_en": "[U & Me]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30122,
+    "chara_id": 1037,
+    "gametora": "30122-eishin-flash",
+    "title_en": "[Dankeschön]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30123,
+    "chara_id": 1016,
+    "gametora": "30123-narita-brian",
+    "title_en": "[GLAD TIDINGS]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30124,
+    "chara_id": 1018,
+    "gametora": "30124-air-groove",
+    "title_en": "[Are you merry?]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30125,
+    "chara_id": 1076,
+    "gametora": "30125-sakura-laurel",
+    "title_en": "[Don't stop anymore!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30126,
+    "chara_id": 1078,
+    "gametora": "30126-yamanin-zephyr",
+    "title_en": "[To Uncharted Winds]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30127,
+    "chara_id": 1001,
+    "gametora": "30127-special-week",
+    "title_en": "[Pray To Ward Off Evil Spirits]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30128,
+    "chara_id": 1044,
+    "gametora": "30128-sweep-tosho",
+    "title_en": "[Capricious Whimsy]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30129,
+    "chara_id": 1011,
+    "gametora": "30129-grass-wonder",
+    "title_en": "[Winter Gives Way to Summer's Verdancy]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30130,
+    "chara_id": 1093,
+    "gametora": "30130-ksmiracle",
+    "title_en": "[To you]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30131,
+    "chara_id": 1055,
+    "gametora": "30131-marvelous-sunday",
+    "title_en": "[MARVELOUS​☆​CHOCOLATE SHOW]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30132,
+    "chara_id": 1054,
+    "gametora": "30132-biko-pegasus",
+    "title_en": "[Transform! Garçon Form!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30133,
+    "chara_id": 1028,
+    "gametora": "30133-hishi-akebono",
+    "title_en": "[Smile In Fondente]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30134,
+    "chara_id": 1086,
+    "gametora": "30134-mejiro-ramonu",
+    "title_en": "[Radiant]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30135,
+    "chara_id": 1104,
+    "gametora": "30135-katsuragi-ace",
+    "title_en": "[Raise up your raging torch]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30136,
+    "chara_id": 1083,
+    "gametora": "30136-symboli-kris-s",
+    "title_en": "[Unyielding resolve]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30137,
+    "chara_id": 9040,
+    "gametora": "30137-ancestors-guides",
+    "title_en": "[In Pursuit of Eternal Glory]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Group",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_06.png"
+  },
+  {
+    "id": 30138,
+    "chara_id": 1060,
+    "gametora": "30138-nice-nature",
+    "title_en": "[Don't close your eyes now]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30139,
+    "chara_id": 1013,
+    "gametora": "30139-mejiro-mcqueen",
+    "title_en": "[My heart on a night breeze]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30140,
+    "chara_id": 1003,
+    "gametora": "30140-tokai-teio",
+    "title_en": "[A waltz with you]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30141,
+    "chara_id": 1026,
+    "gametora": "30141-mihono-bourbon",
+    "title_en": "[Mission: Replenish the Soul]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30142,
+    "chara_id": 1076,
+    "gametora": "30142-sakura-laurel",
+    "title_en": "[Cherry Blossoms in Full Bloom]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30143,
+    "chara_id": 1063,
+    "gametora": "30143-ikuno-dictus",
+    "title_en": "[The View I Finally Reached]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30145,
+    "chara_id": 1084,
+    "gametora": "30145-tanino-gimlet",
+    "title_en": "[Welcome to Umayuru]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30146,
+    "chara_id": 1006,
+    "gametora": "30146-oguri-cap",
+    "title_en": "[Run, Dash, Sprint!!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30147,
+    "chara_id": 1094,
+    "gametora": "30147-jungle-pocket",
+    "title_en": "[The frontier]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30148,
+    "chara_id": 1009,
+    "gametora": "30148-daiwa-scarlet",
+    "title_en": "[Something Blue]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30149,
+    "chara_id": 1087,
+    "gametora": "30149-aston-machan",
+    "title_en": "[Haute Couture Memory]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30150,
+    "chara_id": 1008,
+    "gametora": "30150-vodka",
+    "title_en": "[Heart Ignition!!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30151,
+    "chara_id": 1024,
+    "gametora": "30151-mayano-top-gun",
+    "title_en": "[Chill chill night*]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30152,
+    "chara_id": 1015,
+    "gametora": "30152-tm-opera-o",
+    "title_en": "[All'alba vincerò!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30153,
+    "chara_id": 1040,
+    "gametora": "30153-gold-city",
+    "title_en": "[Gentle Moon]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30154,
+    "chara_id": 1064,
+    "gametora": "30154-mejiro-palmer",
+    "title_en": "[Like a Seagull]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30155,
+    "chara_id": 1065,
+    "gametora": "30155-daitaku-helios",
+    "title_en": "[#Summer #NewMe]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30156,
+    "chara_id": 1100,
+    "gametora": "30156-wonder-acute",
+    "title_en": "[Lifelong Wonder]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30157,
+    "chara_id": 1025,
+    "gametora": "30157-manhattan-cafe",
+    "title_en": "[The Spume I See With You]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30158,
+    "chara_id": 1094,
+    "gametora": "30158-jungle-pocket",
+    "title_en": "[Let's Enjoy This Hot Summer!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30159,
+    "chara_id": 1018,
+    "gametora": "30159-air-groove",
+    "title_en": "[Seaside Bloom]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30160,
+    "chara_id": 9043,
+    "gametora": "30160-mei-satake",
+    "title_en": "[L'aube Approaches]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 30161,
+    "chara_id": 1014,
+    "gametora": "30161-el-condor-pasa",
+    "title_en": "[Soaring Ambition]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30162,
+    "chara_id": 1033,
+    "gametora": "30162-admire-vega",
+    "title_en": "[Precious☆Moments]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30163,
+    "chara_id": 1049,
+    "gametora": "30163-nakayama-festa",
+    "title_en": "[Blooming Violet of the Gambling Den]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30164,
+    "chara_id": 1012,
+    "gametora": "30164-hishi-amazon",
+    "title_en": "[Embracing the Fiery Fighting Spirit]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30165,
+    "chara_id": 1084,
+    "gametora": "30165-tanino-gimlet",
+    "title_en": "[Fortuna's Applause]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30166,
+    "chara_id": 1107,
+    "gametora": "30166-tap-dance-city",
+    "title_en": "[A Sonorous YO-HO!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30167,
+    "chara_id": 1022,
+    "gametora": "30167-fine-motion",
+    "title_en": "[Hello my clover]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30168,
+    "chara_id": 1007,
+    "gametora": "30168-gold-ship",
+    "title_en": "[Dreams Cut Through the Waves]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30169,
+    "chara_id": 1073,
+    "gametora": "30169-tsurumaru-tsuyoshi",
+    "title_en": "[A Smile Sent From Heaven]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30170,
+    "chara_id": 1061,
+    "gametora": "30170-king-halo",
+    "title_en": "[Whirl, My Dance]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30171,
+    "chara_id": 1052,
+    "gametora": "30171-haru-urara",
+    "title_en": "[Ah, How Fun, How Fun!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30172,
+    "chara_id": 1013,
+    "gametora": "30172-mejiro-mcqueen",
+    "title_en": "[Drive it Home! ...I Suppose]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30173,
+    "chara_id": 1102,
+    "gametora": "30173-sounds-of-earth",
+    "title_en": "[Ensemble of the Earth and Us]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30174,
+    "chara_id": 1059,
+    "gametora": "30174-mejiro-dober",
+    "title_en": "[Holy Night, For Change]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30175,
+    "chara_id": 1086,
+    "gametora": "30175-mejiro-ramonu",
+    "title_en": "[Ember Which Dissolves Winter]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30176,
+    "chara_id": 1027,
+    "gametora": "30176-mejiro-ryan",
+    "title_en": "[Choose, Choose, With All Your Heart]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30177,
+    "chara_id": 1091,
+    "gametora": "30177-vivlos",
+    "title_en": "[Winning Smile of Satisfaction]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30178,
+    "chara_id": 1108,
+    "gametora": "30178-duramente",
+    "title_en": "[Stirring Veins]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30179,
+    "chara_id": 1067,
+    "gametora": "30179-satono-diamond",
+    "title_en": "[Wishes of a Hundred Flowers]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30180,
+    "chara_id": 1068,
+    "gametora": "30180-group",
+    "title_en": "[The Future Ahead!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Group",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_06.png"
+  },
+  {
+    "id": 30181,
+    "chara_id": 1066,
+    "gametora": "30181-twin-turbo",
+    "title_en": "[Sing Together]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30182,
+    "chara_id": 1099,
+    "gametora": "30182-hokko-tarumae",
+    "title_en": "[The White Wings Return]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30183,
+    "chara_id": 1035,
+    "gametora": "30183-winning-ticket",
+    "title_en": "[2 Little Smiles]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30184,
+    "chara_id": 1041,
+    "gametora": "30184-sakura-bakushin-o",
+    "title_en": "[Thank the Cherry Blossom Snow Storm!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30185,
+    "chara_id": 1082,
+    "gametora": "30185-north-flight",
+    "title_en": "[Go: Fashionista!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30186,
+    "chara_id": 1116,
+    "gametora": "30186-gentildonna",
+    "title_en": "[Balliamo?]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30187,
+    "chara_id": 1115,
+    "gametora": "30187-orfevre",
+    "title_en": "[Simply Controlling]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30188,
+    "chara_id": 9044,
+    "gametora": "30188-ryoka-tsurugi",
+    "title_en": "[The Sparkle We Form Together]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 30189,
+    "chara_id": 1068,
+    "gametora": "30189-kitasan-black",
+    "title_en": "[Bounce Chassé Together]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30190,
+    "chara_id": 1108,
+    "gametora": "30190-duramente",
+    "title_en": "[Passionate Pizzica]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30191,
+    "chara_id": 1102,
+    "gametora": "30191-sounds-of-earth",
+    "title_en": "[My Brilliante Melody for You]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30192,
+    "chara_id": 1091,
+    "gametora": "30192-vivlos",
+    "title_en": "[Treasured Révérence]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30193,
+    "chara_id": 1089,
+    "gametora": "30193-cheval-grand",
+    "title_en": "[Over the Ocean]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30194,
+    "chara_id": 1109,
+    "gametora": "30194-rhein-kraft",
+    "title_en": "[Tiara Formed by Ley Lines]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30195,
+    "chara_id": 1093,
+    "gametora": "30195-ksmiracle",
+    "title_en": "[White Bird's Arabesque]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30196,
+    "chara_id": 1078,
+    "gametora": "30196-yamanin-zephyr",
+    "title_en": "[Sweeping Wind]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30197,
+    "chara_id": 1053,
+    "gametora": "30197-bamboo-memory",
+    "title_en": "[Burning!!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30198,
+    "chara_id": 1105,
+    "gametora": "30198-neo-universe",
+    "title_en": "[To the V.E.R.2285 You]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30199,
+    "chara_id": 1106,
+    "gametora": "30199-hishi-miracle",
+    "title_en": "[Work a Miracle!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30200,
+    "chara_id": 1096,
+    "gametora": "30200-no-reason",
+    "title_en": "[Fearless Warrior]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30201,
+    "chara_id": 1050,
+    "gametora": "30201-narita-taishin",
+    "title_en": "[Take Them Down!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30202,
+    "chara_id": 1008,
+    "gametora": "30202-vodka",
+    "title_en": "[My Ride for Tomorrow]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30203,
+    "chara_id": 1094,
+    "gametora": "30203-jungle-pocket",
+    "title_en": "[Opening a new Era]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30204,
+    "chara_id": 1020,
+    "gametora": "30204-seiun-sky",
+    "title_en": "[Dozing in the Scent of Happiness]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30205,
+    "chara_id": 1090,
+    "gametora": "30205-verxina",
+    "title_en": "[Azure Coronation]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30206,
+    "chara_id": 1091,
+    "gametora": "30206-vivlos",
+    "title_en": "[Dream of Alstroemeria]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30207,
+    "chara_id": 9002,
+    "gametora": "30207-yayoi-akikawa",
+    "title_en": "[Cultivate! Giant Carrot of Dreams!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 30208,
+    "chara_id": 1051,
+    "gametora": "30208-nishino-flower",
+    "title_en": "[The Strawberry Field at Dawn]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30209,
+    "chara_id": 1092,
+    "gametora": "30209-dantsu-flame",
+    "title_en": "[And the Curtains Rise]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30210,
+    "chara_id": 1046,
+    "gametora": "30210-smart-falcon",
+    "title_en": "[Candid Shot Between The Waves]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30211,
+    "chara_id": 1098,
+    "gametora": "30211-copano-rickey",
+    "title_en": "[Lucky☆Summertime]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30212,
+    "chara_id": 1100,
+    "gametora": "30212-wonder-acute",
+    "title_en": "[That Summer's Cut-off Line]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30213,
+    "chara_id": 1003,
+    "gametora": "30213-tokai-teio",
+    "title_en": "[The Slapdash Grand Prix has Begun]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30214,
+    "chara_id": 1022,
+    "gametora": "30214-fine-motion",
+    "title_en": "[Full of History and Good Food]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30215,
+    "chara_id": 1097,
+    "gametora": "30215-still-in-love",
+    "title_en": "[Devilish Whispers]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30216,
+    "chara_id": 1114,
+    "gametora": "30216-buena-vista",
+    "title_en": "[With Love to Our School]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30217,
+    "chara_id": 1110,
+    "gametora": "30217-cesario",
+    "title_en": "[Mother Sea of Love]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30218,
+    "chara_id": 1010,
+    "gametora": "30218-taiki-shuttle",
+    "title_en": "[Sunshine Under the Moon]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30219,
+    "chara_id": 1005,
+    "gametora": "30219-fuji-kiseki",
+    "title_en": "[Something troubling you, Pony-chan?]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30220,
+    "chara_id": 1083,
+    "gametora": "30220-symboli-kris-s",
+    "title_en": "[Rewarding Job]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30221,
+    "chara_id": 1067,
+    "gametora": "30221-satono-diamond",
+    "title_en": "[Fun and Food Every Day]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30222,
+    "chara_id": 1081,
+    "gametora": "30222-espoir-city",
+    "title_en": "[KNOCK 'EM DOWN!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30223,
+    "chara_id": 1012,
+    "gametora": "30223-hishi-amazon",
+    "title_en": "[Chewing up the Refrain]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30224,
+    "chara_id": 1016,
+    "gametora": "30224-narita-brian",
+    "title_en": "[Roar of Apoyando]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30225,
+    "chara_id": 1056,
+    "gametora": "30225-matikanefukukitaru",
+    "title_en": "[Making a Power Trio]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30226,
+    "chara_id": 1036,
+    "gametora": "30226-air-shakur",
+    "title_en": "[Cocoon]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30227,
+    "chara_id": 1009,
+    "gametora": "30227-daiwa-scarlet",
+    "title_en": "[The Wind Blows For You, Scarlet]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30228,
+    "chara_id": 1083,
+    "gametora": "30228-symboli-kris-s",
+    "title_en": "[COOL⇔CRAZY/Buddy]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30229,
+    "chara_id": 1019,
+    "gametora": "30229-agnes-digital",
+    "title_en": "[Alert! New Work Available!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30230,
+    "chara_id": 1058,
+    "gametora": "30230-meisho-doto",
+    "title_en": "[Howling Fortitude]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30231,
+    "chara_id": 1015,
+    "gametora": "30231-tm-opera-o",
+    "title_en": "[The Ruling Royalty]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30232,
+    "chara_id": 1128,
+    "gametora": "30232-blast-onepiece",
+    "title_en": "[Blast Off!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30233,
+    "chara_id": 1017,
+    "gametora": "30233-symboli-rudolf",
+    "title_en": "[Calligraphy Expert]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30234,
+    "chara_id": 1071,
+    "gametora": "30234-mejiro-ardan",
+    "title_en": "[Dear Secluded Me...]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30235,
+    "chara_id": 1004,
+    "gametora": "30235-maruzensky",
+    "title_en": "[Blooming Flowers Smile in the Heavens]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30236,
+    "chara_id": 1042,
+    "gametora": "30236-seeking-the-pearl",
+    "title_en": "[Venus Takeoff]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30237,
+    "chara_id": 1038,
+    "gametora": "30237-curren-chan",
+    "title_en": "[Cutest in Ur ♡]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30238,
+    "chara_id": 1063,
+    "gametora": "30238-ikuno-dictus",
+    "title_en": "[Even an Iron Maiden can Smile]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30239,
+    "chara_id": 1060,
+    "gametora": "30239-nice-nature",
+    "title_en": "[This last one is special, okay?]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30240,
+    "chara_id": 1094,
+    "gametora": "30240-jungle-pocket",
+    "title_en": "[I am the Strongest!!]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30241,
+    "chara_id": 9047,
+    "gametora": "30241-group",
+    "title_en": "[Guiding Light]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Group",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_06.png"
+  },
+  {
+    "id": 30242,
+    "chara_id": 1129,
+    "gametora": "30242-almond-eye",
+    "title_en": "[World-Changing Gaze]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30243,
+    "chara_id": 1131,
+    "gametora": "30243-gran-alegria",
+    "title_en": "[NEW TALES AWAIT]",
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30244,
+    "chara_id": 1074,
+    "gametora": "30244-mejiro-bright",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30245,
+    "chara_id": 1008,
+    "gametora": "30245-vodka",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30246,
+    "chara_id": 1119,
+    "gametora": "30246-dream-journey",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30247,
+    "chara_id": 1083,
+    "gametora": "30247-symboli-kris-s",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30248,
+    "chara_id": 1075,
+    "gametora": "30248-daring-tact",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30249,
+    "chara_id": 1080,
+    "gametora": "30249-transcend",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30250,
+    "chara_id": 1114,
+    "gametora": "30250-buena-vista",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30251,
+    "chara_id": 1081,
+    "gametora": "30251-espoir-city",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30252,
+    "chara_id": 1002,
+    "gametora": "30252-silence-suzuka",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30253,
+    "chara_id": 1109,
+    "gametora": "30253-rhein-kraft",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30254,
+    "chara_id": 1112,
+    "gametora": "30254-daring-heart",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30255,
+    "chara_id": 1111,
+    "gametora": "30255-air-messiah",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30256,
+    "chara_id": 1021,
+    "gametora": "30256-tamamo-cross",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30257,
+    "chara_id": 9049,
+    "gametora": "30257-tucker-bryne",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 30258,
+    "chara_id": 1027,
+    "gametora": "30258-mejiro-ryan",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30259,
+    "chara_id": 1113,
+    "gametora": "30259-fusaichi-pandora",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30260,
+    "chara_id": 1013,
+    "gametora": "30260-mejiro-mcqueen",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30261,
+    "chara_id": 1117,
+    "gametora": "30261-win-variation",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30262,
+    "chara_id": 1108,
+    "gametora": "30262-duramente",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30263,
+    "chara_id": 1091,
+    "gametora": "30263-vivlos",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30264,
+    "chara_id": 1135,
+    "gametora": "30264-stay-gold",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30265,
+    "chara_id": 1118,
+    "gametora": "30265-admire-groove",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30266,
+    "chara_id": 1133,
+    "gametora": "30266-chrono-genesis",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30267,
+    "chara_id": 1120,
+    "gametora": "30267-calstone-light-o",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30268,
+    "chara_id": 1121,
+    "gametora": "30268-durandal",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30269,
+    "chara_id": 1092,
+    "gametora": "30269-dantsu-flame",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30270,
+    "chara_id": 1085,
+    "gametora": "30270-daiichi-ruby",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30271,
+    "chara_id": 1005,
+    "gametora": "30271-fuji-kiseki",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30272,
+    "chara_id": 1037,
+    "gametora": "30272-eishin-flash",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30273,
+    "chara_id": 1048,
+    "gametora": "30273-tosen-jordan",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30274,
+    "chara_id": 1134,
+    "gametora": "30274-curren-bouquetdor",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30275,
+    "chara_id": 1003,
+    "gametora": "30275-tokai-teio",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30276,
+    "chara_id": 9050,
+    "gametora": "30276-kiyoko-hoshina",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 30277,
+    "chara_id": 1026,
+    "gametora": "30277-mihono-bourbon",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30278,
+    "chara_id": 1007,
+    "gametora": "30278-gold-ship",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30279,
+    "chara_id": 1127,
+    "gametora": "30279-fenomeno",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30280,
+    "chara_id": 1115,
+    "gametora": "30280-orfevre",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30281,
+    "chara_id": 1034,
+    "gametora": "30281-inari-one",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30282,
+    "chara_id": 1018,
+    "gametora": "30282-air-groove",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30283,
+    "chara_id": 1022,
+    "gametora": "30283-fine-motion",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30284,
+    "chara_id": 1124,
+    "gametora": "30284-bubble-gum-fellow",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30285,
+    "chara_id": 1061,
+    "gametora": "30285-king-halo",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30286,
+    "chara_id": 1056,
+    "gametora": "30286-matikanefukukitaru",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30287,
+    "chara_id": 1105,
+    "gametora": "30287-neo-universe",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30288,
+    "chara_id": 1002,
+    "gametora": "30288-silence-suzuka",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30289,
+    "chara_id": 1138,
+    "gametora": "30289-forever-young",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Wisdom",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_04.png"
+  },
+  {
+    "id": 30290,
+    "chara_id": 1139,
+    "gametora": "30290-casino-drive",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
+  },
+  {
+    "id": 30291,
+    "chara_id": 1143,
+    "gametora": "30291-victoire-pisa",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30292,
+    "chara_id": 1140,
+    "gametora": "30292-marche-lorraine",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30293,
+    "chara_id": 1075,
+    "gametora": "30293-daring-tact",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30294,
+    "chara_id": 1112,
+    "gametora": "30294-daring-heart",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30295,
+    "chara_id": 1134,
+    "gametora": "30295-curren-bouquetdor",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30296,
+    "chara_id": 1087,
+    "gametora": "30296-aston-machan",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30297,
+    "chara_id": 1019,
+    "gametora": "30297-agnes-digital",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30298,
+    "chara_id": 1107,
+    "gametora": "30298-tap-dance-city",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30299,
+    "chara_id": 1032,
+    "gametora": "30299-agnes-tachyon",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Guts",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_03.png"
+  },
+  {
+    "id": 30300,
+    "chara_id": 1069,
+    "gametora": "30300-sakura-chiyono-o",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  }
+]
