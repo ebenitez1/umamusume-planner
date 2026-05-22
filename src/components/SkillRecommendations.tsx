@@ -11,6 +11,7 @@ const PRIORITY_LABEL: Record<SkillRecommendation["priority"], string> = {
   core: "Core (take these)",
   strong: "Strong picks",
   "nice-to-have": "Nice to have",
+  avoid: "Do Not Get (won't activate in this race)",
 };
 
 export function SkillRecommendations({ recommendations, ownedSkillIds, onToggle }: Props) {
@@ -33,7 +34,7 @@ export function SkillRecommendations({ recommendations, ownedSkillIds, onToggle 
 
   return (
     <div className="skill-recs">
-      {(["core", "strong", "nice-to-have"] as const).map((p) =>
+      {(["core", "strong", "nice-to-have", "avoid"] as const).map((p) =>
         grouped[p]?.length ? (
           <section key={p} className={`skill-group skill-group-${p}`}>
             <h4>{PRIORITY_LABEL[p]}</h4>

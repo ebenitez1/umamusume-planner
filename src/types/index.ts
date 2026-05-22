@@ -147,7 +147,7 @@ export interface RatingResult {
 
 export interface SkillRecommendation {
   skill: Skill;
-  priority: "core" | "strong" | "nice-to-have";
+  priority: "core" | "strong" | "nice-to-have" | "avoid";
   reasons: string[];
   source?: { fromCardId?: string; fromUmaId?: string };
 }

@@ -229,6 +229,28 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
 }
 .skill-rare   { border-left-color: var(--rare); }
 .skill-unique { border-left-color: var(--unique); }
+
+.skill-group-avoid h4 {
+  color: #ff6b6b;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 16px;
+}
+.skill-group-avoid .skill {
+  opacity: 0.65;
+  border-left-color: #ff6b6b !important;
+}
+.skill-group-avoid .skill-name {
+  text-decoration: line-through;
+  text-decoration-color: rgba(255, 107, 107, 0.6);
+  text-decoration-thickness: 2px;
+}
+.skill-group-avoid .skill-reasons li:first-child {
+  color: #ff6b6b;
+  font-weight: 600;
+}
 .skill label {
   display: flex;
   gap: 10px;

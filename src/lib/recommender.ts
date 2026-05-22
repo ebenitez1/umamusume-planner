@@ -22,11 +22,15 @@ interface RecommendContext {
 function skillFitsContext(skill: Skill, ctx: RecommendContext): {
   fits: boolean;
   reasons: string[];
+  mismatches: string[];
 } {
   const reasons: string[] = [];
+  const mismatches: string[] = [];
   let fits = false;
 
   const tags = skill.tags ?? {};
+
+  // ---- positive matches ----
   if (tags.distances?.includes(ctx.meeting.distance)) {
     reasons.push(`Tagged for ${ctx.meeting.distance} distance`);
     fits = true;
@@ -66,11 +70,45 @@ function skillFitsContext(skill: Skill, ctx: RecommendContext): {
     reasons.push(`Favored by ${ctx.scenario.name} scenario`);
     fits = true;
   }
-  return { fits, reasons };
+
+  // ---- negative matches (will never activate in this race) ----
+  // Distance-locked skills don't fire at all in the wrong distance.
+  if (tags.distances?.length && !tags.distances.includes(ctx.meeting.distance)) {
+    mismatches.push(
+      `Locked to ${tags.distances.join("/")} — won't activate at ${ctx.meeting.distance}`
+    );
+  }
+  // Surface-locked likewise (turf/dirt skills don't cross).
+  if (tags.surfaces?.length && !tags.surfaces.includes(ctx.meeting.surface)) {
+    mismatches.push(
+      `Locked to ${tags.surfaces.join("/")} — won't activate on ${ctx.meeting.surface}`
+    );
+  }
+  // Style-locked skills only fire for the right running style.
+  if (tags.styles?.length && !tags.styles.includes(ctx.style)) {
+    mismatches.push(
+      `Locked to ${tags.styles.join("/")} style — won't activate for ${ctx.style}`
+    );
+  }
+
+  return { fits, reasons, mismatches };
 }
 
-function priorityFor(skill: Skill, ctx: RecommendContext, reasons: string[]): SkillRecommendation["priority"] {
+function priorityFor(
+  skill: Skill,
+  ctx: RecommendContext,
+  reasons: string[],
+  mismatches: string[]
+): SkillRecommendation["priority"] {
+  // Uma's own unique always wins, even if there's a mismatch (rare edge case).
   if (skill.id === ctx.uma.uniqueSkillId) return "core";
+  // Mismatch with no overriding positive signal → don't get.
+  if (mismatches.length > 0 && reasons.length === 0) return "avoid";
+  // Mismatch but some positive signal → still avoid; the lock means the skill
+  // literally won't trigger in this race, no amount of style/phase synergy
+  // saves it.
+  if (mismatches.length > 0) return "avoid";
+
   if (skill.rarity === "unique") return "core";
   if (skill.rarity === "rare" && reasons.length >= 2) return "core";
   if (skill.rarity === "rare") return "strong";
@@ -93,22 +131,26 @@ export function recommendSkills(ctx: RecommendContext): SkillRecommendation[] {
   for (const id of learnableIds) {
     const skill = skillById.get(id);
     if (!skill) continue;
-    const { fits, reasons } = skillFitsContext(skill, ctx);
-    if (!fits) continue;
+    const { fits, reasons, mismatches } = skillFitsContext(skill, ctx);
+    // Include skills that either fit OR are locked-out (so we can warn).
+    if (!fits && mismatches.length === 0) continue;
     const source = sourceFor(skill, ctx);
+    const priority = priorityFor(skill, ctx, reasons, mismatches);
     recs.push({
       skill,
-      priority: priorityFor(skill, ctx, reasons),
-      reasons,
+      priority,
+      // Show mismatches as part of the reasons array so the UI surfaces them.
+      reasons: mismatches.length ? [...mismatches, ...reasons] : reasons,
       source,
     });
   }
 
-  // sort: core first, then by ratingPoints desc
+  // sort: core first, then by ratingPoints desc; avoid sinks to the bottom
   const order: Record<SkillRecommendation["priority"], number> = {
     core: 0,
     strong: 1,
     "nice-to-have": 2,
+    avoid: 3,
   };
   recs.sort((a, b) => {
     if (order[a.priority] !== order[b.priority]) return order[a.priority] - order[b.priority];
