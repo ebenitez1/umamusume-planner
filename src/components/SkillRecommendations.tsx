@@ -44,7 +44,9 @@ export function SkillRecommendations({ recommendations, ownedSkillIds, onToggle 
                   ? umaById.get(r.source.fromUmaId)?.name
                   : r.source?.fromCardId
                     ? cardById.get(r.source.fromCardId)?.name
-                    : "Scenario / inherited";
+                    : r.source?.manual
+                      ? "Manually added"
+                      : "Scenario / inherited";
                 const iconUrl = skillIconUrl(r.skill.iconid);
                 return (
                   <li key={r.skill.id} className={`skill skill-${r.skill.rarity}`}>

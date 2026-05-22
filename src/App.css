@@ -220,6 +220,93 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
   flex-shrink: 0;
 }
 
+.custom-skills { margin-top: 12px; }
+.custom-skills-input { position: relative; }
+.custom-skills-input input {
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 13px;
+  width: 100%;
+}
+.custom-skills-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 280px;
+  overflow-y: auto;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-top: 4px;
+  list-style: none;
+  padding: 4px;
+  z-index: 10;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+.custom-skills-dropdown li button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  color: var(--text);
+  text-align: left;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.custom-skills-dropdown li button:hover { background: var(--panel); }
+.custom-skill-name { font-weight: 600; flex-shrink: 0; }
+.custom-skill-desc { color: var(--muted); font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.skill-rarity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--border);
+}
+.skill-rarity-dot.rarity-rare { background: var(--rare); }
+.skill-rarity-dot.rarity-unique { background: var(--unique); }
+
+.custom-skills-chips {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 4px 4px 10px;
+  font-size: 12px;
+}
+.chip-rare   { border-left-color: var(--rare); }
+.chip-unique { border-left-color: var(--unique); }
+.chip-remove {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0 6px;
+  line-height: 1;
+}
+.chip-remove:hover { color: var(--accent); }
+
 .uma-rec-thumb {
   border-radius: 50%;
   object-fit: cover;

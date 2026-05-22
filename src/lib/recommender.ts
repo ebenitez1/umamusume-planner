@@ -17,6 +17,9 @@ interface RecommendContext {
   scenario: Scenario;
   cards: SupportCard[];
   style: Style;
+  // Skill IDs the user added manually for evaluation (not from the deck).
+  // Useful for inherited skills, scenario rewards, "what-if" testing.
+  customSkillIds?: string[];
 }
 
 function skillFitsContext(skill: Skill, ctx: RecommendContext): {
@@ -126,6 +129,8 @@ export function recommendSkills(ctx: RecommendContext): SkillRecommendation[] {
   // scenario-favored skills are visible even if not on a card (player may
   // already own from prior runs or via scenario rewards)
   for (const s of ctx.scenario.favoredSkillIds ?? []) learnableIds.add(s);
+  // user-added custom skills for testing
+  for (const s of ctx.customSkillIds ?? []) learnableIds.add(s);
 
   const recs: SkillRecommendation[] = [];
   for (const id of learnableIds) {
@@ -166,6 +171,9 @@ function sourceFor(skill: Skill, ctx: RecommendContext): SkillRecommendation["so
   }
   for (const c of ctx.cards) {
     if (c.taughtSkillIds.includes(skill.id)) return { fromCardId: c.id };
+  }
+  if (ctx.customSkillIds?.includes(skill.id)) {
+    return { manual: true };
   }
   return undefined;
 }

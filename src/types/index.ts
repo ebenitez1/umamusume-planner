@@ -149,7 +149,7 @@ export interface SkillRecommendation {
   skill: Skill;
   priority: "core" | "strong" | "nice-to-have" | "avoid";
   reasons: string[];
-  source?: { fromCardId?: string; fromUmaId?: string };
+  source?: { fromCardId?: string; fromUmaId?: string; manual?: boolean };
 }
 
 export interface UmaRecommendation {

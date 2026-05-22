@@ -15,6 +15,7 @@ import { Picker } from "./components/Picker";
 import { UmaSelect } from "./components/UmaSelect";
 import { UmaHeader } from "./components/UmaHeader";
 import { CardDeck } from "./components/CardDeck";
+import { CustomSkillAdder } from "./components/CustomSkillAdder";
 import { StatInputs } from "./components/StatInputs";
 import { RatingDisplay } from "./components/RatingDisplay";
 import { SkillRecommendations } from "./components/SkillRecommendations";
@@ -49,6 +50,7 @@ export default function App() {
   const [cardIds, setCardIds] = useState<string[]>([]);
   const [stats, setStats] = useState<Stats>(DEFAULT_STATS);
   const [skillIds, setSkillIds] = useState<string[]>([]);
+  const [customSkillIds, setCustomSkillIds] = useState<string[]>([]);
   const [style, setStyle] = useState<Style>("early");
 
   const uma = umaById.get(umaId)!;
@@ -78,7 +80,9 @@ export default function App() {
   };
 
   const rating = rateBuild(build, uma, meeting, scenario);
-  const skillRecs = recommendSkills({ uma, meeting, scenario, cards, style });
+  const skillRecs = recommendSkills({
+    uma, meeting, scenario, cards, style, customSkillIds,
+  });
   const umaRecs = recommendUmas(meetingId, scenarioId, 5);
   const styleRecs = recommendStyle(meetingId);
 
@@ -139,6 +143,7 @@ export default function App() {
           <p className="scenario-notes">{scenario.notes}</p>
 
           <CardDeck selected={cardIds} onChange={setCardIds} />
+          <CustomSkillAdder added={customSkillIds} onChange={setCustomSkillIds} />
           <StatInputs stats={stats} onChange={setStats} />
         </section>
 
