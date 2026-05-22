@@ -26,6 +26,15 @@ jobs:
           cache: npm
 
       - run: npm ci
+
+      # Auto-creates the Pages site on first run so no manual Settings tweak
+      # is required. Also exposes the base_url that VITE_BASE_PATH can derive
+      # from, but we keep VITE_BASE_PATH explicit for clarity.
+      - id: pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - name: Build
         env:
           # Set this to "/<repo-name>/" if deploying to a project page.
