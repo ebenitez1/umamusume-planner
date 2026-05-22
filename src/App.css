@@ -428,6 +428,95 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
   color: var(--muted);
 }
 
+.sim-panel {
+  grid-column: 1 / -1;
+  margin-top: 4px;
+}
+.sim-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+.sim-header h3 { margin: 0; }
+.sim-run {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0b0b16;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+.sim-run:disabled { opacity: 0.6; cursor: progress; }
+
+.sim-summary {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.sim-rank {
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1;
+}
+.rank-1 { color: #ffbe2a; }
+.rank-2 { color: #c8c8c8; }
+.rank-3 { color: #d49a4a; }
+.rank-4 { color: var(--muted); }
+.sim-time { font-size: 22px; font-weight: 700; }
+.sim-flag {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+.sim-flag-good { background: rgba(110, 230, 135, 0.15); color: var(--accent-2); }
+.sim-flag-meh  { background: rgba(255, 190, 42, 0.15); color: var(--rare); }
+.sim-flag-bad  { background: rgba(255, 107, 107, 0.15); color: #ff6b6b; }
+
+.sim-detail { margin-top: 8px; }
+.sim-detail summary {
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--muted);
+  padding: 6px 0;
+}
+.sim-chart { width: 100%; height: auto; margin-top: 6px; }
+
+.sim-activations { list-style: none; padding: 0; margin: 6px 0 0; font-size: 12px; }
+.sim-activations li {
+  display: flex;
+  gap: 10px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sim-time-stamp { color: var(--muted); width: 50px; }
+.sim-effect { color: var(--muted); }
+
+.sim-finish-order { list-style: none; padding: 0; margin: 6px 0 0; counter-reset: place; }
+.sim-finish-order li {
+  counter-increment: place;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+}
+.sim-finish-order li::before {
+  content: counter(place) ".";
+  margin-right: 8px;
+  color: var(--muted);
+  width: 18px;
+}
+.sim-finish-order li.you {
+  background: rgba(255, 141, 183, 0.15);
+  font-weight: 600;
+}
+
 .app-footer {
   margin-top: 20px;
   text-align: center;

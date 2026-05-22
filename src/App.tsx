@@ -16,6 +16,7 @@ import { UmaSelect } from "./components/UmaSelect";
 import { UmaHeader } from "./components/UmaHeader";
 import { CardDeck } from "./components/CardDeck";
 import { CustomSkillAdder } from "./components/CustomSkillAdder";
+import { SimulationPanel } from "./components/SimulationPanel";
 import { StatInputs } from "./components/StatInputs";
 import { RatingDisplay } from "./components/RatingDisplay";
 import { SkillRecommendations } from "./components/SkillRecommendations";
@@ -157,6 +158,8 @@ export default function App() {
         </section>
 
         <UmaRecommendations recommendations={umaRecs} styleRecs={styleRecs} />
+
+        <SimulationPanel uma={uma} build={build} meeting={meeting} />
       </main>
 
       <footer className="app-footer">
