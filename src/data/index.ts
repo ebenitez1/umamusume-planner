@@ -1,27 +1,66 @@
-// Data layer: merges the umapyoi.net catalog (committed under generated/)
-// with our hand-curated gameplay overlays (committed under gameplay/) and
-// exposes typed arrays + lookup maps to the rest of the app.
-import charactersRaw from "./generated/characters.json";
-import supportsRaw from "./generated/supports.json";
-import umaStatsRaw from "./gameplay/uma-stats.json";
-import cardSkillsRaw from "./gameplay/card-skills.json";
-import skillsRaw from "./gameplay/skills.json";
+// Data layer.
+//
+// Sources, in priority order:
+//   1. UmaTools dumps (src/data/generated/umatools/) — game-extracted truth,
+//      Global server filtered. Drives umas + skills + cards + races.
+//   2. umapyoi catalog (src/data/generated/) — used purely as a catalog
+//      enrichment layer for thumbnails / colors / JP-name cross-check.
+//   3. Hand-curated gameplay (src/data/gameplay/) — only scenarios and a
+//      featured-champion-meetings list remain hand-curated; everything else
+//      is now UmaTools-derived.
+import rawCharacters from "./generated/characters.json";
+import rawSupports from "./generated/supports.json";
+
+import umatoolsUmas from "./generated/umatools/uma_data.json";
+import umatoolsSkills from "./generated/umatools/skills_all.json";
+import umatoolsSupports from "./generated/umatools/support_hints.json";
+import umatoolsRaces from "./generated/umatools/races.json";
+
 import scenariosRaw from "./gameplay/scenarios.json";
-import meetingsRaw from "./gameplay/champion-meetings.json";
+import featuredMeetingsRaw from "./gameplay/champion-meetings.json";
+
 import type {
-  Aptitudes,
-  CardRarity,
-  CardType,
   ChampionMeeting,
   Scenario,
   Skill,
-  Stats,
-  Style,
   SupportCard,
   Uma,
 } from "../types";
 
-// --- raw catalog shapes (subset of fields we use) ---
+import {
+  buildSkillIndex,
+  isGlobalSupport,
+  isGlobalUma,
+  transformRace,
+  transformSkill,
+  transformSupport,
+  transformUma,
+  type RawRace,
+  type RawSkill,
+  type RawSupport,
+  type RawUma,
+} from "./transforms/umatools";
+
+// ---------------------------------------------------------------------------
+// SCENARIOS — hand-curated (UmaTools has no scenario data)
+// ---------------------------------------------------------------------------
+export const scenarios: Scenario[] = scenariosRaw as Scenario[];
+export const scenarioById = new Map(scenarios.map((s) => [s.id, s]));
+
+// ---------------------------------------------------------------------------
+// SKILLS — fully from UmaTools
+// ---------------------------------------------------------------------------
+const rawSkills = umatoolsSkills as unknown as RawSkill[];
+
+// Build outfit_id → owned/learnable skill IDs once, used by uma transform.
+const skillIndex = buildSkillIndex(rawSkills);
+
+export const skills: Skill[] = rawSkills.map(transformSkill);
+export const skillById = new Map(skills.map((s) => [s.id, s]));
+
+// ---------------------------------------------------------------------------
+// UMAS — UmaTools primary, enriched with umapyoi catalog for thumb/color
+// ---------------------------------------------------------------------------
 interface ApiCharacter {
   game_id: number;
   name_en: string;
@@ -30,160 +69,120 @@ interface ApiCharacter {
   color_main?: string | null;
   preferred_url?: string;
 }
+const apiCharacters = rawCharacters as ApiCharacter[];
 
+// umapyoi's `game_id` is the character ID (1001), while UmaTools' `UmaId` is
+// the outfit ID (100101). The base char ID = floor(outfit_id / 100).
+const charByGameId = new Map(apiCharacters.map((c) => [c.game_id, c]));
+
+const umatoolsUmasGlobal = (umatoolsUmas as unknown as RawUma[]).filter(isGlobalUma);
+
+export const umas: Uma[] = umatoolsUmasGlobal.map((u) => {
+  const transformed = transformUma(u, skillIndex);
+  // Try to enrich with umapyoi catalog (thumb, color) by character ID.
+  const charId = Math.floor(transformed.gameId / 100);
+  const cat = charByGameId.get(charId);
+  if (cat) {
+    transformed.thumbImg ||= cat.thumb_img ?? undefined;
+    transformed.colorMain ||= cat.color_main ?? undefined;
+    // Prefer umapyoi's JP name if UmaTools didn't have one.
+    transformed.nameJp ||= cat.name_jp;
+  }
+  return transformed;
+});
+
+umas.sort((a, b) => a.name.localeCompare(b.name));
+
+export const umaById = new Map(umas.map((u) => [u.id, u]));
+export const umaByGameId = new Map(umas.map((u) => [u.gameId, u]));
+
+// ---------------------------------------------------------------------------
+// SUPPORT CARDS — UmaTools primary, enriched with umapyoi (gametora slug)
+// ---------------------------------------------------------------------------
 interface ApiSupport {
   id: number;
   chara_id: number;
   gametora: string;
   title_en: string;
-  title?: string;
-  type?: string;             // "Speed" | "Stamina" | ...
-  rarity?: number;           // 1 | 2 | 3
-  rarity_string?: string;    // "R" | "SR" | "SSR"
+  rarity?: number;
+  rarity_string?: string;
+  type?: string;
   type_icon_url?: string;
 }
+const apiSupports = rawSupports as ApiSupport[];
+const apiSupportById = new Map(apiSupports.map((s) => [s.id, s]));
 
-interface UmaStatsOverlay {
-  game_id: number;
-  preferredStyle: Style;
-  baseStats: Stats;
-  growthRates: Stats;
-  aptitudes: Aptitudes;
-  uniqueSkillId: string;
-  awakeningSkillIds: string[];
-}
-
-interface CardSkillsOverlay {
-  id: number;
-  taughtSkillIds: string[];
-  trainingBonusPct: number;
-  friendshipBonusPct: number;
-}
-
-// --- direct gameplay catalogs (unchanged) ---
-export const skills: Skill[] = skillsRaw as Skill[];
-export const scenarios: Scenario[] = scenariosRaw as Scenario[];
-export const championMeetings: ChampionMeeting[] = meetingsRaw as ChampionMeeting[];
-
-export const skillById = new Map(skills.map((s) => [s.id, s]));
-export const scenarioById = new Map(scenarios.map((s) => [s.id, s]));
-export const meetingById = new Map(championMeetings.map((m) => [m.id, m]));
-
-// --- merge characters + uma-stats ---
-const apiCharacters = charactersRaw as ApiCharacter[];
-const umaStats = umaStatsRaw as UmaStatsOverlay[];
-const umaStatsById = new Map(umaStats.map((o) => [o.game_id, o]));
-
-const DEFAULT_APT: Aptitudes = {
-  surface: { turf: "C", dirt: "C" },
-  distance: { sprint: "C", mile: "C", medium: "C", long: "C" },
-  style: { runner: "C", early: "C", late: "C", end: "C" },
-};
-const DEFAULT_STATS: Stats = { speed: 80, stamina: 80, power: 80, guts: 80, wit: 80 };
-const DEFAULT_GROWTH: Stats = { speed: 0, stamina: 0, power: 0, guts: 0, wit: 0 };
-
-export const umas: Uma[] = apiCharacters.map((c) => {
-  const overlay = umaStatsById.get(c.game_id);
-  if (overlay) {
-    return {
-      id: String(c.game_id),
-      gameId: c.game_id,
-      name: c.name_en,
-      nameJp: c.name_jp,
-      rarity: 3,
-      preferredStyle: overlay.preferredStyle,
-      baseStats: overlay.baseStats,
-      growthRates: overlay.growthRates,
-      aptitudes: overlay.aptitudes,
-      uniqueSkillId: overlay.uniqueSkillId,
-      awakeningSkillIds: overlay.awakeningSkillIds,
-      thumbImg: c.thumb_img ?? undefined,
-      colorMain: c.color_main ?? undefined,
-      preferredUrl: c.preferred_url,
-    };
+// Build card → taught skill IDs from skillIndex (skills owned by the support's
+// owning character outfit are what the card teaches).
+function cardTaughtSkills(charaGameId: number | undefined): string[] {
+  if (!charaGameId) return [];
+  // Cards reference the character chara_id (e.g. 1001), but skills index keys
+  // are outfit IDs (100101). Sum across all outfits of the character.
+  const outfitPrefix = String(charaGameId);
+  const ids = new Set<string>();
+  for (const [outfitId, entry] of skillIndex) {
+    if (outfitId.startsWith(outfitPrefix)) {
+      if (entry.uniqueId) ids.add(entry.uniqueId);
+      for (const s of entry.learnable) ids.add(s);
+    }
   }
-  return {
-    id: String(c.game_id),
-    gameId: c.game_id,
-    name: c.name_en,
-    nameJp: c.name_jp,
-    rarity: 3,
-    preferredStyle: "early",
-    baseStats: DEFAULT_STATS,
-    growthRates: DEFAULT_GROWTH,
-    aptitudes: DEFAULT_APT,
-    uniqueSkillId: "",
-    awakeningSkillIds: [],
-    thumbImg: c.thumb_img ?? undefined,
-    colorMain: c.color_main ?? undefined,
-    preferredUrl: c.preferred_url,
-    unplayable: true,
-  };
-});
+  return [...ids];
+}
 
-// sort: playable first (alphabetical), then unplayable (alphabetical)
-umas.sort((a, b) => {
-  if (!!a.unplayable !== !!b.unplayable) return a.unplayable ? 1 : -1;
-  return a.name.localeCompare(b.name);
-});
+const umatoolsSupportsGlobal = (umatoolsSupports as unknown as RawSupport[]).filter(isGlobalSupport);
 
-export const umaById = new Map(umas.map((u) => [u.id, u]));
-export const umaByGameId = new Map(umas.map((u) => [u.gameId, u]));
-
-// --- merge supports + card-skills ---
-const apiSupports = supportsRaw as ApiSupport[];
-const cardSkills = cardSkillsRaw as CardSkillsOverlay[];
-const cardSkillsById = new Map(cardSkills.map((o) => [o.id, o]));
-
-function normalizeCardType(s?: string): CardType {
-  switch ((s ?? "").toLowerCase()) {
-    case "speed":   return "speed";
-    case "stamina": return "stamina";
-    case "power":   return "power";
-    case "guts":    return "guts";
-    case "wit":     return "wit";
-    case "friend":  return "friend";
-    default:        return "speed";
+export const cards: SupportCard[] = umatoolsSupportsGlobal.map((s) => {
+  const transformed = transformSupport(s);
+  // Enrich from umapyoi if available — adds chara_id, type_icon_url.
+  const cat = apiSupportById.get(transformed.apiId);
+  if (cat) {
+    transformed.charaGameId ||= cat.chara_id;
+    transformed.gametoraSlug ||= cat.gametora;
+    transformed.iconUrl ||= cat.type_icon_url;
   }
-}
-
-function normalizeRarity(s?: string, n?: number): CardRarity {
-  if (s === "SSR" || s === "SR" || s === "R") return s;
-  if (n === 3) return "SSR";
-  if (n === 2) return "SR";
-  return "R";
-}
-
-export const cards: SupportCard[] = apiSupports.map((s) => {
-  const overlay = cardSkillsById.get(s.id);
-  const owner = umaByGameId.get(s.chara_id);
-  const charaName = owner?.name ?? "";
-  const name = charaName ? `${charaName} ${s.title_en}` : s.title_en;
-  return {
-    id: String(s.id),
-    apiId: s.id,
-    name,
-    title: s.title_en,
-    type: normalizeCardType(s.type),
-    rarity: normalizeRarity(s.rarity_string, s.rarity),
-    charaGameId: s.chara_id,
-    charaName,
-    gametoraSlug: s.gametora,
-    iconUrl: s.type_icon_url,
-    taughtSkillIds: overlay?.taughtSkillIds ?? [],
-    trainingBonusPct: overlay?.trainingBonusPct ?? 0,
-    friendshipBonusPct: overlay?.friendshipBonusPct ?? 0,
-    hasGameplay: !!overlay,
-  };
+  // Derive taught skills via the skill index.
+  transformed.taughtSkillIds = cardTaughtSkills(transformed.charaGameId);
+  return transformed;
 });
 
-// sort: hasGameplay first, then by rarity (SSR > SR > R), then by name
-const RARITY_RANK: Record<CardRarity, number> = { SSR: 0, SR: 1, R: 2 };
+// Sort: SSR before SR before R, then by name within rarity.
+const RARITY_RANK: Record<SupportCard["rarity"], number> = { SSR: 0, SR: 1, R: 2 };
 cards.sort((a, b) => {
-  if (a.hasGameplay !== b.hasGameplay) return a.hasGameplay ? -1 : 1;
   if (RARITY_RANK[a.rarity] !== RARITY_RANK[b.rarity])
     return RARITY_RANK[a.rarity] - RARITY_RANK[b.rarity];
   return a.name.localeCompare(b.name);
 });
 
 export const cardById = new Map(cards.map((c) => [c.id, c]));
+
+// ---------------------------------------------------------------------------
+// CHAMPION MEETINGS — UmaTools races + featured hand-curated picks on top
+// ---------------------------------------------------------------------------
+const featuredMeetings: ChampionMeeting[] = featuredMeetingsRaw as ChampionMeeting[];
+
+// All G1/G2 races from UmaTools become selectable.
+const allRaces = (umatoolsRaces as unknown as RawRace[]).filter((r) => r.grade <= 200);
+const transformedRaces = allRaces.map(transformRace);
+
+export const championMeetings: ChampionMeeting[] = [
+  // Featured / hand-curated meetings render first.
+  ...featuredMeetings,
+  // Then the rest of the G1/G2 game races, deduped by id-collision avoidance
+  // (we prefix UmaTools race IDs since the namespaces differ).
+  ...transformedRaces.filter((r) => !featuredMeetings.some((f) => f.name === r.name)),
+];
+
+export const meetingById = new Map(championMeetings.map((m) => [m.id, m]));
+
+// ---------------------------------------------------------------------------
+// DIAGNOSTICS — handy for dev console / future "about data" UI
+// ---------------------------------------------------------------------------
+export const dataStats = {
+  umas: umas.length,
+  cards: cards.length,
+  skills: skills.length,
+  scenarios: scenarios.length,
+  meetings: championMeetings.length,
+  umasWithUnique: umas.filter((u) => u.uniqueSkillId).length,
+  cardsWithSkills: cards.filter((c) => c.taughtSkillIds.length > 0).length,
+};

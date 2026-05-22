@@ -1,4 +1,4 @@
-name: Refresh umapyoi catalog
+name: Refresh data catalogs
 
 on:
   schedule:
@@ -22,17 +22,20 @@ jobs:
 
       - run: npm ci
 
-      - name: Fetch latest catalog from umapyoi.net
-        run: npm run fetch:data
+      - name: Fetch umapyoi.net catalog (character + support metadata)
+        run: npm run fetch:umapyoi
+
+      - name: Fetch UmaTools game-extracted dumps (stats, skills, races)
+        run: npm run fetch:umatools
 
       - name: Commit and push if changed
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if git diff --quiet src/data/generated; then
-            echo "No catalog changes."
+            echo "No data changes."
             exit 0
           fi
           git add src/data/generated
-          git commit -m "chore(data): weekly umapyoi catalog refresh"
+          git commit -m "chore(data): weekly catalog refresh (umapyoi + UmaTools)"
           git push

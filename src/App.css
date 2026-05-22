@@ -82,6 +82,15 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
   color: var(--muted);
   letter-spacing: 0.05em;
 }
+.picker-search {
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  width: 100%;
+}
 .picker select,
 .card-slot,
 .stat-row input {

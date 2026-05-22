@@ -37,8 +37,11 @@ const DEFAULT_STATS: Stats = {
 };
 
 export default function App() {
-  // default to Special Week (game_id 1001) when present
-  const defaultUma = umas.find((u) => u.gameId === 1001) ?? umas[0];
+  // default to Special Week — outfit ID 100101 is "Special Dreamer" (her base form)
+  const defaultUma =
+    umas.find((u) => u.gameId === 100101) ??
+    umas.find((u) => u.name.startsWith("Special Week")) ??
+    umas[0];
   const [umaId, setUmaId] = useState(defaultUma.id);
   const [meetingId, setMeetingId] = useState(championMeetings[0].id);
   const [scenarioId, setScenarioId] = useState(scenarios[0].id);
