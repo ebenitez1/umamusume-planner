@@ -177,6 +177,19 @@ export const meetingById = new Map(championMeetings.map((m) => [m.id, m]));
 // ---------------------------------------------------------------------------
 // DIAGNOSTICS — handy for dev console / future "about data" UI
 // ---------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
+// IMAGE HELPERS
+// ---------------------------------------------------------------------------
+// Skill icons are hosted at GameTora's CDN, looked up by `iconid`. The icon
+// pattern was probed and confirmed; URL is stable as of 2026-05.
+export function skillIconUrl(iconid: number | undefined): string | undefined {
+  if (!iconid) return undefined;
+  return `https://gametora.com/images/umamusume/skill_icons/utx_ico_skill_${iconid}.png`;
+}
+
+// ---------------------------------------------------------------------------
+// DIAGNOSTICS — handy for dev console / future "about data" UI
+// ---------------------------------------------------------------------------
 export const dataStats = {
   umas: umas.length,
   cards: cards.length,

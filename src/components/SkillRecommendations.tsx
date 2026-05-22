@@ -1,5 +1,5 @@
 import type { SkillRecommendation } from "../types";
-import { cardById, umaById } from "../data";
+import { cardById, skillIconUrl, umaById } from "../data";
 
 interface Props {
   recommendations: SkillRecommendation[];
@@ -44,6 +44,7 @@ export function SkillRecommendations({ recommendations, ownedSkillIds, onToggle 
                   : r.source?.fromCardId
                     ? cardById.get(r.source.fromCardId)?.name
                     : "Scenario / inherited";
+                const iconUrl = skillIconUrl(r.skill.iconid);
                 return (
                   <li key={r.skill.id} className={`skill skill-${r.skill.rarity}`}>
                     <label>
@@ -52,6 +53,19 @@ export function SkillRecommendations({ recommendations, ownedSkillIds, onToggle 
                         checked={owned.has(r.skill.id)}
                         onChange={() => onToggle(r.skill.id)}
                       />
+                      {iconUrl && (
+                        <img
+                          className="skill-icon"
+                          src={iconUrl}
+                          alt=""
+                          loading="lazy"
+                          width={36}
+                          height={36}
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).style.display = "none";
+                          }}
+                        />
+                      )}
                       <div className="skill-body">
                         <div className="skill-head">
                           <span className="skill-name">{r.skill.name}</span>

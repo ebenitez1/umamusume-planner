@@ -31,6 +31,8 @@ export interface Skill {
   rarity: SkillRarity;
   category: SkillCategory;
   description: string;
+  // numeric icon ID — pair with skillIconUrl() to get a CDN image
+  iconid?: number;
   // numeric "rating points" contributed when owned (community heuristic)
   ratingPoints: number;
   // optional sim metadata — used by the future race simulator

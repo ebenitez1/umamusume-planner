@@ -13,6 +13,7 @@ import { rateBuild } from "./lib/rating";
 import { recommendSkills, recommendStyle, recommendUmas } from "./lib/recommender";
 import { Picker } from "./components/Picker";
 import { UmaSelect } from "./components/UmaSelect";
+import { UmaHeader } from "./components/UmaHeader";
 import { CardDeck } from "./components/CardDeck";
 import { StatInputs } from "./components/StatInputs";
 import { RatingDisplay } from "./components/RatingDisplay";
@@ -99,6 +100,7 @@ export default function App() {
 
       <main className="app-main">
         <section className="config">
+          <UmaHeader uma={uma} />
           <div className="config-row">
             <UmaSelect value={umaId} onChange={setUmaId} />
             <Picker

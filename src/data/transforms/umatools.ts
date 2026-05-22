@@ -344,6 +344,7 @@ export function transformSkill(raw: RawSkill): Skill {
     rarity,
     category,
     description,
+    iconid: raw.iconid,
     ratingPoints,
     sim,
     tags,
