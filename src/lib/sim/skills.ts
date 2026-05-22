@@ -28,6 +28,7 @@ import {
 import { currentPhase } from "./physics";
 import {
   BASHIN_M,
+  DEFAULT_COOLDOWN_S,
   DISTANCE_TYPE_NUM,
   GROUND_TYPE_NUM,
   STYLE_NUM,
@@ -59,7 +60,14 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
   const remain = state.course.distance - uma.position;
   const orderRate = (uma.order / state.umas.length) * 100;             // 1..100
 
-  // Establish phase-based random buckets lazily.
+  // Position-relative gaps (bashin lengths).
+  const leader = state.umas.find((u) => u.order === 1) ?? uma;
+  const infront = state.umas.find((u) => u.order === uma.order - 1);
+  const behind = state.umas.find((u) => u.order === uma.order + 1);
+  const bashinDiffTop = (leader.position - uma.position) / BASHIN_M;
+  const bashinDiffInfront = infront ? (infront.position - uma.position) / BASHIN_M : 0;
+  const bashinDiffBehind = behind ? (uma.position - behind.position) / BASHIN_M : 0;
+
   const ctx: Context = {
     order: uma.order,
     order_rate: orderRate,
@@ -79,6 +87,7 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
         ? 1 : 0,
     is_last_straight: uma.position >= state.course.finalStraightStart ? 1 : 0,
     is_lastspurt: phase === 3 ? 1 : 0,
+    is_overtake: uma.overtakeTickRemaining > 0 ? 1 : 0,
 
     base_speed:   uma.stats.speed,
     base_stamina: uma.stats.stamina,
@@ -92,25 +101,24 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
     phase_laterhalf_random:     distRate >= 50 ? rollOrLookup(uma.randomRolls.phaseLaterHalf, phase) : 0,
     phase_firstquarter_random:  distRate < 25 ? rollOrLookup(uma.randomRolls.phaseFirstQuarter, phase) : 0,
 
-    // Bashin gap to leader (rough — uses position difference only).
-    distance_diff_top:
-      ((state.umas.find((u) => u.order === 1)?.position ?? uma.position) - uma.position) / BASHIN_M,
+    // Position deltas (bashin lengths).
+    distance_diff_top: bashinDiffTop,
+    bashin_diff_top: bashinDiffTop,
+    bashin_diff_infront: bashinDiffInfront,
+    bashin_diff_behind: bashinDiffBehind,
     distance_diff_rate:
       uma.order === 1
         ? 0
-        : (((state.umas.find((u) => u.order === 1)?.position ?? uma.position) - uma.position) /
-            state.course.distance) * 100,
+        : ((leader.position - uma.position) / state.course.distance) * 100,
 
-    // Deferred variables — return 0 explicitly so conditions like
-    // `is_overtake==0` still match instead of treating them as unknown.
-    is_overtake: 0,
+    change_order_onetime: uma.changeOrderCount,
+
+    // Still-deferred variables — return 0 explicitly so conditions like
+    // `==0` still match. Console logs unknown vars once for visibility.
     corner: 0,
     slope: 0,
-    change_order_onetime: 0,
     overtake_target_time: 0,
     blocked_side_continuetime: 0,
-    bashin_diff_behind: 0,
-    bashin_diff_infront: 0,
   };
   return ctx;
 }
@@ -118,10 +126,6 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
 // ---------------------------------------------------------------------------
 // Activation
 // ---------------------------------------------------------------------------
-
-// Default cooldown when a skill doesn't specify one. The game's actual
-// cooldowns vary; this prevents the same skill firing every single tick.
-const DEFAULT_COOLDOWN_S = 8;
 
 function applyEffect(uma: UmaSimState, skill: Skill, state: RaceSimState): void {
   const sim = skill.sim;
@@ -168,24 +172,39 @@ export function tickSkills(state: RaceSimState): void {
     const ctx = buildContext(uma, state);
 
     for (const skill of uma.skills) {
-      // Already on cooldown → skip.
+      const trigger = skill.sim?.trigger;
+      // For player only: evaluate condition every tick so we can report
+      // "skill could have fired N times but was on cooldown" diagnostics.
+      // Opponents skip the diagnostic to keep the sim fast.
+      const conditionTrue = trigger ? evalString(trigger, ctx) : true;
+      if (uma.isPlayer) {
+        const diag = uma.skillDiagnostics.get(skill.id) ?? {
+          preconditionTrueTicks: 0,
+          activations: 0,
+        };
+        if (conditionTrue) {
+          diag.preconditionTrueTicks++;
+          if (diag.firstTrueAtS === undefined) diag.firstTrueAtS = state.timeS;
+        }
+        uma.skillDiagnostics.set(skill.id, diag);
+      }
+
+      // Already on cooldown → can't fire even if condition is true.
       if (uma.cooldowns.has(skill.id)) continue;
       // Unique skills fire at most once per race.
       if (skill.rarity === "unique" && uma.activatedSkillIds.has(skill.id)) continue;
 
-      // sim.trigger holds the condition string (filled by transformSkill).
-      // Skills without a trigger string are passive — apply once at race
-      // start; for v1 we apply at the first opportunity (phase 0).
-      const trigger = skill.sim?.trigger;
+      // Passive skills (no trigger) fire once at race start.
       if (!trigger) {
-        // Passive — fire once at the start.
         if (state.tick > 1) continue;
         applyEffect(uma, skill, state);
+        if (uma.isPlayer) uma.skillDiagnostics.get(skill.id)!.activations++;
         continue;
       }
 
-      if (evalString(trigger, ctx)) {
+      if (conditionTrue) {
         applyEffect(uma, skill, state);
+        if (uma.isPlayer) uma.skillDiagnostics.get(skill.id)!.activations++;
       }
     }
   }

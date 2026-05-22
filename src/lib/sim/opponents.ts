@@ -163,6 +163,10 @@ export function generateOpponent(
     activeEffects: [],
     activatedSkillIds: new Set(),
     activationLog: [],
+    prevOrder: index + 2,
+    overtakeTickRemaining: 0,
+    changeOrderCount: 0,
+    skillDiagnostics: new Map(),
     randomRolls: {
       phase: {}, phaseFirstHalf: {}, phaseLaterHalf: {}, phaseFirstQuarter: {},
       corner: {}, allCorner: 1 + Math.floor(Math.random() * 6),

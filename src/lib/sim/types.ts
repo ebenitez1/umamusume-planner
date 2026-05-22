@@ -94,6 +94,14 @@ export interface UmaSimState {
   activatedSkillIds: Set<string>;       // for is_used_skill_id checks
   activationLog: ActivationLog[];       // for the UI timeline
 
+  // race-state tracking for condition vars
+  prevOrder: number;                    // order at the previous tick (for overtake detection)
+  overtakeTickRemaining: number;        // ticks remaining where is_overtake=1
+  changeOrderCount: number;             // cumulative passes (this uma overtook someone)
+
+  // per-skill activation diagnostics (player only; left empty for opponents)
+  skillDiagnostics: Map<string, SkillDiagnostic>;
+
   // random rolls captured once per (phase / corner / etc.) bucket
   randomRolls: {
     phase: Record<number, number>;      // phase index → roll value
@@ -104,6 +112,12 @@ export interface UmaSimState {
     allCorner: number;
     straight: number;
   };
+}
+
+export interface SkillDiagnostic {
+  preconditionTrueTicks: number;        // ticks where condition evaluated true
+  activations: number;                  // times the skill actually fired
+  firstTrueAtS?: number;                // seconds when condition was first true
 }
 
 export interface ActiveEffect {
@@ -189,3 +203,11 @@ export const MAX_TICKS = 3000;
 
 // 1 bashin (horse length) ≈ 2.5 m in Umamusume's internal units.
 export const BASHIN_M = 2.5;
+
+// How many ticks `is_overtake` stays = 1 after a uma actually overtakes.
+// Real game flags it for ~2 seconds; at 15 ticks/sec that's ~30 ticks.
+export const OVERTAKE_FLAG_TICKS = 30;
+
+// Default per-skill cooldown when sim metadata doesn't provide one. Lower =
+// more activations per race; calibrate against typical activation counts.
+export const DEFAULT_COOLDOWN_S = 4;

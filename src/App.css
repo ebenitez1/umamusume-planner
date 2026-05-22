@@ -497,6 +497,22 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
 .sim-time-stamp { color: var(--muted); width: 50px; }
 .sim-effect { color: var(--muted); }
 
+.sim-diagnostics { list-style: none; padding: 0; margin: 6px 0 0; font-size: 12px; }
+.sim-diagnostics li {
+  display: grid;
+  grid-template-columns: 20px 1fr auto;
+  gap: 8px;
+  align-items: baseline;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--border);
+}
+.sim-diag-status { text-align: center; font-weight: 700; }
+.sim-diag-fired .sim-diag-status { color: var(--accent-2); }
+.sim-diag-ready .sim-diag-status { color: var(--rare); }
+.sim-diag-never .sim-diag-status { color: var(--muted); }
+.sim-diag-never { opacity: 0.7; }
+.sim-diag-stats { color: var(--muted); font-size: 11px; }
+
 .sim-finish-order { list-style: none; padding: 0; margin: 6px 0 0; counter-reset: place; }
 .sim-finish-order li {
   counter-increment: place;

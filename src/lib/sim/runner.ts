@@ -30,6 +30,14 @@ export interface SimulationResult {
   playerVelocitySeries: Array<{ tickIdx: number; timeS: number; velocity: number; hp: number }>;
   /** player's skill activation events */
   playerActivations: ActivationLog[];
+  /** per-skill diagnostics: condition-true count, activation count, etc. */
+  playerSkillDiagnostics: Array<{
+    skillId: string;
+    skillName: string;
+    preconditionTrueTicks: number;
+    activations: number;
+    firstTrueAtS?: number;
+  }>;
   /** flags for at-a-glance feedback */
   flags: {
     hpOutBeforeSpurt: boolean;
@@ -63,6 +71,10 @@ export function buildPlayerUma(uma: Uma, build: UmaBuild, meeting: ChampionMeeti
     activeEffects: [],
     activatedSkillIds: new Set(),
     activationLog: [],
+    prevOrder: 1,
+    overtakeTickRemaining: 0,
+    changeOrderCount: 0,
+    skillDiagnostics: new Map(),
     randomRolls: {
       phase: {}, phaseFirstHalf: {}, phaseLaterHalf: {}, phaseFirstQuarter: {},
       corner: {}, allCorner: 1 + Math.floor(Math.random() * 6),
@@ -148,11 +160,24 @@ export function runSimulation(
 
   const playerRank = finishOrder.findIndex((u) => u.isPlayer) + 1;
 
+  // Package per-skill diagnostics for every skill in the player's loadout.
+  const diagnostics = playerUma.skills.map((s) => {
+    const d = playerUma.skillDiagnostics.get(s.id);
+    return {
+      skillId: s.id,
+      skillName: s.name,
+      preconditionTrueTicks: d?.preconditionTrueTicks ?? 0,
+      activations: d?.activations ?? 0,
+      firstTrueAtS: d?.firstTrueAtS,
+    };
+  }).sort((a, b) => b.preconditionTrueTicks - a.preconditionTrueTicks);
+
   return {
     finishTimes,
     finishOrder,
     playerVelocitySeries: velSeries,
     playerActivations: playerUma.activationLog,
+    playerSkillDiagnostics: diagnostics,
     flags: {
       hpOutBeforeSpurt,
       finishedFirst: playerRank === 1,

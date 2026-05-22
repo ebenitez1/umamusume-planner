@@ -80,6 +80,36 @@ function SimResultView({ result, meeting }: { result: SimulationResult; meeting:
       </details>
 
       <details className="sim-detail">
+        <summary>Per-skill diagnostics — why did/didn't your skills fire?</summary>
+        <ul className="sim-diagnostics">
+          {result.playerSkillDiagnostics.map((d) => {
+            const status =
+              d.activations > 0
+                ? "fired"
+                : d.preconditionTrueTicks > 0
+                  ? "ready"  // condition was true but cooldown / unique-spent blocked
+                  : "never";
+            return (
+              <li key={d.skillId} className={`sim-diag-${status}`}>
+                <span className="sim-diag-status">
+                  {status === "fired" ? "✓" : status === "ready" ? "◐" : "·"}
+                </span>
+                <strong>{d.skillName}</strong>
+                <span className="sim-diag-stats">
+                  {d.activations > 0
+                    ? `fired ${d.activations}×`
+                    : d.preconditionTrueTicks > 0
+                      ? `ready ${d.preconditionTrueTicks} tick${d.preconditionTrueTicks === 1 ? "" : "s"}, never fired`
+                      : "never met conditions"}
+                  {d.firstTrueAtS !== undefined && d.activations === 0 && ` (first @ ${d.firstTrueAtS.toFixed(1)}s)`}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      </details>
+
+      <details className="sim-detail">
         <summary>Finish order (top 8)</summary>
         <ol className="sim-finish-order">
           {result.finishOrder.slice(0, 8).map((u) => (

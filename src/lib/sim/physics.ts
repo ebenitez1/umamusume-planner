@@ -12,6 +12,7 @@ import {
   HP_DRAIN_AGGRESSION,
   HP_DRAIN_BASE,
   HP_DRAIN_WIT_REDUCTION,
+  OVERTAKE_FLAG_TICKS,
   PHASE_BOUNDS,
   PHASE_VEL_FRAC,
   type PhaseNum,
@@ -128,6 +129,9 @@ export function tickPhysics(state: RaceSimState): void {
     }
   }
 
+  // Snapshot the old order so we can detect overtakes after re-sorting.
+  for (const u of state.umas) u.prevOrder = u.order;
+
   // Recompute order — 1 = furthest along, sorted by position desc.
   // Finished umas keep their order based on finish time.
   const sortable = [...state.umas].sort((a, b) => {
@@ -137,6 +141,18 @@ export function tickPhysics(state: RaceSimState): void {
     return b.position - a.position;
   });
   for (let i = 0; i < sortable.length; i++) sortable[i].order = i + 1;
+
+  // Overtake bookkeeping: anyone whose order went DOWN (e.g. 5 -> 3) just
+  // passed someone. Set is_overtake flag for a short window and bump count.
+  for (const u of state.umas) {
+    if (u.finished) continue;
+    if (u.order < u.prevOrder) {
+      u.overtakeTickRemaining = OVERTAKE_FLAG_TICKS;
+      u.changeOrderCount += u.prevOrder - u.order;
+    } else if (u.overtakeTickRemaining > 0) {
+      u.overtakeTickRemaining--;
+    }
+  }
 
   state.tick++;
   state.timeS += dt;
