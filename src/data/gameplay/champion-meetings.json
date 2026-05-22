@@ -1,72 +1,142 @@
 [
   {
-    "id": "cm_japan_cup",
-    "name": "Japan Cup (Tokyo 2400m Turf)",
-    "track": "Tokyo Racecourse",
+    "id": "cm1_japanese_oaks",
+    "name": "Japanese Oaks (Tokyo 2400m turf)",
+    "cmNumber": 1,
+    "track": "Tokyo",
     "surface": "turf",
     "distance": "medium",
     "distanceMeters": 2400,
-    "metaStyles": ["early", "late"],
-    "notes": "Long final straight (~525m). Late surgers and end closers with strong final-leg skills dominate. Stamina ~550+ recommended."
+    "notes": "G1. Field: 18. Final corner: 1350m, final straight: 1875m."
   },
   {
-    "id": "cm_arima_kinen",
-    "name": "Arima Kinen (Nakayama 2500m Turf)",
-    "track": "Nakayama Racecourse",
-    "surface": "turf",
-    "distance": "long",
-    "distanceMeters": 2500,
-    "metaStyles": ["early", "late"],
-    "notes": "Right-handed, sharp slope before the final straight. Short straight (~310m) — positioning + acceleration matters more than top-end speed."
-  },
-  {
-    "id": "cm_tenno_sho_spring",
-    "name": "Tenno Sho Spring (Kyoto 3200m Turf)",
-    "track": "Kyoto Racecourse",
+    "id": "cm2_tenno_sho_spring",
+    "name": "Tenno Sho (Spring) (Kyoto 3200m turf)",
+    "cmNumber": 2,
+    "track": "Kyoto",
     "surface": "turf",
     "distance": "long",
     "distanceMeters": 3200,
-    "metaStyles": ["late", "end"],
-    "notes": "Longest classic. Stamina-heavy build (650+). McQueen-style late surgers shine."
+    "notes": "G1. Field: 18. Final corner: 2300m, final straight: 2797m."
   },
   {
-    "id": "cm_yasuda_kinen",
-    "name": "Yasuda Kinen (Tokyo 1600m Turf)",
-    "track": "Tokyo Racecourse",
+    "id": "cm3_nhk_mile_cup",
+    "name": "NHK Mile Cup (Tokyo 1600m turf)",
+    "cmNumber": 3,
+    "track": "Tokyo",
     "surface": "turf",
     "distance": "mile",
     "distanceMeters": 1600,
-    "metaStyles": ["runner", "early"],
-    "notes": "Mile classic on Tokyo. Front runners and pace chasers with mile aptitude dominate."
+    "notes": "G1. Field: 18. Final corner: 825m, final straight: 1075m."
   },
   {
-    "id": "cm_takamatsunomiya",
-    "name": "Takamatsunomiya Kinen (Chukyo 1200m Turf)",
-    "track": "Chukyo Racecourse",
+    "id": "cm4_takarazuka_kinen",
+    "name": "Takarazuka Kinen (Hanshin 2200m turf)",
+    "cmNumber": 4,
+    "track": "Hanshin",
     "surface": "turf",
-    "distance": "sprint",
-    "distanceMeters": 1200,
-    "metaStyles": ["runner"],
-    "notes": "Sprint classic. Front runner with high power + early-leg acceleration wins."
+    "distance": "medium",
+    "distanceMeters": 2200,
+    "notes": "G1. Field: 18. Final corner: 1250m, final straight: 1844m."
   },
   {
-    "id": "cm_february_stakes",
-    "name": "February Stakes (Tokyo 1600m Dirt)",
-    "track": "Tokyo Racecourse",
-    "surface": "dirt",
+    "id": "cm5_oka_sho",
+    "name": "Oka Sho (Hanshin 1600m turf)",
+    "cmNumber": 5,
+    "track": "Hanshin",
+    "surface": "turf",
     "distance": "mile",
     "distanceMeters": 1600,
-    "metaStyles": ["runner", "early"],
-    "notes": "Dirt mile. Few umas have dirt A — pick wisely (Vodka, El Condor, Smart Falcon)."
+    "notes": "G1. Field: 18. Final corner: 800m, final straight: 1127m."
   },
   {
-    "id": "cm_satsuki_sho",
-    "name": "Satsuki Sho (Nakayama 2000m Turf)",
-    "track": "Nakayama Racecourse",
+    "id": "cm6_kikuka_sho",
+    "name": "Kikuka Sho (Kyoto 3000m turf)",
+    "cmNumber": 6,
+    "track": "Kyoto",
+    "surface": "turf",
+    "distance": "long",
+    "distanceMeters": 3000,
+    "notes": "G1. Field: 18. Final corner: 2100m, final straight: 2597m."
+  },
+  {
+    "id": "cm7_tenno_sho_autumn",
+    "name": "Tenno Sho (Autumn) (Tokyo 2000m turf)",
+    "cmNumber": 7,
+    "track": "Tokyo",
     "surface": "turf",
     "distance": "medium",
     "distanceMeters": 2000,
-    "metaStyles": ["early", "late"],
-    "notes": "Classic medium. Right-handed, slope before straight. Balanced builds suited."
+    "notes": "G1. Field: 18. Final corner: 1225m, final straight: 1475m."
+  },
+  {
+    "id": "cm8_arima_kinen",
+    "name": "Arima Kinen (Nakayama 2500m turf)",
+    "cmNumber": 8,
+    "track": "Nakayama",
+    "surface": "turf",
+    "distance": "long",
+    "distanceMeters": 2500,
+    "notes": "G1. Field: 16. Final corner: 1700m, final straight: 2190m."
+  },
+  {
+    "id": "cm9_takamatsunomiya_kinen",
+    "name": "Takamatsunomiya Kinen (Chukyo 1200m turf)",
+    "cmNumber": 9,
+    "track": "Chukyo",
+    "surface": "turf",
+    "distance": "sprint",
+    "distanceMeters": 1200,
+    "notes": "G1. Field: 18. Final corner: 550m, final straight: 788m."
+  },
+  {
+    "id": "cm10_february_stakes",
+    "name": "February Stakes (Tokyo 1600m dirt)",
+    "cmNumber": 10,
+    "track": "Tokyo",
+    "surface": "dirt",
+    "distance": "mile",
+    "distanceMeters": 1600,
+    "notes": "G1. Field: 16. Final corner: 875m, final straight: 1099m."
+  },
+  {
+    "id": "cm11_tenno_sho_spring",
+    "name": "Tenno Sho (Spring) (Kyoto 3200m turf)",
+    "cmNumber": 11,
+    "track": "Kyoto",
+    "surface": "turf",
+    "distance": "long",
+    "distanceMeters": 3200,
+    "notes": "G1. Field: 18. Final corner: 2300m, final straight: 2797m."
+  },
+  {
+    "id": "cm12_satsuki_sho",
+    "name": "Satsuki Sho (Nakayama 2000m turf)",
+    "cmNumber": 12,
+    "track": "Nakayama",
+    "surface": "turf",
+    "distance": "medium",
+    "distanceMeters": 2000,
+    "notes": "G1. Field: 18. Final corner: 1200m, final straight: 1690m."
+  },
+  {
+    "id": "cm13_japanese_oaks",
+    "name": "Japanese Oaks (Tokyo 2400m turf)",
+    "cmNumber": 13,
+    "track": "Tokyo",
+    "surface": "turf",
+    "distance": "medium",
+    "distanceMeters": 2400,
+    "notes": "G1. Field: 18. Final corner: 1350m, final straight: 1875m."
+  },
+  {
+    "id": "cm14_nhk_mile_cup",
+    "name": "NHK Mile Cup (Tokyo 1600m turf)",
+    "cmNumber": 14,
+    "track": "Tokyo",
+    "surface": "turf",
+    "distance": "mile",
+    "distanceMeters": 1600,
+    "notes": "G1. Field: 18. Final corner: 825m, final straight: 1075m."
   }
 ]

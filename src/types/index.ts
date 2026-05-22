@@ -108,6 +108,9 @@ export interface Scenario {
 export interface ChampionMeeting {
   id: string;
   name: string;
+  // Global Champion Meeting number, e.g. 1 for CM1. Optional — only set
+  // for featured meetings that have actually been a Champion Meeting.
+  cmNumber?: number;
   // race shape
   track: string;             // venue name e.g. "Tokyo Racecourse"
   surface: Surface;

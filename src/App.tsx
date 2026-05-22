@@ -109,7 +109,7 @@ export default function App() {
               onChange={setMeetingId}
               options={championMeetings.map((m) => ({
                 value: m.id,
-                label: m.name,
+                label: m.cmNumber ? `CM${m.cmNumber} — ${m.name}` : m.name,
               }))}
             />
             <Picker
