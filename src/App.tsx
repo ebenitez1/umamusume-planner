@@ -107,10 +107,11 @@ export default function App() {
               label="Champion Meeting"
               value={meetingId}
               onChange={setMeetingId}
-              options={championMeetings.map((m) => ({
-                value: m.id,
-                label: m.cmNumber ? `CM${m.cmNumber} — ${m.name}` : m.name,
-              }))}
+              options={championMeetings.map((m) => {
+                const dist = m.distance.charAt(0).toUpperCase() + m.distance.slice(1);
+                const prefix = m.cmNumber ? `CM${m.cmNumber} ` : "";
+                return { value: m.id, label: `${prefix}[${dist}] ${m.name}` };
+              })}
             />
             <Picker
               label="Scenario"
@@ -126,7 +127,15 @@ export default function App() {
             />
           </div>
 
-          <p className="meeting-notes">{meeting.notes}</p>
+          <p className="meeting-notes">
+            <span className={`dist-badge dist-${meeting.distance}`}>
+              {meeting.distance.charAt(0).toUpperCase() + meeting.distance.slice(1)}
+            </span>{" "}
+            <span className={`surf-badge surf-${meeting.surface}`}>
+              {meeting.surface.charAt(0).toUpperCase() + meeting.surface.slice(1)}
+            </span>{" "}
+            {meeting.notes}
+          </p>
           <p className="scenario-notes">{scenario.notes}</p>
 
           <CardDeck selected={cardIds} onChange={setCardIds} />

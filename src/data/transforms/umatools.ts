@@ -294,9 +294,14 @@ function lowercaseStats(s: RawStats): Stats {
   };
 }
 
+// In-game distance classification:
+//   Sprint: under 1400m  (typically 1000–1399, e.g. 1200m Takamatsunomiya)
+//   Mile:   1400–1799    (e.g. 1600m NHK Mile Cup, Yasuda Kinen)
+//   Medium: 1800–2400    (e.g. 2000m Satsuki Sho, 2400m Japanese Oaks)
+//   Long:   2401+        (e.g. 2500m Arima Kinen, 3000m Kikuka Sho)
 function distanceBucket(meters: number): Distance {
-  if (meters <= 1400) return "sprint";
-  if (meters <= 1800) return "mile";
+  if (meters < 1400) return "sprint";
+  if (meters < 1800) return "mile";
   if (meters <= 2400) return "medium";
   return "long";
 }

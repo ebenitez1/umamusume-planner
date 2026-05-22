@@ -113,6 +113,24 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
   margin: 12px 0 0;
   border-left: 3px solid var(--accent);
 }
+
+.dist-badge, .surf-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-right: 4px;
+  color: #fff;
+}
+.dist-sprint { background: #e84a4a; }
+.dist-mile   { background: #f6c14b; color: #2a1f00; }
+.dist-medium { background: #6ee687; color: #00331a; }
+.dist-long   { background: #4ac3ff; color: #001833; }
+.surf-turf   { background: #2d7a2d; }
+.surf-dirt   { background: #8b5a2b; }
 .scenario-notes { border-left-color: var(--accent-2); }
 
 .slot-grid {
