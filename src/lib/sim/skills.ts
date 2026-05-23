@@ -27,7 +27,6 @@ import {
 } from "./conditions";
 import { currentPhase } from "./physics";
 import {
-  BASHIN_M,
   DEFAULT_COOLDOWN_S,
   DISTANCE_TYPE_NUM,
   GROUND_TYPE_NUM,
@@ -58,19 +57,22 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
   const phase = currentPhase(uma.position, state.course.distance);
   const distRate = (uma.position / state.course.distance) * 100;       // 0..100
   const remain = state.course.distance - uma.position;
-  const orderRate = (uma.order / state.umas.length) * 100;             // 1..100
+  // Note: orderRate is intentionally unused in single-uma mode; the
+  // context below forces order_rate = 1 (favorable) per FORMULAS.md.
 
-  // Position-relative gaps (bashin lengths).
-  const leader = state.umas.find((u) => u.order === 1) ?? uma;
-  const infront = state.umas.find((u) => u.order === uma.order - 1);
-  const behind = state.umas.find((u) => u.order === uma.order + 1);
-  const bashinDiffTop = (leader.position - uma.position) / BASHIN_M;
-  const bashinDiffInfront = infront ? (infront.position - uma.position) / BASHIN_M : 0;
-  const bashinDiffBehind = behind ? (uma.position - behind.position) / BASHIN_M : 0;
+  // Single-uma mode: no real position gaps. Set them to "favorable" so
+  // position-aware conditions like bashin_diff_top<=1 still pass.
+  const bashinDiffTop = 0;
+  const bashinDiffInfront = 0;
+  const bashinDiffBehind = 0;
 
   const ctx: Context = {
-    order: uma.order,
-    order_rate: orderRate,
+    // Single-uma mode: order/order_rate are forced into "favorable" ranges
+    // so position-aware skills aren't silently blocked. order=1 / order_rate=1
+    // satisfies the common "leading" checks; if a skill specifically wants
+    // order==N, we'll just not match — acceptable tradeoff for v2.
+    order: 1,
+    order_rate: 1,
     phase,
     distance_rate: distRate,
     remain_distance: remain,
@@ -87,7 +89,9 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
         ? 1 : 0,
     is_last_straight: uma.position >= state.course.finalStraightStart ? 1 : 0,
     is_lastspurt: phase === 3 ? 1 : 0,
-    is_overtake: uma.overtakeTickRemaining > 0 ? 1 : 0,
+    // Single-uma mode: treat order/lane/overtake conditions as always-satisfied.
+    // This matches uma-skill-tools' approach for solo distance-gain sims.
+    is_overtake: 1,
 
     base_speed:   uma.stats.speed,
     base_stamina: uma.stats.stamina,
@@ -106,10 +110,7 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
     bashin_diff_top: bashinDiffTop,
     bashin_diff_infront: bashinDiffInfront,
     bashin_diff_behind: bashinDiffBehind,
-    distance_diff_rate:
-      uma.order === 1
-        ? 0
-        : ((leader.position - uma.position) / state.course.distance) * 100,
+    distance_diff_rate: 0,
 
     change_order_onetime: uma.changeOrderCount,
 

@@ -8,9 +8,9 @@ import type {
   UmaBuild,
 } from "../../types";
 import { skillById } from "../../data";
-import { tickPhysics, baseVelocity, initialHp } from "./physics";
+import { initialHp, postStartMinSpeed, tickPhysics } from "./physics";
+import { computeBaseSpeed } from "./types";
 import { tick } from "./skills";
-import { generateField } from "./opponents";
 import {
   DEFAULT_FINAL_CORNER_FRAC,
   DEFAULT_FINAL_STRAIGHT_FRAC,
@@ -71,6 +71,7 @@ export function buildPlayerUma(uma: Uma, build: UmaBuild, meeting: ChampionMeeti
     activeEffects: [],
     activatedSkillIds: new Set(),
     activationLog: [],
+    startDashActive: true,
     prevOrder: 1,
     overtakeTickRemaining: 0,
     changeOrderCount: 0,
@@ -83,7 +84,8 @@ export function buildPlayerUma(uma: Uma, build: UmaBuild, meeting: ChampionMeeti
   };
   playerUma.hpMax = initialHp(playerUma, meeting.distanceMeters);
   playerUma.hp = playerUma.hpMax;
-  playerUma.velocity = baseVelocity(playerUma) * 0.6;
+  const baseSpeed = computeBaseSpeed(meeting.distanceMeters);
+  playerUma.velocity = postStartMinSpeed(playerUma, baseSpeed);
   return playerUma;
 }
 
@@ -91,12 +93,13 @@ export function runSimulation(
   uma: Uma,
   build: UmaBuild,
   meeting: ChampionMeeting,
-  opts: { opponentCount?: number } = {}
+  _opts: { opponentCount?: number } = {}
 ): SimulationResult {
-  const opponentCount = opts.opponentCount ?? 15;
+  // v2: single-uma mode (no opponents). Order conditions evaluate as
+  // "always true" for any order check, matching uma-skill-tools' approach.
+  // Useful for build comparison; head-to-head finish-rank is deferred.
   const playerUma = buildPlayerUma(uma, build, meeting);
-  const opponents = generateField(meeting, opponentCount);
-  const umas = [playerUma, ...opponents];
+  const umas = [playerUma];
 
   const state: RaceSimState = {
     tick: 0,
@@ -108,6 +111,7 @@ export function runSimulation(
       surface: meeting.surface,
       finalCornerStart: meeting.distanceMeters * DEFAULT_FINAL_CORNER_FRAC,
       finalStraightStart: meeting.distanceMeters * DEFAULT_FINAL_STRAIGHT_FRAC,
+      baseSpeed: computeBaseSpeed(meeting.distanceMeters),
     },
     finished: false,
   };

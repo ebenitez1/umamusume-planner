@@ -1,24 +1,32 @@
 // Tick-by-tick physics for the race simulator.
 // Pure functions — every step is a deterministic transform of state in/out.
-// Skill effects are layered on top by sim/skills.ts.
+// Formulas are documented in FORMULAS.md.
 
-import type { Style } from "../../types";
 import {
-  ACCEL_BASE,
-  ACCEL_PER_POWER,
   APTITUDE_MULT,
-  BASE_VELOCITY_SCALE,
-  DIST_HP,
-  HP_DRAIN_AGGRESSION,
-  HP_DRAIN_BASE,
-  HP_DRAIN_WIT_REDUCTION,
+  BASE_ACCEL,
+  DECEL_PER_PHASE,
+  GUTS_DRAIN_CONSTANT,
+  GUTS_DRAIN_NUM,
+  HP_BASE_COEF,
+  HP_DRAIN_DENOM,
+  HP_DRAIN_NUM,
+  HP_DRAIN_OFFSET,
+  HP_STRAT_COEF,
   OVERTAKE_FLAG_TICKS,
   PHASE_BOUNDS,
-  PHASE_VEL_FRAC,
-  type PhaseNum,
-  STAMINA_HP,
-  STAMINA_OUT_VEL_FRAC,
+  POST_START_GUTS_CONSTANT,
+  POST_START_GUTS_SCALE,
+  POST_START_MIN_VEL_FRAC,
+  POWER_STAT_CONSTANT,
+  SPEED_STAT_CONSTANT,
+  SPEED_STAT_SCALE,
+  START_DASH_ACCEL,
+  START_DASH_VELOCITY_FRAC,
+  STRAT_ACCEL_COEF,
+  STRAT_VEL_COEF,
   TICK_S,
+  type PhaseNum,
   type RaceSimState,
   type UmaSimState,
 } from "./types";
@@ -28,19 +36,12 @@ import {
 // ---------------------------------------------------------------------------
 
 export function initialHp(uma: UmaSimState, distance: number): number {
-  return Math.round(uma.stats.stamina * STAMINA_HP + distance * DIST_HP);
+  return Math.round(HP_BASE_COEF * HP_STRAT_COEF[uma.style] * uma.stats.stamina + distance);
 }
 
-// "Base velocity" = top sustainable speed without overshoot. Function of
-// Speed stat + aptitudes for surface/distance/style.
-export function baseVelocity(uma: UmaSimState): number {
-  const aptM =
-    APTITUDE_MULT[uma.aptitudes.surface] *
-    APTITUDE_MULT[uma.aptitudes.distance] *
-    APTITUDE_MULT[uma.aptitudes.style];
-  // Rein in extremes — triple-S shouldn't be 1.33× a triple-B uma.
-  const tempered = Math.pow(aptM, 0.7);
-  return uma.stats.speed * BASE_VELOCITY_SCALE * tempered;
+export function postStartMinSpeed(uma: UmaSimState, baseSpeed: number): number {
+  return POST_START_MIN_VEL_FRAC * baseSpeed
+    + Math.sqrt(POST_START_GUTS_CONSTANT * uma.stats.guts) * POST_START_GUTS_SCALE;
 }
 
 // ---------------------------------------------------------------------------
@@ -55,10 +56,64 @@ export function currentPhase(position: number, distance: number): PhaseNum {
   return 0;
 }
 
-// Target velocity = base × phase modifier × style modifier
-export function targetVelocity(uma: UmaSimState, phase: PhaseNum, style: Style): number {
-  const base = baseVelocity(uma);
-  return base * PHASE_VEL_FRAC[phase][style];
+// ---------------------------------------------------------------------------
+// Target velocity
+// ---------------------------------------------------------------------------
+
+// Per-phase target velocity. Speed-stat contribution kicks in at phase 2.
+export function targetVelocity(uma: UmaSimState, phase: PhaseNum, baseSpeed: number): number {
+  // Phase 3 (spurt) — simplified: phase-2 target plus boost terms.
+  // (Full spurt calculator is deferred — this is a reasonable approximation.)
+  if (phase === 3) {
+    const phase2 = baseSpeed * STRAT_VEL_COEF[uma.style][2];
+    const speedContrib = speedStatContribution(uma);
+    return phase2 + 0.01 * baseSpeed + 1.05 + speedContrib;
+  }
+
+  const stratMult = STRAT_VEL_COEF[uma.style][phase];
+  let target = baseSpeed * stratMult;
+
+  // Speed-stat contribution applies in phase 2+ only (and we apply to spurt above).
+  if (phase >= 2) {
+    target += speedStatContribution(uma);
+  }
+  return target;
+}
+
+function speedStatContribution(uma: UmaSimState): number {
+  const apt =
+    APTITUDE_MULT[uma.aptitudes.surface] *
+    APTITUDE_MULT[uma.aptitudes.distance];
+  return Math.sqrt(SPEED_STAT_CONSTANT * uma.stats.speed) * apt * SPEED_STAT_SCALE;
+}
+
+// ---------------------------------------------------------------------------
+// Acceleration
+// ---------------------------------------------------------------------------
+
+export function baseAcceleration(uma: UmaSimState, phase: PhaseNum): number {
+  const stratMult = STRAT_ACCEL_COEF[uma.style][Math.min(phase, 2) as 0 | 1 | 2];
+  const aptMult =
+    APTITUDE_MULT[uma.aptitudes.surface] *
+    APTITUDE_MULT[uma.aptitudes.distance];
+  return BASE_ACCEL * Math.sqrt(POWER_STAT_CONSTANT * uma.stats.power) * stratMult * aptMult;
+}
+
+// ---------------------------------------------------------------------------
+// HP drain
+// ---------------------------------------------------------------------------
+
+export function hpDrainPerSec(uma: UmaSimState, velocity: number, baseSpeed: number, phase: PhaseNum): number {
+  // 20 * (v - baseSpeed + 12)^2 / 144
+  const overshoot = velocity - baseSpeed + HP_DRAIN_OFFSET;
+  let drain = HP_DRAIN_NUM * overshoot * overshoot / HP_DRAIN_DENOM;
+  // Guts modifier (phase 2+ only): 1 + 200/sqrt(600*guts)
+  if (phase >= 2 && uma.stats.guts > 0) {
+    drain *= 1 + GUTS_DRAIN_NUM / Math.sqrt(GUTS_DRAIN_CONSTANT * uma.stats.guts);
+  }
+  // statusMod / groundMod default to 1 for now (we don't model pacedown,
+  // rushed, downhill, or non-Good ground in v2).
+  return drain;
 }
 
 // ---------------------------------------------------------------------------
@@ -67,6 +122,8 @@ export function targetVelocity(uma: UmaSimState, phase: PhaseNum, style: Style):
 
 export function tickPhysics(state: RaceSimState): void {
   const dt = TICK_S;
+  const baseSpeed = state.course.baseSpeed;
+
   for (const uma of state.umas) {
     if (uma.finished) continue;
     const phase = currentPhase(uma.position, state.course.distance);
@@ -80,43 +137,57 @@ export function tickPhysics(state: RaceSimState): void {
       else uma.cooldowns.set(k, next);
     }
 
-    // Compute target velocity. Active "speed" effects bump the target;
-    // accel effects bump the rate of change; debuffs reduce.
-    let target = targetVelocity(uma, phase, uma.style);
+    // Compute target velocity (game's target, plus effect modifiers).
+    let target = targetVelocity(uma, phase, baseSpeed);
     let accelBonus = 0;
+    let currentSpeedBump = 0;
     for (const e of uma.activeEffects) {
       if (e.kind === "speed") target += e.value;
       else if (e.kind === "accel") accelBonus += e.value;
-      else if (e.kind === "debuff") target += e.value; // value typically negative
+      else if (e.kind === "debuff") target += e.value;   // value typically negative
+      else if (e.kind === "current_speed") currentSpeedBump += e.value;
     }
 
-    // HP-out penalty: cap effective velocity at a fraction of base.
+    // Stamina-out: target collapses to post-start minimum, accel becomes -1.2.
+    let decel = DECEL_PER_PHASE[phase];
     if (uma.hp <= 0) {
-      const cap = baseVelocity(uma) * STAMINA_OUT_VEL_FRAC;
-      if (target > cap) target = cap;
+      target = postStartMinSpeed(uma, baseSpeed);
+      decel = -1.2;
+    }
+
+    // Compute acceleration.
+    let accel = baseAcceleration(uma, phase) + accelBonus;
+    // Start dash: +24 accel until velocity passes 0.85 * baseSpeed.
+    if (uma.startDashActive) {
+      if (uma.velocity > START_DASH_VELOCITY_FRAC * baseSpeed) {
+        uma.startDashActive = false;
+      } else {
+        accel += START_DASH_ACCEL;
+      }
     }
 
     // Move velocity toward target.
-    const accel = (ACCEL_BASE + uma.stats.power * ACCEL_PER_POWER + accelBonus) * dt;
     if (uma.velocity < target) {
-      uma.velocity = Math.min(target, uma.velocity + accel);
+      uma.velocity = Math.min(target, uma.velocity + accel * dt);
     } else if (uma.velocity > target) {
-      uma.velocity = Math.max(target, uma.velocity - accel);
+      // Decel is in m/s/s, negative.
+      uma.velocity = Math.max(target, uma.velocity + decel * dt);
     }
 
-    // Drain HP based on velocity vs base. Aggressive (above base) costs more.
-    const base = baseVelocity(uma);
-    const overshoot = Math.max(0, (uma.velocity - base) / base);
-    const witReduction = uma.stats.wit * HP_DRAIN_WIT_REDUCTION;
-    const drainPerSec =
-      HP_DRAIN_BASE * (1 - witReduction) * (1 + overshoot * HP_DRAIN_AGGRESSION);
-    uma.hp -= drainPerSec * dt;
+    // Apply current_speed effects as a one-shot bump to current velocity
+    // (rare — most speed skills bump target, not current).
+    if (currentSpeedBump !== 0) {
+      uma.velocity += currentSpeedBump * dt;
+    }
 
-    // Recover from heal effects (apply once per tick).
+    // Drain HP.
+    uma.hp -= hpDrainPerSec(uma, uma.velocity, baseSpeed, phase) * dt;
+
+    // Heal effects (instantaneous-per-tick).
     for (const e of uma.activeEffects) {
       if (e.kind === "heal") {
-        uma.hp += e.value * dt;
-        if (uma.hp > uma.hpMax) uma.hp = uma.hpMax;
+        uma.hp = Math.min(uma.hpMax, uma.hp + e.value);
+        e.remainingS = 0;   // heals are single-tick; mark for cleanup
       }
     }
 
@@ -129,11 +200,9 @@ export function tickPhysics(state: RaceSimState): void {
     }
   }
 
-  // Snapshot the old order so we can detect overtakes after re-sorting.
+  // Order tracking (only relevant when opponents exist; preserved for
+  // future multi-uma mode and for the diagnostics fields).
   for (const u of state.umas) u.prevOrder = u.order;
-
-  // Recompute order — 1 = furthest along, sorted by position desc.
-  // Finished umas keep their order based on finish time.
   const sortable = [...state.umas].sort((a, b) => {
     if (a.finished && b.finished) return (a.finishTime ?? 0) - (b.finishTime ?? 0);
     if (a.finished) return -1;
@@ -141,9 +210,6 @@ export function tickPhysics(state: RaceSimState): void {
     return b.position - a.position;
   });
   for (let i = 0; i < sortable.length; i++) sortable[i].order = i + 1;
-
-  // Overtake bookkeeping: anyone whose order went DOWN (e.g. 5 -> 3) just
-  // passed someone. Set is_overtake flag for a short window and bump count.
   for (const u of state.umas) {
     if (u.finished) continue;
     if (u.order < u.prevOrder) {
