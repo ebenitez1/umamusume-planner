@@ -11,6 +11,7 @@ import { skillById } from "../../data";
 import { initialHp, postStartMinSpeed, tickPhysics } from "./physics";
 import { computeBaseSpeed } from "./types";
 import { tick } from "./skills";
+import { generateField } from "./opponents";
 import {
   DEFAULT_FINAL_CORNER_FRAC,
   DEFAULT_FINAL_STRAIGHT_FRAC,
@@ -20,6 +21,9 @@ import {
   type RaceSimState,
   type UmaSimState,
 } from "./types";
+
+// Real Champion Meeting field size in-game = 9 total (you + 8 opponents).
+const DEFAULT_OPPONENT_COUNT = 8;
 
 export interface SimulationResult {
   /** finish times in seconds keyed by uma id */
@@ -93,13 +97,12 @@ export function runSimulation(
   uma: Uma,
   build: UmaBuild,
   meeting: ChampionMeeting,
-  _opts: { opponentCount?: number } = {}
+  opts: { opponentCount?: number } = {}
 ): SimulationResult {
-  // v2: single-uma mode (no opponents). Order conditions evaluate as
-  // "always true" for any order check, matching uma-skill-tools' approach.
-  // Useful for build comparison; head-to-head finish-rank is deferred.
+  const opponentCount = opts.opponentCount ?? DEFAULT_OPPONENT_COUNT;
   const playerUma = buildPlayerUma(uma, build, meeting);
-  const umas = [playerUma];
+  const opponents = opponentCount > 0 ? generateField(meeting, opponentCount) : [];
+  const umas = [playerUma, ...opponents];
 
   const state: RaceSimState = {
     tick: 0,

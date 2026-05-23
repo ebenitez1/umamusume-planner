@@ -28,7 +28,7 @@ export function SimulationPanel({ uma, build, meeting }: Props) {
       <div className="sim-header">
         <h3>Race Simulator</h3>
         <button className="sim-run" onClick={run} disabled={running}>
-          {running ? "Running…" : "Run Simulation (single-uma time trial)"}
+          {running ? "Running…" : "Run Simulation (vs 8 opponents — real CM field of 9)"}
         </button>
       </div>
       {result && <SimResultView result={result} meeting={meeting} />}
