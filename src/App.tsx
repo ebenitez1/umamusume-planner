@@ -15,7 +15,7 @@ import { Picker } from "./components/Picker";
 import { UmaSelect } from "./components/UmaSelect";
 import { UmaHeader } from "./components/UmaHeader";
 import { CardDeck } from "./components/CardDeck";
-import { CustomSkillAdder } from "./components/CustomSkillAdder";
+import { BuildSkillsList } from "./components/BuildSkillsList";
 import { SimulationPanel } from "./components/SimulationPanel";
 import { StatInputs } from "./components/StatInputs";
 import { RatingDisplay } from "./components/RatingDisplay";
@@ -51,7 +51,6 @@ export default function App() {
   const [cardIds, setCardIds] = useState<string[]>([]);
   const [stats, setStats] = useState<Stats>(DEFAULT_STATS);
   const [skillIds, setSkillIds] = useState<string[]>([]);
-  const [customSkillIds, setCustomSkillIds] = useState<string[]>([]);
   const [style, setStyle] = useState<Style>("early");
 
   const uma = umaById.get(umaId)!;
@@ -81,8 +80,12 @@ export default function App() {
   };
 
   const rating = rateBuild(build, uma, meeting, scenario);
+  // Pass skillIds as customSkillIds too — any skill the user has manually
+  // added via BuildSkillsList appears in the recommendations grouping with
+  // the right Core/Strong/Avoid bucket so they can compare against
+  // deck-taught alternatives.
   const skillRecs = recommendSkills({
-    uma, meeting, scenario, cards, style, customSkillIds,
+    uma, meeting, scenario, cards, style, customSkillIds: skillIds,
   });
   const umaRecs = recommendUmas(meetingId, scenarioId, 5);
   const styleRecs = recommendStyle(meetingId);
@@ -144,7 +147,7 @@ export default function App() {
           <p className="scenario-notes">{scenario.notes}</p>
 
           <CardDeck selected={cardIds} onChange={setCardIds} />
-          <CustomSkillAdder added={customSkillIds} onChange={setCustomSkillIds} />
+          <BuildSkillsList skillIds={skillIds} onChange={setSkillIds} />
           <StatInputs stats={stats} onChange={setStats} />
         </section>
 
