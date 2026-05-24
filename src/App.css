@@ -231,22 +231,46 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
 .build-chip {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: var(--panel-2);
+  gap: 10px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
   border: 1px solid var(--border);
-  border-left: 3px solid var(--border);
-  border-radius: 8px;
-  padding: 6px 4px 6px 10px;
-  min-height: 36px;
+  border-radius: 999px;
+  padding: 5px 6px 5px 6px;
+  min-height: 44px;
   font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  transition: transform 80ms ease;
 }
-.build-chip-rare   { border-left-color: var(--rare);   }
-.build-chip-unique { border-left-color: var(--unique); background: linear-gradient(90deg, rgba(255, 88, 182, 0.10), var(--panel-2) 70%); }
+.build-chip:hover { transform: translateY(-1px); }
+
+/* Variant accents — gradients matching umalator's palette. */
+.build-chip-v-active {
+  background: linear-gradient(90deg, #ffb842, #ff9534);
+  color: #2a1f00;
+  border-color: rgba(255, 174, 66, 0.6);
+}
+.build-chip-v-passive {
+  background: linear-gradient(90deg, #e0e3ee, #c5cad7);
+  color: #1a1d27;
+  border-color: rgba(180, 188, 200, 0.6);
+}
+.build-chip-v-recovery {
+  background: linear-gradient(90deg, #7ad97a, #5dc25d);
+  color: #0c2410;
+  border-color: rgba(110, 230, 110, 0.6);
+}
+.build-chip-v-unique {
+  background: linear-gradient(90deg, #c87cff, #8d5dff);
+  color: #1a0530;
+  border-color: rgba(180, 130, 255, 0.7);
+}
 .build-chip-icon {
-  border-radius: 5px;
-  background: var(--panel);
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.18);
   object-fit: contain;
   flex-shrink: 0;
+  padding: 2px;
 }
 .build-chip-rarity-dot {
   width: 8px;
@@ -266,16 +290,22 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
   white-space: nowrap;
 }
 .build-chip-x {
-  background: transparent;
+  background: rgba(0, 0, 0, 0.15);
   border: 0;
-  color: var(--muted);
+  color: inherit;
+  opacity: 0.6;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
-  padding: 0 6px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
-.build-chip-x:hover { color: var(--accent); background: var(--panel); }
+.build-chip-x:hover { opacity: 1; background: rgba(0, 0, 0, 0.3); }
 
 .build-add {
   display: block;

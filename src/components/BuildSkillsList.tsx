@@ -24,10 +24,22 @@ const STYLE_SYNONYMS: Array<[RegExp, string]> = [
   [/end\s*closer('?s)?/gi,   "chaser$1"],
 ];
 
+// Lowercase + apply style synonyms + strip punctuation + collapse whitespace.
+// Token search below splits this into words and requires each token to be a
+// substring of the normalized skill name — handles plurals, apostrophes, and
+// the ◎/○/× symbols at the end of skill names.
 function normalizeForSearch(s: string): string {
   let out = s.toLowerCase();
   for (const [re, sub] of STYLE_SYNONYMS) out = out.replace(re, sub);
-  return out;
+  // Strip apostrophes and other non-word punctuation; preserve spaces.
+  out = out.replace(/['’`◎○×★☆()]/g, " ").replace(/[^\w\s]+/g, " ");
+  return out.replace(/\s+/g, " ").trim();
+}
+
+function matchesQuery(normalizedSkillName: string, query: string): boolean {
+  const tokens = normalizeForSearch(query).split(" ").filter(Boolean);
+  if (!tokens.length) return false;
+  return tokens.every((t) => normalizedSkillName.includes(t));
 }
 
 // Build Skills chip grid — shows the user's currently-selected skills as
@@ -47,9 +59,8 @@ export function BuildSkillsList({ skillIds, onChange }: Props) {
 
   const results = useMemo(() => {
     if (!query.trim()) return [];
-    const q = normalizeForSearch(query);
     return allSkills
-      .filter((s) => !ownedSet.has(s.id) && normalizeForSearch(s.name).includes(q))
+      .filter((s) => !ownedSet.has(s.id) && matchesQuery(normalizeForSearch(s.name), query))
       .slice(0, MAX_RESULTS);
   }, [query, ownedSet]);
 
@@ -70,14 +81,24 @@ export function BuildSkillsList({ skillIds, onChange }: Props) {
       <div className="build-skills-grid">
         {ownedSkills.map((s) => {
           const iconUrl = skillIconUrl(s.iconid);
+          // Visual variant — orange for active (speed/accel), green for
+          // passive/aptitude, purple for unique. Matches umalator's palette.
+          const variant =
+            s.rarity === "unique"
+              ? "unique"
+              : s.category === "passive"
+                ? "passive"
+                : s.category === "recovery" || s.category === "heal"
+                  ? "recovery"
+                  : "active";
           return (
-            <div key={s.id} className={`build-chip build-chip-${s.rarity}`}>
+            <div key={s.id} className={`build-chip build-chip-v-${variant}`}>
               {iconUrl ? (
                 <img
                   src={iconUrl}
                   alt=""
-                  width={28}
-                  height={28}
+                  width={32}
+                  height={32}
                   loading="lazy"
                   className="build-chip-icon"
                   onError={(e) => {
