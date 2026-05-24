@@ -154,6 +154,8 @@ export default function App() {
             recommendations={skillRecs}
             ownedSkillIds={skillIds}
             onToggle={toggleSkill}
+            meeting={meeting}
+            style={style}
           />
         </section>
 

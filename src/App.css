@@ -376,6 +376,58 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
   background: var(--panel);
   border-radius: 6px;
 }
+.skill-gain {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-2);
+  padding: 2px 8px;
+  background: rgba(110, 230, 135, 0.12);
+  border-radius: 6px;
+}
+.skill-group-avoid .skill-gain { color: #ff6b6b; background: rgba(255, 107, 107, 0.12); }
+
+.skill-rating-notes {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 10px;
+  margin-top: 4px;
+  list-style: none;
+  margin-left: -14px;
+}
+
+.skill-build-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, rgba(255, 141, 183, 0.08), rgba(110, 230, 135, 0.08));
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.skill-build-total-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.skill-build-total-val {
+  font-size: 18px;
+  font-weight: 800;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.skill-build-total-sub {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 2px;
+  text-align: right;
+  -webkit-text-fill-color: var(--muted);
+}
 .skill-desc { margin: 4px 0; font-size: 12px; color: var(--muted); }
 .skill-source { margin: 4px 0 0; font-size: 11px; color: var(--muted); font-style: italic; }
 .skill-reasons {
