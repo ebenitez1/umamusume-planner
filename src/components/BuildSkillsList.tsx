@@ -8,6 +8,28 @@ interface Props {
 
 const MAX_RESULTS = 20;
 
+// UmaTools labels the four running styles with JP-derived English names that
+// don't match what the Global game's UI displays. Substitute both ways at
+// search time so typing either form finds the same skill.
+//
+//   Global game text        UmaTools data
+//   Front Runner            Runner('s)
+//   Pace Chaser             Leader('s)
+//   Late Surger             Betweener('s)
+//   End Closer              Chaser('s)
+const STYLE_SYNONYMS: Array<[RegExp, string]> = [
+  [/front\s*runner('?s)?/gi, "runner$1"],
+  [/pace\s*chaser('?s)?/gi,  "leader$1"],
+  [/late\s*surger('?s)?/gi,  "betweener$1"],
+  [/end\s*closer('?s)?/gi,   "chaser$1"],
+];
+
+function normalizeForSearch(s: string): string {
+  let out = s.toLowerCase();
+  for (const [re, sub] of STYLE_SYNONYMS) out = out.replace(re, sub);
+  return out;
+}
+
 // Build Skills chip grid — shows the user's currently-selected skills as
 // rounded chips (icon + name + ×) in a 2-column layout. "+ Add Skill" at
 // the bottom toggles an inline search panel that filters the full 1,796-
@@ -25,9 +47,9 @@ export function BuildSkillsList({ skillIds, onChange }: Props) {
 
   const results = useMemo(() => {
     if (!query.trim()) return [];
-    const q = query.toLowerCase();
+    const q = normalizeForSearch(query);
     return allSkills
-      .filter((s) => !ownedSet.has(s.id) && s.name.toLowerCase().includes(q))
+      .filter((s) => !ownedSet.has(s.id) && normalizeForSearch(s.name).includes(q))
       .slice(0, MAX_RESULTS);
   }, [query, ownedSet]);
 
