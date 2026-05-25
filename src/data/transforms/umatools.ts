@@ -131,19 +131,24 @@ export interface RawRace {
 // Decoding tables
 // -----------------------------------------------------------------------------
 
-// UmaTools rarity → our SkillRarity. Verified by sampling skills_all.json:
-//   1 (564) — base/normal skills (white)
-//   2 (326) — rare (gold)
+// UmaTools rarity → our SkillRarity. Verified by sampling skills_all.json
+// AND cross-checking against in-game tile colors:
+//   1 (564) — normal (white/gray tile in-game)
+//   2 (326) — rare (gold/yellow tile in-game)
 //   3 ( 22) — rare base, upgrades to 4
-//   4 ( 22) — rare upgraded
-//   5 (235) — inherited (purple) — parent_skills present
-//   6 (627) — unique (pink) — IDs like 1001XXXXX, character-specific
+//   4 ( 22) — UNIQUE-tier (pink tile in-game; e.g. Resplendent Red Ace)
+//   5 (235) — inherited (purple/pink tile in-game; e.g. Shooting for Victory!)
+//   6 (627) — character unique (pink tile, character-specific)
+//
+// Earlier mapping treated 4 and 5 as "rare" which underscored builds with
+// inherited or upgraded uniques. Verified against a real Daiwa Scarlet
+// build that reads ~13,500 skill score in-game.
 const SKILL_RARITY_MAP: Record<number, SkillRarity> = {
   1: "normal",
   2: "rare",
   3: "rare",
-  4: "rare",
-  5: "rare",     // inherited — we treat as rare for the heuristic
+  4: "unique",
+  5: "unique",
   6: "unique",
 };
 

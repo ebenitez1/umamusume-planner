@@ -92,12 +92,13 @@ export function raceAptitudeScore(
 // Skill score — per-rarity base value, summed across learned skills.
 // ---------------------------------------------------------------------------
 
-// Base game-score contribution per skill, by rarity. Calibrated so a
-// representative late-game build of ~17 skills lands near in-game numbers.
+// Base game-score contribution per skill, by rarity. Calibrated against a
+// real Daiwa Scarlet Peak Blue build (in-game 20,289 UG1, with 17 skills:
+// 11 normal + 4 rare + 2 unique → ~13,500 skill score target).
 const SKILL_SCORE_BASE: Record<Skill["rarity"], number> = {
-  normal: 400,
-  rare: 800,
-  unique: 1500,
+  normal: 500,
+  rare: 1000,
+  unique: 2000,
 };
 
 export function skillScore(skillIds: string[]): number {

@@ -81,16 +81,15 @@ export function BuildSkillsList({ skillIds, onChange }: Props) {
       <div className="build-skills-grid">
         {ownedSkills.map((s) => {
           const iconUrl = skillIconUrl(s.iconid);
-          // Visual variant — orange for active (speed/accel), green for
-          // passive/aptitude, purple for unique. Matches umalator's palette.
+          // Color chips by RARITY tier (matches in-game tile color):
+          //   unique → pink, rare → gold/yellow, normal → silver/gray.
+          // Recovery skills are visually distinct via their icon.
           const variant =
             s.rarity === "unique"
               ? "unique"
-              : s.category === "passive"
-                ? "passive"
-                : s.category === "recovery" || s.category === "heal"
-                  ? "recovery"
-                  : "active";
+              : s.rarity === "rare"
+                ? "active"
+                : "passive";
           return (
             <div key={s.id} className={`build-chip build-chip-v-${variant}`}>
               {iconUrl ? (
