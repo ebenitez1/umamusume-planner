@@ -244,20 +244,22 @@ function tagsFor(typeCodes: string[]): {
   const distances = new Set<Distance>();
   const surfaces = new Set<Surface>();
   const phases = new Set<"opening" | "middle" | "final" | "spurt">();
+  const terrain = new Set<"corner" | "straight" | "slope">();
   let isDebuff = false;
-  let isPositional = false;
   for (const c of codes) {
     if (STYLE_TAG[c]) styles.add(STYLE_TAG[c]);
     if (DISTANCE_TAG[c]) distances.add(DISTANCE_TAG[c]);
     if (SURFACE_TAG[c]) surfaces.add(SURFACE_TAG[c]);
     if (PHASE_TAG[c]) phases.add(PHASE_TAG[c]);
     if (c === "dbf") isDebuff = true;
-    if (c === "cor" || c === "str" || c === "slo") isPositional = true;
+    if (c === "cor") terrain.add("corner");
+    if (c === "str") terrain.add("straight");
+    if (c === "slo") terrain.add("slope");
   }
   let category: SkillCategory = "passive";
   if (isDebuff) category = "debuff";
   else if (phases.has("spurt") || phases.has("final")) category = "speed";
-  else if (isPositional) category = "positional";
+  else if (terrain.size > 0) category = "positional";
   else if (codes.includes("nac")) category = "passive";
   return {
     category,
@@ -266,6 +268,7 @@ function tagsFor(typeCodes: string[]): {
       distances: [...distances],
       surfaces: [...surfaces],
       phase: [...phases],
+      terrain: [...terrain],
     },
   };
 }

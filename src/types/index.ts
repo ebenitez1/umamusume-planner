@@ -49,6 +49,7 @@ export interface Skill {
     distances?: Distance[];  // distances that benefit
     surfaces?: Surface[];
     phase?: ("opening" | "middle" | "final" | "spurt")[];
+    terrain?: ("corner" | "straight" | "slope")[];  // course-feature gating
   };
 }
 

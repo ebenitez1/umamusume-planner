@@ -296,6 +296,21 @@ export function tickSkills(state: RaceSimState): void {
       if (skill.tags?.phase?.length) {
         if (!skill.tags.phase.includes(currentPhaseName)) continue;
       }
+
+      // Terrain gate (cor/str/slo). If the skill is tagged for corners,
+      // it only checks conditions when the uma is actually in a corner;
+      // same for straights and slopes.
+      if (skill.tags?.terrain?.length) {
+        const t = skill.tags.terrain;
+        const inCorner = ctx.corner !== 0;
+        const inSlope = (ctx.slope ?? 0) !== 0;
+        const isOnStraight = !inCorner;
+        const ok =
+          (t.includes("corner") && inCorner) ||
+          (t.includes("straight") && isOnStraight) ||
+          (t.includes("slope") && inSlope);
+        if (!ok) continue;
+      }
       // For player only: evaluate condition every tick so we can report
       // "skill could have fired N times but was on cooldown" diagnostics.
       // Opponents skip the diagnostic to keep the sim fast.
