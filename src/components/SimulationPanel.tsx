@@ -60,12 +60,7 @@ function SimResultView({ result, meeting }: { result: SimulationResult; meeting:
 
       <details open className="sim-detail">
         <summary>Track + skill activations</summary>
-        <RaceTrack
-          meeting={meeting}
-          activations={result.playerActivations}
-          finalCornerStart={result.course.finalCornerStart}
-          finalStraightStart={result.course.finalStraightStart}
-        />
+        <RaceTrack meeting={meeting} activations={result.playerActivations} />
       </details>
 
       <details open className="sim-detail">

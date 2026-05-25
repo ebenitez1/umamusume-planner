@@ -5,8 +5,6 @@ import { venueIconUrl } from "../data";
 interface Props {
   meeting: ChampionMeeting;
   activations: ActivationLog[];
-  finalCornerStart: number;
-  finalStraightStart: number;
 }
 
 // Phase boundaries (matches PHASE_BOUNDS in sim/types.ts)
