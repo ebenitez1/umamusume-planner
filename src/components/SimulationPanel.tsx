@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { ChampionMeeting, Uma, UmaBuild } from "../types";
-import { runSimulation, type SimulationResult } from "../lib/sim/runner";
+import { runSimulation, runManySimulations, type AggregatedSimResult, type SimulationResult } from "../lib/sim/runner";
 import { RaceTrack } from "./RaceTrack";
 
 interface Props {
@@ -11,15 +11,25 @@ interface Props {
 
 export function SimulationPanel({ uma, build, meeting }: Props) {
   const [result, setResult] = useState<SimulationResult | null>(null);
+  const [agg, setAgg] = useState<AggregatedSimResult | null>(null);
   const [running, setRunning] = useState(false);
 
   const run = () => {
     setRunning(true);
-    // Defer with rAF so the button has a chance to render its loading state
-    // before we block the main thread with the sim.
     requestAnimationFrame(() => {
       const r = runSimulation(uma, build, meeting);
       setResult(r);
+      setAgg(null);
+      setRunning(false);
+    });
+  };
+
+  const runMany = (n: number) => {
+    setRunning(true);
+    requestAnimationFrame(() => {
+      const a = runManySimulations(uma, build, meeting, { runs: n });
+      setAgg(a);
+      setResult(a.sampleRun);   // also show the last run's chart/track
       setRunning(false);
     });
   };
@@ -28,13 +38,66 @@ export function SimulationPanel({ uma, build, meeting }: Props) {
     <section className="sim-panel">
       <div className="sim-header">
         <h3>Race Simulator</h3>
-        <button className="sim-run" onClick={run} disabled={running}>
-          {running ? "Running…" : "Run Simulation (vs 8 opponents — real CM field of 9)"}
-        </button>
+        <div className="sim-button-group">
+          <button className="sim-run" onClick={run} disabled={running}>
+            {running ? "Running…" : "Run 1 race"}
+          </button>
+          <button className="sim-run sim-run-secondary" onClick={() => runMany(20)} disabled={running}>
+            {running ? "Running…" : "Run 20 races (avg)"}
+          </button>
+        </div>
       </div>
+      <p className="sim-variance-note">
+        Activations vary 4–12 per single run due to game randomness
+        (phase_random rolls 1-in-6 per phase, Wit roll per tick, fresh opponents
+        each race). Multi-run averages smooth this out.
+      </p>
+      {agg && <SimAggregateView agg={agg} />}
       {result && <SimResultView result={result} meeting={meeting} />}
-      {!result && <p className="empty">No simulation yet. Click the button above to run one.</p>}
+      {!result && !agg && <p className="empty">No simulation yet. Click a button above.</p>}
     </section>
+  );
+}
+
+function SimAggregateView({ agg }: { agg: AggregatedSimResult }) {
+  return (
+    <details open className="sim-detail">
+      <summary>Aggregated over {agg.runs} runs</summary>
+      <div className="sim-agg-summary">
+        <div><span>Mean finish</span><strong>{agg.meanFinishTimeS.toFixed(2)}s</strong></div>
+        <div><span>Median finish</span><strong>{agg.medianFinishTimeS.toFixed(2)}s</strong></div>
+        <div><span>Mean rank</span><strong>{agg.meanRank.toFixed(2)}</strong></div>
+        <div><span>Win rate</span><strong>{(agg.winRate * 100).toFixed(0)}%</strong></div>
+        <div><span>Top-3 rate</span><strong>{(agg.top3Rate * 100).toFixed(0)}%</strong></div>
+        <div><span>HP-out rate</span><strong>{(agg.hpOutRate * 100).toFixed(0)}%</strong></div>
+      </div>
+      <h4 className="sim-agg-h4">Per-skill activation rate</h4>
+      <ul className="sim-diagnostics">
+        {agg.skillRates.map((s) => {
+          const pct = (s.firedInRuns / agg.runs) * 100;
+          const status = s.firedInRuns >= agg.runs * 0.7
+            ? "fired"
+            : s.firedInRuns >= agg.runs * 0.2 ? "ready" : "never";
+          return (
+            <li key={s.skillId} className={`sim-diag-${status}`}>
+              <span className="sim-diag-status">
+                {status === "fired" ? "✓" : status === "ready" ? "◐" : "·"}
+              </span>
+              <strong>{s.skillName}</strong>
+              <span className="sim-diag-stats">
+                {s.firedInRuns}/{agg.runs} runs · {pct.toFixed(0)}%
+                {s.avgFiredTimeS !== undefined && ` · avg @ ${s.avgFiredTimeS.toFixed(1)}s`}
+              </span>
+              {s.condition && (
+                <span className="sim-diag-cond" title="Activation condition">
+                  {s.condition}
+                </span>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </details>
   );
 }
 

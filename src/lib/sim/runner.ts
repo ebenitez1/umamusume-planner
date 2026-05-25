@@ -214,3 +214,92 @@ export function runSimulation(
     },
   };
 }
+
+// ---------------------------------------------------------------------------
+// Multi-run aggregation
+// ---------------------------------------------------------------------------
+
+export interface AggregatedSimResult {
+  runs: number;
+  meanFinishTimeS: number;
+  medianFinishTimeS: number;
+  meanRank: number;
+  winRate: number;       // fraction of runs finished 1st
+  top3Rate: number;
+  hpOutRate: number;
+  /** per-skill activation rate across runs */
+  skillRates: Array<{
+    skillId: string;
+    skillName: string;
+    condition?: string;
+    firedInRuns: number;     // how many of the N runs the skill fired at least once
+    avgActivationsPerRun: number;
+    avgFiredTimeS?: number;  // average time it fired (over runs where it did)
+  }>;
+  /** the single most-recent run, kept for the velocity chart + track viz */
+  sampleRun: SimulationResult;
+}
+
+export function runManySimulations(
+  uma: Uma,
+  build: UmaBuild,
+  meeting: ChampionMeeting,
+  opts: { runs?: number; opponentCount?: number } = {}
+): AggregatedSimResult {
+  const N = Math.max(1, opts.runs ?? 20);
+  const results: SimulationResult[] = [];
+  for (let i = 0; i < N; i++) {
+    results.push(runSimulation(uma, build, meeting, { opponentCount: opts.opponentCount }));
+  }
+  const playerTimes = results.map((r) => r.finishOrder.find((u) => u.isPlayer)!.timeS);
+  const playerRanks = results.map((r) => r.finishOrder.findIndex((u) => u.isPlayer) + 1);
+  const sorted = [...playerTimes].sort((a, b) => a - b);
+  const median = sorted[Math.floor(sorted.length / 2)];
+  const sum = (xs: number[]) => xs.reduce((a, b) => a + b, 0);
+
+  // Aggregate skill activations.
+  const allSkillIds = new Set<string>();
+  for (const r of results) for (const d of r.playerSkillDiagnostics) allSkillIds.add(d.skillId);
+  const skillRates = [...allSkillIds].map((id) => {
+    let firedInRuns = 0;
+    let totalActivations = 0;
+    let timeSum = 0;
+    let timeCount = 0;
+    let skillName = "";
+    let condition: string | undefined;
+    for (const r of results) {
+      const d = r.playerSkillDiagnostics.find((x) => x.skillId === id);
+      if (!d) continue;
+      skillName = d.skillName;
+      condition = d.condition;
+      if (d.activations > 0) {
+        firedInRuns++;
+        totalActivations += d.activations;
+        if (d.firstTrueAtS !== undefined) {
+          timeSum += d.firstTrueAtS;
+          timeCount++;
+        }
+      }
+    }
+    return {
+      skillId: id,
+      skillName,
+      condition,
+      firedInRuns,
+      avgActivationsPerRun: totalActivations / N,
+      avgFiredTimeS: timeCount > 0 ? timeSum / timeCount : undefined,
+    };
+  }).sort((a, b) => b.firedInRuns - a.firedInRuns);
+
+  return {
+    runs: N,
+    meanFinishTimeS: sum(playerTimes) / N,
+    medianFinishTimeS: median,
+    meanRank: sum(playerRanks) / N,
+    winRate: playerRanks.filter((r) => r === 1).length / N,
+    top3Rate: playerRanks.filter((r) => r <= 3).length / N,
+    hpOutRate: results.filter((r) => r.flags.hpOutBeforeSpurt).length / N,
+    skillRates,
+    sampleRun: results[results.length - 1],
+  };
+}

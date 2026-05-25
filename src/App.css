@@ -986,6 +986,47 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
   cursor: pointer;
 }
 .sim-run:disabled { opacity: 0.6; cursor: progress; }
+.sim-run-secondary {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.sim-button-group { display: flex; gap: 8px; }
+
+.sim-variance-note {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+  margin: 6px 0 12px;
+  padding: 6px 10px;
+  background: var(--panel-2);
+  border-radius: 6px;
+  border-left: 2px solid var(--border);
+}
+
+.sim-agg-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin: 8px 0;
+}
+.sim-agg-summary > div {
+  background: var(--panel-2);
+  border-radius: 6px;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.sim-agg-summary span { color: var(--muted); }
+.sim-agg-summary strong { color: var(--text); font-size: 14px; }
+.sim-agg-h4 {
+  margin: 14px 0 4px;
+  font-size: 13px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
 
 .sim-summary {
   display: flex;
