@@ -263,6 +263,16 @@ function applyEffect(uma: UmaSimState, skill: Skill, state: RaceSimState): void 
   });
 }
 
+// Per-activation Wit-roll probability — formula from KuromiAK's mechanics doc
+// as implemented in kachi-dev/uma-tools/uma-skill-tools/RaceSolver.ts line 967:
+//   P(activate) = max(100 - 9000/wit, 20) / 100
+// Floor at 20% even with very low Wit. At wit=400 P≈78%, wit=800 P≈89%,
+// wit=1200 P≈93%. Passives (no trigger) skip the roll — they always apply.
+function witActivationProb(wit: number): number {
+  if (wit <= 0) return 0.20;
+  return Math.max(100 - 9000 / wit, 20) / 100;
+}
+
 export function tickSkills(state: RaceSimState): void {
   for (const uma of state.umas) {
     if (uma.finished) continue;
@@ -294,7 +304,7 @@ export function tickSkills(state: RaceSimState): void {
       // as an infinite lock — see applyEffect).
       if (uma.cooldowns.has(skill.id)) continue;
 
-      // Passive skills (no trigger) fire once at race start.
+      // Passive skills (no trigger) fire once at race start. No Wit roll.
       if (!trigger) {
         if (state.tick > 1) continue;
         applyEffect(uma, skill, state);
@@ -302,10 +312,16 @@ export function tickSkills(state: RaceSimState): void {
         continue;
       }
 
-      if (conditionTrue) {
-        applyEffect(uma, skill, state);
-        if (uma.isPlayer) uma.skillDiagnostics.get(skill.id)!.activations++;
-      }
+      if (!conditionTrue) continue;
+
+      // Wit roll: even with conditions met, the skill has a per-tick
+      // probability of actually activating, scaling with Wit. If it
+      // fails, the skill stays eligible and rolls again next tick (so
+      // long as conditions remain true).
+      if (Math.random() > witActivationProb(uma.stats.wit)) continue;
+
+      applyEffect(uma, skill, state);
+      if (uma.isPlayer) uma.skillDiagnostics.get(skill.id)!.activations++;
     }
   }
 }
