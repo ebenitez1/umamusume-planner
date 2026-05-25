@@ -1,6 +1,6 @@
-import { useMemo } from "react";
-import { cards } from "../data";
-import type { CardRarity, CardType, SupportCard } from "../types";
+import { useState } from "react";
+import { cardById, cards as allCards } from "../data";
+import { CardPickerModal, CardThumb } from "./CardPickerModal";
 
 interface Props {
   selected: string[];
@@ -9,87 +9,73 @@ interface Props {
 
 const SLOT_COUNT = 6;
 
-const TYPE_LABELS: Record<CardType, string> = {
-  speed: "Speed",
-  stamina: "Stamina",
-  power: "Power",
-  guts: "Guts",
-  wit: "Wit",
-  friend: "Friend",
-};
-const TYPE_ORDER: CardType[] = ["speed", "stamina", "power", "guts", "wit", "friend"];
-const RARITY_ORDER: CardRarity[] = ["SSR", "SR", "R"];
-
-function buildGroupedOptions() {
-  const buckets = new Map<string, SupportCard[]>();
-  for (const c of cards) {
-    const key = `${c.type}__${c.rarity}`;
-    (buckets.get(key) ?? buckets.set(key, []).get(key)!).push(c);
-  }
-  return TYPE_ORDER.flatMap((t) =>
-    RARITY_ORDER.map((r) => {
-      const list = buckets.get(`${t}__${r}`) ?? [];
-      if (!list.length) return null;
-      const withGameplay = list.filter((c) => c.hasGameplay);
-      const catalog = list.filter((c) => !c.hasGameplay);
-      return {
-        label: `${TYPE_LABELS[t]} ${r} (${list.length})`,
-        gameplay: withGameplay,
-        catalog,
-      };
-    }).filter(Boolean) as Array<{
-      label: string;
-      gameplay: SupportCard[];
-      catalog: SupportCard[];
-    }>
-  );
-}
-
+// Visual deck: 6 slots each showing a card thumbnail when filled, "+" when
+// empty. Clicking either opens the picker modal pre-filtered to that slot.
 export function CardDeck({ selected, onChange }: Props) {
-  const groups = useMemo(buildGroupedOptions, []);
+  const [pickingSlot, setPickingSlot] = useState<number | null>(null);
 
+  const slots = Array.from({ length: SLOT_COUNT }, (_, i) => selected[i] ?? "");
   const setSlot = (idx: number, id: string) => {
     const next = [...selected];
     while (next.length < SLOT_COUNT) next.push("");
     next[idx] = id;
     onChange(next.filter(Boolean));
   };
+  const clearSlot = (idx: number) => {
+    const next = [...selected];
+    next[idx] = "";
+    onChange(next.filter(Boolean));
+  };
 
-  const slots = Array.from({ length: SLOT_COUNT }, (_, i) => selected[i] ?? "");
-  const totalCards = cards.length;
-  const playableCards = cards.filter((c) => c.hasGameplay).length;
+  const playableCards = allCards.filter((c) => c.hasGameplay).length;
 
   return (
     <div className="card-deck">
       <h3>
-        Support Card Deck (up to 6) — {playableCards} of {totalCards} cards have curated skills
+        Support Cards — {playableCards} of {allCards.length} cards have curated skills
       </h3>
-      <div className="slot-grid">
-        {slots.map((id, idx) => (
-          <select
-            key={idx}
-            value={id}
-            onChange={(e) => setSlot(idx, e.target.value)}
-            className="card-slot"
-          >
-            <option value="">— empty slot —</option>
-            {groups.map((g) => (
-              <optgroup key={g.label} label={g.label}>
-                {g.gameplay.map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.name}
-                  </option>
-                ))}
-                {g.catalog.map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {c.name} (no skills)
-                  </option>
-                ))}
-              </optgroup>
-            ))}
-          </select>
-        ))}
+      <div className="card-deck-grid">
+        {slots.map((id, idx) => {
+          const card = cardById.get(id);
+          return (
+            <div key={idx} className="card-deck-slot">
+              {card ? (
+                <>
+                  <CardThumb card={card} onClick={() => setPickingSlot(idx)} size="small" />
+                  <button
+                    type="button"
+                    className="card-deck-slot-clear"
+                    onClick={() => clearSlot(idx)}
+                    aria-label="Remove card"
+                    title="Remove"
+                  >
+                    ×
+                  </button>
+                </>
+              ) : (
+                <button
+                  type="button"
+                  className="card-deck-empty"
+                  onClick={() => setPickingSlot(idx)}
+                  aria-label="Add a card to this slot"
+                >
+                  <span className="card-deck-empty-plus">+</span>
+                  <span className="card-deck-empty-label">Add Card</span>
+                </button>
+              )}
+            </div>
+          );
+        })}
       </div>
+
+      <CardPickerModal
+        open={pickingSlot !== null}
+        onClose={() => setPickingSlot(null)}
+        onPick={(id) => {
+          if (pickingSlot !== null) setSlot(pickingSlot, id);
+        }}
+        excludeIds={selected.filter((_, i) => i !== pickingSlot)}
+      />
     </div>
   );
 }

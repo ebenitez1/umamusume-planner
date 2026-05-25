@@ -139,6 +139,217 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
   gap: 8px;
 }
 
+/* Visual card deck: 6 slots, each either a thumbnail or "+" placeholder. */
+.card-deck-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+.card-deck-slot {
+  position: relative;
+  aspect-ratio: 3 / 4;
+}
+.card-deck-slot-clear {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border: 0;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+}
+.card-deck-slot-clear:hover { background: var(--accent); }
+
+.card-deck-empty {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: var(--panel-2);
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+}
+.card-deck-empty:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.card-deck-empty-plus { font-size: 24px; font-weight: 700; line-height: 1; }
+.card-deck-empty-label { font-size: 10px; }
+
+/* Generic card thumbnail (used in deck slots + picker grid). */
+.card-thumb {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+}
+.card-thumb img:not(.card-thumb-type) {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+.card-thumb-fallback {
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  text-align: center;
+  font-size: 11px;
+  color: var(--muted);
+}
+.card-thumb-rarity {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  z-index: 1;
+}
+.card-thumb-rarity-SSR { background: linear-gradient(90deg, #ff8c1a, #ffbe2a); color: #2a1500; }
+.card-thumb-rarity-SR  { background: linear-gradient(90deg, #b07bff, #d49aff); color: #1a0a30; }
+.card-thumb-rarity-R   { background: linear-gradient(90deg, #4ac3ff, #79d7ff); color: #001833; }
+.card-thumb-type {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 2px;
+  z-index: 1;
+}
+.card-thumb-name {
+  font-size: 10px;
+  color: var(--text);
+  padding: 4px 6px;
+  background: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+  border-top: 1px solid var(--border);
+}
+.card-thumb-small .card-thumb-name { display: none; }
+
+/* Picker modal */
+.card-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+.card-modal {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 980px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.card-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.card-modal-header h3 { margin: 0; }
+.card-modal-close {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  font-size: 24px;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.card-modal-close:hover { background: var(--panel-2); color: var(--accent); }
+
+.card-modal-filters {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.card-modal-search {
+  background: var(--panel-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 13px;
+  width: 100%;
+}
+.card-modal-chiprow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.filter-chip {
+  background: var(--panel-2);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.filter-chip:hover { color: var(--text); }
+.filter-chip-active {
+  background: var(--accent);
+  color: #0b0b16;
+  border-color: var(--accent);
+}
+
+.card-modal-grid {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+}
+.card-modal-grid .card-thumb:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  transition: transform 80ms ease;
+}
+
 .stat-grid { display: flex; flex-direction: column; gap: 8px; }
 .stat-row {
   display: grid;

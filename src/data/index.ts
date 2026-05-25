@@ -187,6 +187,12 @@ export function skillIconUrl(iconid: number | undefined): string | undefined {
   return `https://gametora.com/images/umamusume/skill_icons/utx_ico_skill_${iconid}.png`;
 }
 
+// Full-size support card art from GameTora's CDN, keyed by support id.
+export function supportCardImageUrl(apiId: number | undefined): string | undefined {
+  if (!apiId) return undefined;
+  return `https://gametora.com/images/umamusume/supports/tex_support_card_${apiId}.png`;
+}
+
 // ---------------------------------------------------------------------------
 // DIAGNOSTICS — handy for dev console / future "about data" UI
 // ---------------------------------------------------------------------------
