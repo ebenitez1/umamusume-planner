@@ -103,6 +103,11 @@ function SimResultView({ result, meeting }: { result: SimulationResult; meeting:
                       : "never met conditions"}
                   {d.firstTrueAtS !== undefined && d.activations === 0 && ` (first @ ${d.firstTrueAtS.toFixed(1)}s)`}
                 </span>
+                {d.condition && (
+                  <span className="sim-diag-cond" title="Condition that must be true for this skill to fire">
+                    {d.condition}
+                  </span>
+                )}
               </li>
             );
           })}

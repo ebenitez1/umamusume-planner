@@ -38,6 +38,7 @@ export interface SimulationResult {
   playerSkillDiagnostics: Array<{
     skillId: string;
     skillName: string;
+    condition?: string;
     preconditionTrueTicks: number;
     activations: number;
     firstTrueAtS?: number;
@@ -173,6 +174,7 @@ export function runSimulation(
     return {
       skillId: s.id,
       skillName: s.name,
+      condition: s.sim?.trigger,
       preconditionTrueTicks: d?.preconditionTrueTicks ?? 0,
       activations: d?.activations ?? 0,
       firstTrueAtS: d?.firstTrueAtS,
