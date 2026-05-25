@@ -174,6 +174,10 @@ export interface RaceSimState {
     finalCornerStart: number;
     finalStraightStart: number;
     baseSpeed: number;          // baked once at race start: 20 - (d-2000)/1000
+    // Real corner + slope geometry from kachi-dev course_data.json when
+    // available. Empty arrays = fall back to heuristic detection.
+    corners: Array<{ start: number; length: number }>;
+    slopes: Array<{ start: number; length: number; slope: number }>;
   };
   finished: boolean;
 }

@@ -53,15 +53,37 @@ function rollOrLookup(bucket: Record<number, number>, key: number): number {
   return bucket[key];
 }
 
-// Approximate corner position by distance fraction (0..1). Most courses
-// have 3-4 corners; we model 3 (early, mid, final). Returns 1..3 inside
-// a corner, 0 on a straight. Final corner uses the course-supplied
-// finalCornerStart / finalStraightStart for accuracy.
-function cornerAt(position: number, course: { distance: number; finalCornerStart: number; finalStraightStart: number }): number {
+// Determine which corner (1-indexed) the uma is in, or 0 on a straight.
+// Uses real course geometry when available; otherwise falls back to a
+// heuristic 3-corner model matching what RaceTrack draws.
+function cornerAt(position: number, course: RaceSimState["course"]): number {
+  if (course.corners.length > 0) {
+    for (let i = 0; i < course.corners.length; i++) {
+      const c = course.corners[i];
+      if (position >= c.start && position < c.start + c.length) return i + 1;
+    }
+    return 0;
+  }
+  // Fallback (no kachi geometry for this race).
   if (position >= course.finalCornerStart && position < course.finalStraightStart) return 3;
   const frac = position / course.distance;
   if (frac >= 0.10 && frac < 0.22) return 1;
   if (frac >= 0.38 && frac < 0.50) return 2;
+  return 0;
+}
+
+// Return slope value at the given position. Positive = uphill, negative =
+// downhill, 0 = flat. Maps the slope's `slope` field to a small integer
+// magnitude (the game's slope condition uses ±1/±2 typically).
+function slopeAt(position: number, course: RaceSimState["course"]): number {
+  for (const s of course.slopes) {
+    if (position >= s.start && position < s.start + s.length) {
+      // Slope field is in raw 1/100000 units; sign is what matters most
+      // for condition checks. Bucket to {-2, -1, 1, 2}.
+      const mag = Math.abs(s.slope) > 8000 ? 2 : 1;
+      return s.slope > 0 ? mag : -mag;
+    }
+  }
   return 0;
 }
 
@@ -72,6 +94,7 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
   const remain = state.course.distance - uma.position;
   const corner = cornerAt(uma.position, state.course);
   const onStraight = corner === 0;
+  const slope = slopeAt(uma.position, state.course);
   // Note: orderRate is intentionally unused in single-uma mode; the
   // context below forces order_rate = 1 (favorable) per FORMULAS.md.
 
@@ -141,9 +164,9 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
     // Course state.
     corner,
     on_straight: onStraight ? 1 : 0,
+    slope,
 
     // Still-deferred variables.
-    slope: 0,
     overtake_target_time: 0,
     blocked_side_continuetime: 0,
   };

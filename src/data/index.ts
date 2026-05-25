@@ -16,6 +16,7 @@ import umatoolsSkills from "./generated/umatools/skills_all.json";
 import umatoolsSupports from "./generated/umatools/support_hints.json";
 import umatoolsRaces from "./generated/umatools/races.json";
 import kachiSkillnames from "./generated/umatools/kachi_skillnames.json";
+import kachiCourses from "./generated/umatools/kachi_courses.json";
 
 import scenariosRaw from "./gameplay/scenarios.json";
 import featuredMeetingsRaw from "./gameplay/champion-meetings.json";
@@ -172,7 +173,15 @@ const featuredMeetings: ChampionMeeting[] = featuredMeetingsRaw as ChampionMeeti
 
 // All G1/G2 races from UmaTools become selectable.
 const allRaces = (umatoolsRaces as unknown as RawRace[]).filter((r) => r.grade <= 200);
-const transformedRaces = allRaces.map(transformRace);
+const courseGeometryById = kachiCourses as Record<string, {
+  distance: number;
+  corners: Array<{ start: number; length: number }>;
+  slopes: Array<{ start: number; length: number; slope: number }>;
+  straights: Array<{ start: number; end: number }>;
+}>;
+const transformedRaces = allRaces.map((r) =>
+  transformRace(r, courseGeometryById[String(r.course_id)])
+);
 
 export const championMeetings: ChampionMeeting[] = [
   // Featured / hand-curated meetings render first.

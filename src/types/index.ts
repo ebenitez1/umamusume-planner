@@ -120,6 +120,18 @@ export interface ChampionMeeting {
   metaStyles?: Style[];
   // notable course traits (final straight, slopes, corners)
   notes?: string;
+  // Full course geometry (corners + slopes), populated from kachi-dev's
+  // course_data.json when the race's course_id is in their dataset.
+  geometry?: CourseGeometry;
+}
+
+export interface CourseGeometry {
+  /** All corner regions on the course, ordered by start position. */
+  corners: Array<{ start: number; length: number }>;
+  /** Slope sections. Positive `slope` = uphill, negative = downhill. */
+  slopes: Array<{ start: number; length: number; slope: number }>;
+  /** Straight sections (between corners). */
+  straights: Array<{ start: number; end: number }>;
 }
 
 export interface UmaBuild {

@@ -173,6 +173,35 @@ async function main() {
     console.warn(`  skipped kachi skillnames: HTTP ${kachiRes.status}`);
   }
 
+  // Pull kachi-dev's full course-geometry dump (corners + slopes per course).
+  console.log("Fetching kachi-dev course geometry…");
+  const courseRes = await fetch(`${KACHI_BASE}/course_data.json`, {
+    headers: { "User-Agent": UA },
+  });
+  if (courseRes.ok) {
+    const courseText = await courseRes.text();
+    const courses = JSON.parse(courseText);
+    // Slim: keep only what the planner uses (corners, slopes, distance,
+    // raceTrackId). Drop courseSetStatus, course/turn/surface flags that
+    // duplicate what's already in races.json.
+    const slim = {};
+    for (const [courseId, c] of Object.entries(courses)) {
+      slim[courseId] = {
+        distance: c.distance,
+        corners: c.corners || [],
+        slopes: c.slopes || [],
+        straights: c.straights || [],
+      };
+    }
+    await writeFile(
+      resolve(OUT_DIR, "kachi_courses.json"),
+      JSON.stringify(slim, null, 0) + "\n"
+    );
+    console.log(`  kachi_courses.json     ${Object.keys(slim).length} courses`);
+  } else {
+    console.warn(`  skipped kachi courses: HTTP ${courseRes.status}`);
+  }
+
   // Write a tiny meta file so we can show in-app which SHA we're pinned to.
   await writeFile(
     resolve(OUT_DIR, "_meta.json"),

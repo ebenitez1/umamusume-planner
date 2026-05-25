@@ -119,9 +119,18 @@ export function runSimulation(
     course: {
       distance: meeting.distanceMeters,
       surface: meeting.surface,
-      finalCornerStart: meeting.distanceMeters * DEFAULT_FINAL_CORNER_FRAC,
-      finalStraightStart: meeting.distanceMeters * DEFAULT_FINAL_STRAIGHT_FRAC,
+      // Prefer real geometry's final corner (last entry) when available;
+      // fall back to the heuristic fraction otherwise.
+      finalCornerStart: meeting.geometry?.corners?.length
+        ? meeting.geometry.corners[meeting.geometry.corners.length - 1].start
+        : meeting.distanceMeters * DEFAULT_FINAL_CORNER_FRAC,
+      finalStraightStart: meeting.geometry?.corners?.length
+        ? meeting.geometry.corners[meeting.geometry.corners.length - 1].start +
+          meeting.geometry.corners[meeting.geometry.corners.length - 1].length
+        : meeting.distanceMeters * DEFAULT_FINAL_STRAIGHT_FRAC,
       baseSpeed: computeBaseSpeed(meeting.distanceMeters),
+      corners: meeting.geometry?.corners ?? [],
+      slopes: meeting.geometry?.slopes ?? [],
     },
     finished: false,
   };

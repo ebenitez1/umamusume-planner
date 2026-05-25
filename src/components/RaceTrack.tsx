@@ -4,19 +4,8 @@ import type { ActivationLog } from "../lib/sim/types";
 interface Props {
   meeting: ChampionMeeting;
   activations: ActivationLog[];
-  // Course shape — same fractions used by the sim.
-  finalCornerStart: number;       // meters
-  finalStraightStart: number;     // meters
-}
-
-// Heuristic corner positions (in m fractions of total distance) — matches
-// what the sim's cornerAt() uses, so visual + sim agree.
-function cornerRegions(distance: number, finalCornerStart: number, finalStraightStart: number) {
-  return [
-    { name: "Corner 1", start: distance * 0.10, end: distance * 0.22 },
-    { name: "Corner 2", start: distance * 0.38, end: distance * 0.50 },
-    { name: "Final Corner", start: finalCornerStart, end: finalStraightStart },
-  ];
+  finalCornerStart: number;
+  finalStraightStart: number;
 }
 
 // Phase boundaries (matches PHASE_BOUNDS in sim/types.ts)
@@ -27,7 +16,6 @@ const PHASES = [
   { label: "Spurt",   start: 5 / 6,    end: 1     },
 ] as const;
 
-// Tiny color palette to differentiate up to ~10 skill pin colors.
 const PIN_PALETTE = [
   "#ff58b6", "#6ee687", "#27c4ff", "#ffbe2a", "#ff6b6b",
   "#b07bff", "#5fffae", "#f6c14b", "#ff9534", "#79d7ff",
@@ -35,15 +23,21 @@ const PIN_PALETTE = [
 
 export function RaceTrack({ meeting, activations, finalCornerStart, finalStraightStart }: Props) {
   const distance = meeting.distanceMeters;
-  const W = 720, H = 86;
-  const TRACK_TOP = 22, TRACK_H = 32;
+  const W = 720, H = 130;
+  const TRACK_TOP = 32, TRACK_H = 34;
   const PAD = 8;
-
   const x = (m: number) => PAD + (W - PAD * 2) * (m / distance);
 
-  const corners = cornerRegions(distance, finalCornerStart, finalStraightStart);
+  // Prefer real course geometry. Fall back to a derived "final corner only"
+  // if the meeting wasn't matched against kachi's course_data.
+  const geom = meeting.geometry;
+  const corners = geom?.corners
+    ? geom.corners.map((c, i) => ({ name: i + 1 === geom.corners.length ? "Final Corner" : `Corner ${i + 1}`, start: c.start, end: c.start + c.length }))
+    : [{ name: "Final Corner", start: finalCornerStart, end: finalStraightStart }];
 
-  // Group activations by skillId so same-skill repeats share a pin color.
+  const slopes = geom?.slopes ?? [];
+
+  // Assign one color per unique skillId for the activation pins.
   const skillColors = new Map<string, string>();
   let colorIdx = 0;
   for (const a of activations) {
@@ -80,7 +74,7 @@ export function RaceTrack({ meeting, activations, finalCornerStart, finalStraigh
           />
           <text
             x={x(distance * (p.start + (p.end - p.start) / 2))}
-            y={TRACK_TOP - 6}
+            y={TRACK_TOP - 8}
             fontSize={9}
             fill="#9aa1b3"
             textAnchor="middle"
@@ -90,35 +84,72 @@ export function RaceTrack({ meeting, activations, finalCornerStart, finalStraigh
         </g>
       ))}
 
-      {/* Corner regions */}
-      {corners.map((c) => (
-        <g key={c.name}>
+      {/* Corner regions — all corners from real course data */}
+      {corners.map((c, i) => (
+        <g key={`corner-${i}`}>
           <rect
             x={x(c.start)}
             y={TRACK_TOP}
             width={x(c.end) - x(c.start)}
             height={TRACK_H}
-            fill="rgba(255, 141, 183, 0.12)"
-            stroke="rgba(255, 141, 183, 0.3)"
+            fill={c.name === "Final Corner" ? "rgba(255, 141, 183, 0.22)" : "rgba(255, 141, 183, 0.10)"}
+            stroke="rgba(255, 141, 183, 0.4)"
             strokeWidth={0.5}
           />
-          <title>{c.name}: {Math.round(c.start)}m – {Math.round(c.end)}m</title>
+          <text
+            x={x(c.start) + (x(c.end) - x(c.start)) / 2}
+            y={TRACK_TOP + TRACK_H / 2 + 3}
+            fontSize={8}
+            fill="rgba(255, 141, 183, 0.95)"
+            textAnchor="middle"
+            style={{ pointerEvents: "none" }}
+          >
+            {c.name === "Final Corner" ? "FC" : `C${i + 1}`}
+          </text>
+          <title>{c.name}: {Math.round(c.start)}m – {Math.round(c.end)}m ({Math.round(c.end - c.start)}m long)</title>
         </g>
       ))}
 
-      {/* Final straight band */}
+      {/* Slope sections — green for downhill, orange for uphill, below track */}
+      {slopes.map((s, i) => {
+        const isUp = s.slope > 0;
+        return (
+          <g key={`slope-${i}`}>
+            <rect
+              x={x(s.start)}
+              y={TRACK_TOP + TRACK_H + 2}
+              width={x(s.start + s.length) - x(s.start)}
+              height={6}
+              fill={isUp ? "rgba(255, 153, 51, 0.7)" : "rgba(110, 230, 135, 0.7)"}
+            />
+            <title>{isUp ? "Uphill" : "Downhill"} {Math.round(s.start)}m – {Math.round(s.start + s.length)}m</title>
+          </g>
+        );
+      })}
+      {slopes.length > 0 && (
+        <g>
+          <rect x={x(0)} y={TRACK_TOP + TRACK_H + 2} width={6} height={6} fill="rgba(255, 153, 51, 0.7)" />
+          <text x={x(0) + 10} y={TRACK_TOP + TRACK_H + 8} fontSize={8} fill="#9aa1b3">uphill</text>
+          <rect x={x(0) + 50} y={TRACK_TOP + TRACK_H + 2} width={6} height={6} fill="rgba(110, 230, 135, 0.7)" />
+          <text x={x(0) + 60} y={TRACK_TOP + TRACK_H + 8} fontSize={8} fill="#9aa1b3">downhill</text>
+        </g>
+      )}
+
+      {/* Final straight band — distinct from FC */}
       <rect
         x={x(finalStraightStart)}
         y={TRACK_TOP}
         width={x(distance) - x(finalStraightStart)}
         height={TRACK_H}
-        fill="rgba(110, 230, 135, 0.15)"
+        fill="rgba(110, 230, 135, 0.12)"
+        stroke="rgba(110, 230, 135, 0.3)"
+        strokeWidth={0.5}
       />
       <text
         x={x(finalStraightStart) + 4}
         y={TRACK_TOP + TRACK_H - 4}
         fontSize={8}
-        fill="rgba(110, 230, 135, 0.8)"
+        fill="rgba(110, 230, 135, 0.85)"
       >
         Final straight
       </text>
@@ -126,20 +157,19 @@ export function RaceTrack({ meeting, activations, finalCornerStart, finalStraigh
       {/* Finish line */}
       <line
         x1={x(distance)}
-        y1={TRACK_TOP - 2}
+        y1={TRACK_TOP - 4}
         x2={x(distance)}
-        y2={TRACK_TOP + TRACK_H + 2}
+        y2={TRACK_TOP + TRACK_H + 4}
         stroke="#fff"
         strokeWidth={2}
       />
 
-      {/* Activation pins — vertical line + dot above the track */}
+      {/* Activation pins above the track */}
       {activations.map((a, i) => {
         const px = x(a.positionM);
         const color = skillColors.get(a.skillId) ?? "#fff";
-        // Stagger pin Y to reduce overlap when multiple skills fire close together.
         const stagger = (i % 3) * 4;
-        const pinTop = TRACK_TOP - 14 - stagger;
+        const pinTop = TRACK_TOP - 18 - stagger;
         return (
           <g key={i}>
             <line x1={px} y1={pinTop + 4} x2={px} y2={TRACK_TOP} stroke={color} strokeWidth={1.5} />
@@ -154,14 +184,14 @@ export function RaceTrack({ meeting, activations, finalCornerStart, finalStraigh
         <g key={f}>
           <line
             x1={x(distance * f)}
-            y1={TRACK_TOP + TRACK_H}
+            y1={TRACK_TOP + TRACK_H + 9}
             x2={x(distance * f)}
-            y2={TRACK_TOP + TRACK_H + 3}
+            y2={TRACK_TOP + TRACK_H + 12}
             stroke="#9aa1b3"
           />
           <text
             x={x(distance * f)}
-            y={TRACK_TOP + TRACK_H + 14}
+            y={TRACK_TOP + TRACK_H + 22}
             fontSize={9}
             fill="#9aa1b3"
             textAnchor="middle"
@@ -171,10 +201,13 @@ export function RaceTrack({ meeting, activations, finalCornerStart, finalStraigh
         </g>
       ))}
 
-      {/* Legend for activations (compact, below) */}
-      {activations.length > 0 && (
+      {/* Summary line at the bottom */}
+      {(activations.length > 0 || !geom) && (
         <g transform={`translate(${PAD}, ${H - 4})`}>
-          <text fontSize={9} fill="#9aa1b3">{activations.length} activation{activations.length === 1 ? "" : "s"} — hover a pin for details</text>
+          <text fontSize={9} fill="#9aa1b3">
+            {activations.length} activation{activations.length === 1 ? "" : "s"}
+            {!geom && " · course geometry unavailable for this race"}
+          </text>
         </g>
       )}
     </svg>

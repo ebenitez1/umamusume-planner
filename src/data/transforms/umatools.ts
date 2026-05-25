@@ -480,7 +480,17 @@ export function transformSupport(raw: RawSupport): SupportCard {
 // Race transform — exposes every game race as a "ChampionMeeting candidate"
 // the user can pick to test a build against.
 // -----------------------------------------------------------------------------
-export function transformRace(raw: RawRace): ChampionMeeting {
+export interface RawCourseGeometry {
+  distance: number;
+  corners: Array<{ start: number; length: number }>;
+  slopes: Array<{ start: number; length: number; slope: number }>;
+  straights: Array<{ start: number; end: number }>;
+}
+
+export function transformRace(
+  raw: RawRace,
+  courseGeometry?: RawCourseGeometry
+): ChampionMeeting {
   const venueEn = VENUE_EN[raw.venue] ?? raw.venue;
   const surface: Surface = raw.terrain === 2 ? "dirt" : "turf";
   const distance = distanceBucket(raw.distance);
@@ -496,6 +506,13 @@ export function transformRace(raw: RawRace): ChampionMeeting {
     distance,
     distanceMeters: raw.distance,
     notes: `${grade}. Field: ${raw.entries ?? "?"}. Final corner: ${raw.fc ?? "?"}m, final straight: ${raw.fs ?? "?"}m.`,
+    geometry: courseGeometry
+      ? {
+          corners: courseGeometry.corners,
+          slopes: courseGeometry.slopes,
+          straights: courseGeometry.straights,
+        }
+      : undefined,
   };
 }
 
