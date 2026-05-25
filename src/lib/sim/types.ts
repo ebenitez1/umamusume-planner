@@ -118,6 +118,8 @@ export interface UmaSimState {
   prevOrder: number;
   overtakeTickRemaining: number;
   changeOrderCount: number;
+  /** count of this uma's skill activations bucketed by phase (0..3) */
+  phaseActivations: [number, number, number, number];
 
   // per-skill activation diagnostics
   skillDiagnostics: Map<string, SkillDiagnostic>;

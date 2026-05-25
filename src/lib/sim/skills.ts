@@ -201,6 +201,17 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
 
     change_order_onetime: uma.changeOrderCount,
 
+    // Per-phase activation counters — used by meta-skills like Groundwork
+    // (activate_count_start>=3 means "fires after 3 skills already triggered
+    // in the opening phase"). _later collapses final + spurt to match the
+    // game's tri-phase bucketing.
+    activate_count_start: uma.phaseActivations[0],
+    activate_count_middle: uma.phaseActivations[1],
+    activate_count_later: uma.phaseActivations[2] + uma.phaseActivations[3],
+    activate_count_all:
+      uma.phaseActivations[0] + uma.phaseActivations[1] +
+      uma.phaseActivations[2] + uma.phaseActivations[3],
+
     // Course state.
     corner,
     on_straight: onStraight ? 1 : 0,
@@ -218,6 +229,12 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
 // ---------------------------------------------------------------------------
 
 function applyEffect(uma: UmaSimState, skill: Skill, state: RaceSimState): void {
+  // Bump per-phase activation counter — feeds activate_count_start/middle/later
+  // in the next tick's Context, so meta-skills like Groundwork
+  // (`activate_count_start>=3`) can become eligible.
+  const ph = currentPhase(uma.position, state.course.distance);
+  uma.phaseActivations[ph]++;
+
   const sim = skill.sim;
   if (!sim || !sim.effectKind || sim.effectValue === undefined) {
     // No sim metadata — treat as a passive: log it once, then lock the

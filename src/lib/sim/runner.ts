@@ -86,6 +86,7 @@ export function buildPlayerUma(uma: Uma, build: UmaBuild, meeting: ChampionMeeti
     prevOrder: 1,
     overtakeTickRemaining: 0,
     changeOrderCount: 0,
+    phaseActivations: [0, 0, 0, 0],
     skillDiagnostics: new Map(),
     randomRolls: {
       phase: {}, phaseFirstHalf: {}, phaseLaterHalf: {}, phaseFirstQuarter: {},
