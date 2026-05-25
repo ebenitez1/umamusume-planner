@@ -28,7 +28,7 @@ function isLeftHanded(track: string): boolean {
   return LEFT_HANDED.has(track);
 }
 
-export function RaceTrack({ meeting, activations, finalCornerStart, finalStraightStart }: Props) {
+export function RaceTrack({ meeting, activations }: Props) {
   const distance = meeting.distanceMeters;
   // Five-row layout from top to bottom:
   //   row 0 (PINS)      — skill activation pins
