@@ -87,6 +87,18 @@ function slopeAt(position: number, course: RaceSimState["course"]): number {
   return 0;
 }
 
+// Tokyo, Niigata, and Chukyo are left-handed (counter-clockwise). All
+// other Japanese venues are right-handed (clockwise). rotation == 1 means
+// left-handed; 2 means right-handed.
+const LEFT_HANDED_VENUES = new Set(["Tokyo", "Niigata", "Chukyo", "Longchamp"]);
+function rotationFor(trackName: string): number {
+  return LEFT_HANDED_VENUES.has(trackName) ? 1 : 2;
+}
+
+// Bounds (0..1 fractions of total distance) of the four phases.
+// Matches PHASE_BOUNDS in types.ts.
+const PHASE_BOUNDS_RACE = [0, 1 / 6, 2 / 3, 5 / 6, 1] as const;
+
 // Compute the Context dict for one uma at the current tick.
 export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
   const phase = currentPhase(uma.position, state.course.distance);
@@ -95,6 +107,28 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
   const corner = cornerAt(uma.position, state.course);
   const onStraight = corner === 0;
   const slope = slopeAt(uma.position, state.course);
+
+  // Position within current phase (0..1) — used for phase_*half_random.
+  // Previously these were keyed on race-relative position which meant
+  // phase_firsthalf_random was always 0 during the last spurt (a bug).
+  const phaseStartFrac = PHASE_BOUNDS_RACE[phase];
+  const phaseEndFrac = PHASE_BOUNDS_RACE[phase + 1];
+  const phaseLen = phaseEndFrac - phaseStartFrac;
+  const inPhaseFrac = phaseLen > 0
+    ? ((uma.position / state.course.distance) - phaseStartFrac) / phaseLen
+    : 0;
+  const inFirstHalfOfPhase = inPhaseFrac < 0.5;
+  const inFirstQuarterOfPhase = inPhaseFrac < 0.25;
+  const inLaterHalfOfPhase = inPhaseFrac >= 0.5;
+
+  // Final corner sub-positioning — for is_finalcorner_laterhalf.
+  const inFinalCorner =
+    uma.position >= state.course.finalCornerStart &&
+    uma.position < state.course.finalStraightStart;
+  const finalCornerMid =
+    (state.course.finalCornerStart + state.course.finalStraightStart) / 2;
+  const inFinalCornerLaterHalf =
+    inFinalCorner && uma.position >= finalCornerMid;
   // Note: orderRate is intentionally unused in single-uma mode; the
   // context below forces order_rate = 1 (favorable) per FORMULAS.md.
 
@@ -125,15 +159,17 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
     track_id: 0, // not modeled — track_id matters for course-specific skills;
                  // we'd need to map ChampionMeeting → game track IDs to fill.
 
-    is_finalcorner:
-      uma.position >= state.course.finalCornerStart &&
-      uma.position < state.course.finalStraightStart
-        ? 1 : 0,
+    is_finalcorner: inFinalCorner ? 1 : 0,
+    is_finalcorner_laterhalf: inFinalCornerLaterHalf ? 1 : 0,
     is_last_straight: uma.position >= state.course.finalStraightStart ? 1 : 0,
     is_lastspurt: phase === 3 ? 1 : 0,
     // Real overtake tracking when opponents exist; favor "always overtaking"
     // in single-uma mode so position-gated skills aren't silently blocked.
     is_overtake: state.umas.length > 1 ? (uma.overtakeTickRemaining > 0 ? 1 : 0) : 1,
+
+    // Trivial helpers some skills use.
+    always: 1,
+    rotation: rotationFor(state.meeting.track),
 
     base_speed:   uma.stats.speed,
     base_stamina: uma.stats.stamina,
@@ -141,11 +177,14 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
     base_guts:    uma.stats.guts,
     base_wiz:     uma.stats.wit,
 
-    // Random rolls — fixed once per bucket per uma per race.
+    // Random rolls — fixed once per (phase × bucket) per uma per race.
+    // phase_*half_random uses position within the CURRENT PHASE (not the
+    // race), so e.g. phase_firsthalf_random fires in the first half of
+    // last spurt for skills like Homestretch Haste.
     phase_random:               rollOrLookup(uma.randomRolls.phase, phase),
-    phase_firsthalf_random:     distRate < 50 ? rollOrLookup(uma.randomRolls.phaseFirstHalf, phase) : 0,
-    phase_laterhalf_random:     distRate >= 50 ? rollOrLookup(uma.randomRolls.phaseLaterHalf, phase) : 0,
-    phase_firstquarter_random:  distRate < 25 ? rollOrLookup(uma.randomRolls.phaseFirstQuarter, phase) : 0,
+    phase_firsthalf_random:     inFirstHalfOfPhase    ? rollOrLookup(uma.randomRolls.phaseFirstHalf,    phase) : 0,
+    phase_laterhalf_random:     inLaterHalfOfPhase    ? rollOrLookup(uma.randomRolls.phaseLaterHalf,    phase) : 0,
+    phase_firstquarter_random:  inFirstQuarterOfPhase ? rollOrLookup(uma.randomRolls.phaseFirstQuarter, phase) : 0,
     all_corner_random:          uma.randomRolls.allCorner,
     straight_random:            uma.randomRolls.straight,
     corner_random:              corner > 0 ? rollOrLookup(uma.randomRolls.corner, corner) : 0,
