@@ -116,6 +116,10 @@ const SLIMMERS = {
     arr.map((r) => ({
       id: r.id,
       race_id: r.race_id,
+      // course_id is the join key into kachi-dev's course_data.json
+      // (which carries corners + slopes geometry). Without this the
+      // RaceTrack viz shows no corners and no hills.
+      course_id: r.course_id,
       name: r.name,
       name_en: r.name_en,
       venue: r.venue,
