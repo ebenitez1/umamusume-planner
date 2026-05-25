@@ -152,6 +152,7 @@ export interface ActiveEffect {
 export interface ActivationLog {
   tick: number;
   timeS: number;
+  positionM: number;            // uma's position (meters) when the skill fired
   skillId: string;
   skillName: string;
   effectKind?: ActiveEffect["kind"];

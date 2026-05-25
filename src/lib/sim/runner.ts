@@ -49,6 +49,12 @@ export interface SimulationResult {
     finishedFirst: boolean;
     finishedTop3: boolean;
   };
+  /** course geometry — for the track visualization */
+  course: {
+    distanceM: number;
+    finalCornerStart: number;
+    finalStraightStart: number;
+  };
 }
 
 export function buildPlayerUma(uma: Uma, build: UmaBuild, meeting: ChampionMeeting): UmaSimState {
@@ -191,6 +197,11 @@ export function runSimulation(
       hpOutBeforeSpurt,
       finishedFirst: playerRank === 1,
       finishedTop3: playerRank >= 1 && playerRank <= 3,
+    },
+    course: {
+      distanceM: state.course.distance,
+      finalCornerStart: state.course.finalCornerStart,
+      finalStraightStart: state.course.finalStraightStart,
     },
   };
 }

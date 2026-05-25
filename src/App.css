@@ -1021,6 +1021,8 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
   padding: 6px 0;
 }
 .sim-chart { width: 100%; height: auto; margin-top: 6px; }
+.race-track { width: 100%; height: auto; margin-top: 6px; }
+.race-track circle:hover { r: 6; cursor: pointer; }
 
 .sim-activations { list-style: none; padding: 0; margin: 6px 0 0; font-size: 12px; }
 .sim-activations li {

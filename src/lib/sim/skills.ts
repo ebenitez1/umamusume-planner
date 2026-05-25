@@ -164,6 +164,7 @@ function applyEffect(uma: UmaSimState, skill: Skill, state: RaceSimState): void 
     uma.activationLog.push({
       tick: state.tick,
       timeS: state.timeS,
+      positionM: uma.position,
       skillId: skill.id,
       skillName: skill.name,
     });
@@ -191,6 +192,7 @@ function applyEffect(uma: UmaSimState, skill: Skill, state: RaceSimState): void 
   uma.activationLog.push({
     tick: state.tick,
     timeS: state.timeS,
+    positionM: uma.position,
     skillId: skill.id,
     skillName: skill.name,
     effectKind: sim.effectKind,

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { ChampionMeeting, Uma, UmaBuild } from "../types";
 import { runSimulation, type SimulationResult } from "../lib/sim/runner";
+import { RaceTrack } from "./RaceTrack";
 
 interface Props {
   uma: Uma;
@@ -56,6 +57,16 @@ function SimResultView({ result, meeting }: { result: SimulationResult; meeting:
           <div className="sim-flag sim-flag-meh">🥈 Top 3</div>
         )}
       </div>
+
+      <details open className="sim-detail">
+        <summary>Track + skill activations</summary>
+        <RaceTrack
+          meeting={meeting}
+          activations={result.playerActivations}
+          finalCornerStart={result.course.finalCornerStart}
+          finalStraightStart={result.course.finalStraightStart}
+        />
+      </details>
 
       <details open className="sim-detail">
         <summary>Velocity over race ({result.playerVelocitySeries.length} samples)</summary>
