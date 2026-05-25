@@ -442,6 +442,7 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
   gap: 4px;
 }
 .apt-line:nth-child(1) .apt-line-cells { grid-template-columns: repeat(4, 1fr); }
+.apt-pill-wrap { position: relative; }
 .apt-pill {
   display: flex;
   align-items: center;
@@ -453,7 +454,56 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
   padding: 4px 8px;
   font-size: 12px;
   font-weight: 600;
+  color: inherit;
+  cursor: pointer;
+  width: 100%;
 }
+.apt-pill:hover { border-color: var(--accent); }
+.apt-pill-override {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.apt-popover {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 4px;
+  z-index: 20;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+.apt-popover-grade {
+  background: var(--panel-2);
+  border: 0;
+  border-radius: 5px;
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.apt-popover-grade:hover { background: var(--border); }
+.apt-popover-grade.active {
+  outline: 2px solid var(--accent);
+}
+
+.apt-reset {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.apt-reset:hover { color: var(--accent); border-color: var(--accent); }
 .apt-pill-label { color: var(--muted); }
 .apt-pill-grade {
   font-weight: 900;

@@ -8,7 +8,7 @@ import {
   umas,
   cardById,
 } from "./data";
-import type { Stats, Style, UmaBuild } from "./types";
+import type { AptitudeGrade, Aptitudes, Stats, Style, UmaBuild } from "./types";
 import { rateBuild } from "./lib/rating";
 import { recommendSkills, recommendStyle, recommendUmas } from "./lib/recommender";
 import { Picker } from "./components/Picker";
@@ -52,6 +52,9 @@ export default function App() {
   const [stats, setStats] = useState<Stats>(DEFAULT_STATS);
   const [skillIds, setSkillIds] = useState<string[]>([]);
   const [style, setStyle] = useState<Style>("early");
+  // Per-build overrides for individual aptitude grades — for Aptitude Hint
+  // scenarios. Keyed as axis::key (e.g. "surface::turf"). Reset when uma changes.
+  const [aptOverrides, setAptOverrides] = useState<Record<string, AptitudeGrade>>({});
 
   const uma = umaById.get(umaId)!;
   const meeting = meetingById.get(meetingId)!;
@@ -65,8 +68,42 @@ export default function App() {
       if (cur.length > 0) return cur;
       return [uma.uniqueSkillId, ...uma.awakeningSkillIds].filter(Boolean);
     });
+    // Aptitude overrides are uma-specific — clear when the uma changes.
+    setAptOverrides({});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [umaId]);
+
+  // Merge user overrides on top of the uma's base aptitudes.
+  const mergedAptitudes = useMemo<Aptitudes>(() => {
+    const base = uma.aptitudes;
+    return {
+      surface: {
+        turf: aptOverrides["surface::turf"] ?? base.surface.turf,
+        dirt: aptOverrides["surface::dirt"] ?? base.surface.dirt,
+      },
+      distance: {
+        sprint: aptOverrides["distance::sprint"] ?? base.distance.sprint,
+        mile: aptOverrides["distance::mile"] ?? base.distance.mile,
+        medium: aptOverrides["distance::medium"] ?? base.distance.medium,
+        long: aptOverrides["distance::long"] ?? base.distance.long,
+      },
+      style: {
+        runner: aptOverrides["style::runner"] ?? base.style.runner,
+        early: aptOverrides["style::early"] ?? base.style.early,
+        late: aptOverrides["style::late"] ?? base.style.late,
+        end: aptOverrides["style::end"] ?? base.style.end,
+      },
+    };
+  }, [uma, aptOverrides]);
+
+  const setAptitude = (
+    axis: "surface" | "distance" | "style",
+    key: string,
+    grade: AptitudeGrade
+  ) => {
+    setAptOverrides((cur) => ({ ...cur, [`${axis}::${key}`]: grade }));
+  };
+  const hasOverrides = Object.keys(aptOverrides).length > 0;
 
   const build: UmaBuild = {
     umaId,
@@ -74,7 +111,7 @@ export default function App() {
     scenarioId,
     cardIds,
     stats,
-    aptitudes: uma.aptitudes,
+    aptitudes: mergedAptitudes,
     skillIds,
     preferredStyle: style,
   };
@@ -108,7 +145,13 @@ export default function App() {
 
       <main className="app-main">
         <section className="config">
-          <UmaHeader uma={uma} />
+          <UmaHeader
+            uma={uma}
+            aptitudes={mergedAptitudes}
+            onAptitudeChange={setAptitude}
+            hasOverrides={hasOverrides}
+            onResetOverrides={() => setAptOverrides({})}
+          />
           <div className="config-row">
             <UmaSelect value={umaId} onChange={setUmaId} />
             <Picker
