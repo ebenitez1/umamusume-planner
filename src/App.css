@@ -1022,6 +1022,35 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
 }
 .sim-chart { width: 100%; height: auto; margin-top: 6px; }
 .race-track { width: 100%; height: auto; margin-top: 6px; }
+.race-track-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.race-track-venue {
+  position: relative;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px;
+}
+.race-track-venue img {
+  max-width: 100%;
+  height: auto;
+  max-height: 220px;
+  display: inline-block;
+  /* The CDN images are dark on transparent — invert wouldn't help.
+     Use a soft drop-shadow so the silhouette stands out. */
+  filter: drop-shadow(0 0 4px rgba(255, 141, 183, 0.15));
+}
+.race-track-venue-label {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
 .race-track circle:hover { r: 6; cursor: pointer; }
 
 .sim-activations { list-style: none; padding: 0; margin: 6px 0 0; font-size: 12px; }

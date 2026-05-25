@@ -505,6 +505,7 @@ export function transformRace(
     id: String(raw.id),
     name,
     track: venueEn,
+    trackId: raw.track_id,
     surface,
     distance,
     distanceMeters: raw.distance,

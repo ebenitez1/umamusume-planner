@@ -183,23 +183,26 @@ const transformedRaces = allRaces.map((r) =>
   transformRace(r, courseGeometryById[String(r.course_id)])
 );
 
-// Enrich each featured meeting with course geometry from a matching race
-// (by track + distance + surface). The hand-curated featured list was
-// authored before course geometry existed; without this lookup the
-// RaceTrack viz for CM1-14 would render with no corners or slopes.
-function findGeometryFor(m: ChampionMeeting) {
-  const match = transformedRaces.find(
+// Enrich each featured meeting with course geometry + trackId from a matching
+// race (by track + distance + surface). The hand-curated featured list was
+// authored before geometry/trackId existed; without this lookup CM1-14 would
+// render with no corners or venue icon.
+function findMatchFor(m: ChampionMeeting) {
+  return transformedRaces.find(
     (r) =>
       r.track === m.track &&
       r.distanceMeters === m.distanceMeters &&
-      r.surface === m.surface &&
-      r.geometry
+      r.surface === m.surface
   );
-  return match?.geometry;
 }
-const enrichedFeatured = featuredMeetings.map((m) =>
-  m.geometry ? m : { ...m, geometry: findGeometryFor(m) }
-);
+const enrichedFeatured = featuredMeetings.map((m) => {
+  const match = findMatchFor(m);
+  return {
+    ...m,
+    geometry: m.geometry ?? match?.geometry,
+    trackId: m.trackId ?? match?.trackId,
+  };
+});
 
 export const championMeetings: ChampionMeeting[] = [
   // Featured / hand-curated meetings render first.
@@ -222,6 +225,13 @@ export const meetingById = new Map(championMeetings.map((m) => [m.id, m]));
 export function skillIconUrl(iconid: number | undefined): string | undefined {
   if (!iconid) return undefined;
   return `https://gametora.com/images/umamusume/skill_icons/utx_ico_skill_${iconid}.png`;
+}
+
+// Top-down venue silhouette from GameTora's media CDN. Covers all 10 JP
+// racetracks (track_id 10001-10010). Overseas tracks (Longchamp 11203) 404.
+export function venueIconUrl(trackId: number | undefined): string | undefined {
+  if (!trackId) return undefined;
+  return `https://media.gametora.com/umamusume/racetrack/icon/${trackId}.png`;
 }
 
 // Full-size support card art from GameTora's CDN, keyed by support id.

@@ -114,6 +114,7 @@ export interface ChampionMeeting {
   cmNumber?: number;
   // race shape
   track: string;             // venue name e.g. "Tokyo Racecourse"
+  trackId?: number;          // gametora venue id (1xxxx) — for the icon CDN
   surface: Surface;
   distance: Distance;
   distanceMeters: number;    // exact m

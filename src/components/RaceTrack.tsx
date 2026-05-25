@@ -1,5 +1,6 @@
 import type { ChampionMeeting } from "../types";
 import type { ActivationLog } from "../lib/sim/types";
+import { venueIconUrl } from "../data";
 
 interface Props {
   meeting: ChampionMeeting;
@@ -29,6 +30,30 @@ function isLeftHanded(track: string): boolean {
 }
 
 export function RaceTrack({ meeting, activations }: Props) {
+  const iconUrl = venueIconUrl(meeting.trackId);
+  return (
+    <div className="race-track-wrap">
+      {iconUrl && (
+        <div className="race-track-venue">
+          <img
+            src={iconUrl}
+            alt={`${meeting.track} racecourse top-down view`}
+            loading="lazy"
+            onError={(e) => {
+              (e.target as HTMLImageElement).parentElement!.style.display = "none";
+            }}
+          />
+          <div className="race-track-venue-label">
+            {meeting.track} · {meeting.distanceMeters}m {meeting.surface}
+          </div>
+        </div>
+      )}
+      <RaceTrackInner meeting={meeting} activations={activations} />
+    </div>
+  );
+}
+
+function RaceTrackInner({ meeting, activations }: Props) {
   const distance = meeting.distanceMeters;
   // Five-row layout from top to bottom:
   //   row 0 (PINS)      — skill activation pins
