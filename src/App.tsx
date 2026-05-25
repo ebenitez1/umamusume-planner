@@ -1,4 +1,5 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
+import { clearPersistedBuild, usePersistedState } from "./lib/usePersistedState";
 import {
   championMeetings,
   meetingById,
@@ -45,16 +46,38 @@ export default function App() {
     umas.find((u) => u.gameId === 100101) ??
     umas.find((u) => u.name.startsWith("Special Week")) ??
     umas[0];
-  const [umaId, setUmaId] = useState(defaultUma.id);
-  const [meetingId, setMeetingId] = useState(championMeetings[0].id);
-  const [scenarioId, setScenarioId] = useState(scenarios[0].id);
-  const [cardIds, setCardIds] = useState<string[]>([]);
-  const [stats, setStats] = useState<Stats>(DEFAULT_STATS);
-  const [skillIds, setSkillIds] = useState<string[]>([]);
-  const [style, setStyle] = useState<Style>("early");
+  // Persisted state — survives page refresh via localStorage. Each piece
+  // is validated against the current data catalog so stale references
+  // (e.g. an uma that was removed) fall back to defaults.
+  const [umaId, setUmaId] = usePersistedState(
+    "umaId", defaultUma.id, (id) => umaById.has(id)
+  );
+  const [meetingId, setMeetingId] = usePersistedState(
+    "meetingId", championMeetings[0].id, (id) => meetingById.has(id)
+  );
+  const [scenarioId, setScenarioId] = usePersistedState(
+    "scenarioId", scenarios[0].id, (id) => scenarioById.has(id)
+  );
+  const [cardIds, setCardIds] = usePersistedState<string[]>(
+    "cardIds", [], (arr) => Array.isArray(arr)
+  );
+  const [stats, setStats] = usePersistedState<Stats>(
+    "stats", DEFAULT_STATS,
+    (s) => !!s && typeof s.speed === "number"
+  );
+  const [skillIds, setSkillIds] = usePersistedState<string[]>(
+    "skillIds", [], (arr) => Array.isArray(arr)
+  );
+  const [style, setStyle] = usePersistedState<Style>(
+    "style", "early",
+    (s) => s === "runner" || s === "early" || s === "late" || s === "end"
+  );
   // Per-build overrides for individual aptitude grades — for Aptitude Hint
-  // scenarios. Keyed as axis::key (e.g. "surface::turf"). Reset when uma changes.
-  const [aptOverrides, setAptOverrides] = useState<Record<string, AptitudeGrade>>({});
+  // scenarios. Keyed as axis::key (e.g. "surface::turf").
+  const [aptOverrides, setAptOverrides] = usePersistedState<Record<string, AptitudeGrade>>(
+    "aptOverrides", {},
+    (o) => o !== null && typeof o === "object" && !Array.isArray(o)
+  );
 
   const uma = umaById.get(umaId)!;
   const meeting = meetingById.get(meetingId)!;
@@ -63,13 +86,16 @@ export default function App() {
     ReturnType<typeof cardById.get>
   >[];
 
+  // On first mount or when the uma changes, populate the skill list with
+  // the uma's defaults IF the user hasn't built one yet. (We deliberately
+  // don't reset aptitude overrides on uma change anymore — they're
+  // persisted; users can hit "Reset aptitudes to base" or "Reset build"
+  // when they want a clean slate.)
   useMemo(() => {
     setSkillIds((cur) => {
       if (cur.length > 0) return cur;
       return [uma.uniqueSkillId, ...uma.awakeningSkillIds].filter(Boolean);
     });
-    // Aptitude overrides are uma-specific — clear when the uma changes.
-    setAptOverrides({});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [umaId]);
 
@@ -136,11 +162,28 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Umamusume Build Planner</h1>
-        <p className="tagline">
-          Pick your uma, the Champion Meeting, your scenario and cards — get
-          skill recommendations and a rating estimate.
-        </p>
+        <div className="app-header-top">
+          <div>
+            <h1>Umamusume Build Planner</h1>
+            <p className="tagline">
+              Pick your uma, the Champion Meeting, your scenario and cards — get
+              skill recommendations and a rating estimate.
+            </p>
+          </div>
+          <button
+            type="button"
+            className="app-reset"
+            onClick={() => {
+              if (confirm("Reset the whole build? This wipes saved state.")) {
+                clearPersistedBuild();
+                location.reload();
+              }
+            }}
+            title="Wipe saved state and start fresh"
+          >
+            Reset build
+          </button>
+        </div>
       </header>
 
       <main className="app-main">

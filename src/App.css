@@ -30,6 +30,24 @@ a { color: var(--accent); }
   padding: 24px;
 }
 
+.app-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.app-reset {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.app-reset:hover { color: #ff6b6b; border-color: #ff6b6b; }
+
 .app-header h1 {
   margin: 0 0 4px;
   font-size: 28px;
