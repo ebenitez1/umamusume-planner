@@ -87,12 +87,13 @@ function slopeAt(position: number, course: RaceSimState["course"]): number {
   return 0;
 }
 
-// Tokyo, Niigata, and Chukyo are left-handed (counter-clockwise). All
-// other Japanese venues are right-handed (clockwise). rotation == 1 means
-// left-handed; 2 means right-handed.
+// Course rotation per venue. The skill 'Right-Handed ◯' has condition
+// rotation==1 — so 1 = right-handed (CW), 2 = left-handed (CCW).
+//   Right (1): Nakayama, Kyoto, Hanshin, Sapporo, Hakodate, Fukushima, Kokura
+//   Left  (2): Tokyo, Niigata, Chukyo, Longchamp
 const LEFT_HANDED_VENUES = new Set(["Tokyo", "Niigata", "Chukyo", "Longchamp"]);
 function rotationFor(trackName: string): number {
-  return LEFT_HANDED_VENUES.has(trackName) ? 1 : 2;
+  return LEFT_HANDED_VENUES.has(trackName) ? 2 : 1;
 }
 
 // Bounds (0..1 fractions of total distance) of the four phases.
