@@ -144,12 +144,12 @@ export interface RawRace {
 // inherited or upgraded uniques. Verified against a real Daiwa Scarlet
 // build that reads ~13,500 skill score in-game.
 const SKILL_RARITY_MAP: Record<number, SkillRarity> = {
-  1: "normal",
-  2: "rare",
-  3: "rare",
-  4: "unique",
-  5: "unique",
-  6: "unique",
+  1: "normal",   // white tile
+  2: "rare",     // gold tile
+  3: "rare",     // gold (upgrades to rarity 4)
+  4: "unique",   // pink tile — evolved/super-rare (e.g. Resplendent Red Ace)
+  5: "rare",     // gold tile — inherited (e.g. Shooting for Victory!)
+  6: "unique",   // pink tile — character-specific unique
 };
 
 // UmaTools effect type IDs (from condition_groups[].effects[].type).

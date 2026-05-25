@@ -31,7 +31,7 @@ export function RatingDisplay({ rating }: Props) {
           <strong>{rating.breakdown.skillScore.toLocaleString()}</strong>
         </div>
         <div>
-          <span>Aptitude</span>
+          <span>Unique bonus</span>
           <strong>
             {rating.breakdown.aptitudeBonus > 0 ? "+" : ""}
             {rating.breakdown.aptitudeBonus.toLocaleString()}
