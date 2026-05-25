@@ -405,13 +405,71 @@ h4 { margin: 8px 0; font-size: 13px; color: var(--muted); }
 
 .uma-header {
   display: flex;
-  gap: 14px;
-  align-items: center;
+  flex-direction: column;
+  gap: 12px;
   padding: 12px;
   border-radius: 10px;
   background: var(--panel-2);
   margin-bottom: 12px;
 }
+.uma-header-top {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.apt-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.apt-line {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  align-items: center;
+  gap: 8px;
+}
+.apt-line-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+.apt-line-cells {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+.apt-line:nth-child(1) .apt-line-cells { grid-template-columns: repeat(4, 1fr); }
+.apt-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.apt-pill-label { color: var(--muted); }
+.apt-pill-grade {
+  font-weight: 900;
+  font-size: 14px;
+  padding: 0 2px;
+}
+/* Grade colors mirror in-game tier (S=bright orange/red, A=orange, B=green,
+   C=cyan, D=grey, E-G=red descending). */
+.apt-pill-grade-S .apt-pill-grade { color: #ff4444; }
+.apt-pill-grade-A .apt-pill-grade { color: #ff8c1a; }
+.apt-pill-grade-B .apt-pill-grade { color: #2dbd44; }
+.apt-pill-grade-C .apt-pill-grade { color: #2bb6e8; }
+.apt-pill-grade-D .apt-pill-grade { color: #9a9ea8; }
+.apt-pill-grade-E .apt-pill-grade { color: #b557d4; }
+.apt-pill-grade-F .apt-pill-grade { color: #c75050; }
+.apt-pill-grade-G .apt-pill-grade { color: #6b6e78; }
 .uma-header-thumb {
   border-radius: 50%;
   object-fit: cover;
