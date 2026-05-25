@@ -34,7 +34,7 @@ export function RatingDisplay({ rating }: Props) {
           <span>Aptitude</span>
           <strong>
             {rating.breakdown.aptitudeBonus > 0 ? "+" : ""}
-            {rating.breakdown.aptitudeBonus}%
+            {rating.breakdown.aptitudeBonus.toLocaleString()}
           </strong>
         </div>
         <div>

@@ -1,5 +1,24 @@
+// Rating calculator — matches Umamusume's in-game "Score / Power" formula.
+//
+// Calibrated 2026-05 against a real Daiwa Scarlet Peak Blue build
+// (in-game 20,289 → UG1). Formula:
+//
+//   total = stat_sum + aptitude_score + skill_score
+//
+// where:
+//   stat_sum         = sum of all 5 stats, each capped at 1200
+//   aptitude_score   = sum over all 10 aptitudes (2 surface + 4 distance +
+//                      4 style) of grade values (S=+800 … G=-800)
+//   skill_score      = sum over learned skills of a per-rarity base value
+//                      (normal=400, rare=800, unique=1500)
+//
+// The race-specific aptitudes (meeting surface/distance/style) are
+// surfaced as a separate breakdown line — they're a SUBSET of the total
+// aptitude sum, useful for "is this build well-suited to this race?".
+
 import type {
   AptitudeGrade,
+  Aptitudes,
   ChampionMeeting,
   RatingResult,
   Scenario,
@@ -10,63 +29,92 @@ import type {
 } from "../types";
 import { skillById } from "../data";
 
-// Effective stat value with diminishing returns above 1100 (community
-// rule-of-thumb for the Umamusume stat-to-score curve).
-function effectiveStat(s: number): number {
-  const clipped = Math.max(0, Math.min(1200, s));
-  if (clipped <= 1100) return clipped;
-  return 1100 + (clipped - 1100) * 0.5;
-}
+// ---------------------------------------------------------------------------
+// Stats
+// ---------------------------------------------------------------------------
 
-const STAT_WEIGHTS: Record<keyof Stats, number> = {
-  speed: 1.0,
-  stamina: 1.0,
-  power: 1.0,
-  guts: 0.9,
-  wit: 0.85,
-};
-
+/** Stat values capped at the in-game 1200 cap, summed equally. */
 export function computeStatScore(stats: Stats): number {
-  let total = 0;
-  for (const [k, v] of Object.entries(stats) as [keyof Stats, number][]) {
-    total += effectiveStat(v) * STAT_WEIGHTS[k];
-  }
-  return total;
+  return (
+    Math.min(1200, Math.max(0, stats.speed)) +
+    Math.min(1200, Math.max(0, stats.stamina)) +
+    Math.min(1200, Math.max(0, stats.power)) +
+    Math.min(1200, Math.max(0, stats.guts)) +
+    Math.min(1200, Math.max(0, stats.wit))
+  );
 }
 
-const APTITUDE_MULT: Record<AptitudeGrade, number> = {
-  S: 1.15,
-  A: 1.1,
-  B: 1.05,
-  C: 1.0,
-  D: 0.93,
-  E: 0.85,
-  F: 0.75,
-  G: 0.6,
+// ---------------------------------------------------------------------------
+// Aptitudes — additive grade values (S best, G worst).
+// ---------------------------------------------------------------------------
+
+const APTITUDE_VAL: Record<AptitudeGrade, number> = {
+  S: 800,
+  A: 600,
+  B: 400,
+  C: 200,
+  D: 0,
+  E: -200,
+  F: -400,
+  G: -800,
 };
 
-export function aptitudeMultiplier(
-  uma: Uma,
-  meeting: ChampionMeeting,
-  style: keyof Uma["aptitudes"]["style"]
-): number {
-  const apt = uma.aptitudes;
-  const surface = APTITUDE_MULT[apt.surface[meeting.surface]];
-  const distance = APTITUDE_MULT[apt.distance[meeting.distance]];
-  const styleM = APTITUDE_MULT[apt.style[style]];
-  // multiply but rein in extremes — perfect S across all three shouldn't 1.5x
-  const combined = surface * distance * styleM;
-  return Math.pow(combined, 0.7);
+/** Total aptitude bonus = sum of grade values across all 10 aptitudes. */
+export function computeAptitudeScore(apt: Aptitudes): number {
+  return (
+    APTITUDE_VAL[apt.surface.turf] +
+    APTITUDE_VAL[apt.surface.dirt] +
+    APTITUDE_VAL[apt.distance.sprint] +
+    APTITUDE_VAL[apt.distance.mile] +
+    APTITUDE_VAL[apt.distance.medium] +
+    APTITUDE_VAL[apt.distance.long] +
+    APTITUDE_VAL[apt.style.runner] +
+    APTITUDE_VAL[apt.style.early] +
+    APTITUDE_VAL[apt.style.late] +
+    APTITUDE_VAL[apt.style.end]
+  );
 }
+
+/** Aptitude score for the specific race traits (subset of total). */
+export function raceAptitudeScore(
+  apt: Aptitudes,
+  meeting: ChampionMeeting,
+  style: keyof Aptitudes["style"]
+): number {
+  return (
+    APTITUDE_VAL[apt.surface[meeting.surface]] +
+    APTITUDE_VAL[apt.distance[meeting.distance]] +
+    APTITUDE_VAL[apt.style[style]]
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Skill score — per-rarity base value, summed across learned skills.
+// ---------------------------------------------------------------------------
+
+// Base game-score contribution per skill, by rarity. Calibrated so a
+// representative late-game build of ~17 skills lands near in-game numbers.
+const SKILL_SCORE_BASE: Record<Skill["rarity"], number> = {
+  normal: 400,
+  rare: 800,
+  unique: 1500,
+};
 
 export function skillScore(skillIds: string[]): number {
   let total = 0;
   for (const id of skillIds) {
     const s = skillById.get(id);
-    if (s) total += s.ratingPoints;
+    if (!s) continue;
+    total += SKILL_SCORE_BASE[s.rarity] ?? 400;
   }
   return total;
 }
+
+// ---------------------------------------------------------------------------
+// Scenario bonus — preserved as a small multiplicative bump for
+// scenario-favored skills the user actually owns. Tiny relative to the
+// other components.
+// ---------------------------------------------------------------------------
 
 export function scenarioBonus(
   scenario: Scenario,
@@ -75,31 +123,33 @@ export function scenarioBonus(
   if (!scenario.favoredSkillIds?.length) return 0;
   const owned = new Set(ownedSkillIds);
   const hits = scenario.favoredSkillIds.filter((id) => owned.has(id)).length;
-  return Math.min(0.2, hits * 0.05);
+  return Math.min(0.1, hits * 0.02);
 }
 
-// Letter grade thresholds, calibrated against in-game "Power" displays for
-// fully-trained 3-star umas at L4 fan score. Tune as we collect real samples.
+// ---------------------------------------------------------------------------
+// Letter grade table — calibrated against in-game UG1=20,289 sample.
+// ---------------------------------------------------------------------------
+
 const GRADE_TABLE: Array<[number, string]> = [
-  [17000, "UG1"],
-  [16000, "UE"],
-  [15000, "UA"],
-  [14000, "UB"],
-  [13000, "UC"],
+  [19500, "UG1"],
+  [18000, "UE"],
+  [16500, "UA"],
+  [15000, "UB"],
+  [13500, "UC"],
   [12500, "SS+"],
-  [12000, "SS"],
-  [11500, "S+"],
-  [11000, "S"],
-  [10000, "A+"],
-  [9000, "A"],
-  [8000, "B+"],
-  [7000, "B"],
-  [6000, "C+"],
-  [5000, "C"],
-  [4000, "D"],
-  [3000, "E"],
-  [2000, "F"],
-  [0, "G"],
+  [11500, "SS"],
+  [10500, "S+"],
+  [9500,  "S"],
+  [8500,  "A+"],
+  [7500,  "A"],
+  [6500,  "B+"],
+  [5500,  "B"],
+  [4500,  "C+"],
+  [3500,  "C"],
+  [2500,  "D"],
+  [1500,  "E"],
+  [500,   "F"],
+  [0,     "G"],
 ];
 
 export function gradeFor(total: number): string {
@@ -109,53 +159,55 @@ export function gradeFor(total: number): string {
   return "G";
 }
 
+// ---------------------------------------------------------------------------
+// Top-level rating
+// ---------------------------------------------------------------------------
+
 export function rateBuild(
   build: UmaBuild,
-  uma: Uma,
+  _uma: Uma,
   meeting: ChampionMeeting,
   scenario: Scenario
 ): RatingResult {
   const statScore = computeStatScore(build.stats);
+  const aptScore = computeAptitudeScore(build.aptitudes);
   const sScore = skillScore(build.skillIds);
-  const aptMult = aptitudeMultiplier(uma, meeting, build.preferredStyle);
   const sBonus = scenarioBonus(scenario, build.skillIds);
-
-  const base = statScore + sScore;
-  const total = Math.round(base * aptMult * (1 + sBonus));
+  const base = statScore + aptScore + sScore;
+  const total = Math.round(base * (1 + sBonus));
 
   const notes: string[] = [];
-  if (aptMult < 0.85)
-    notes.push(
-      "Aptitudes are working against you for this race — consider an Aptitude Hint book if available."
-    );
+  const raceApt = raceAptitudeScore(build.aptitudes, meeting, build.preferredStyle);
+  if (raceApt < -200)
+    notes.push(`Aptitudes for this race score ${raceApt} — an Aptitude Hint would help.`);
   if (build.stats.stamina < 450 && meeting.distance === "long")
     notes.push("Stamina under 450 will likely cause stamina-out in Long.");
   if (build.stats.speed < 900 && meeting.distance !== "long")
     notes.push("Speed under 900 is below meta for non-Long races.");
-  if (sScore < 400)
-    notes.push("Skill loadout looks thin — aim for 8-12 useful skills.");
+  if (sScore < 4000)
+    notes.push("Skill loadout looks thin — aim for at least 8-10 skills.");
 
   return {
     total,
     grade: gradeFor(total),
     breakdown: {
-      statScore: Math.round(statScore),
+      statScore,
       skillScore: sScore,
-      aptitudeBonus: Math.round((aptMult - 1) * 100),
+      // aptitudeBonus is now displayed as raw additive points (not %).
+      aptitudeBonus: aptScore,
       scenarioBonus: Math.round(sBonus * 100),
     },
     notes,
   };
 }
 
-// Helper used by the UmaPicker / Recommender to estimate a uma's ceiling
-// for a given meeting using just baseline stats + their awakening skills.
+// Helper for cross-uma "what would this uma look like at typical training"
+// (used by the recommender's top-5-umas panel).
 export function estimateBaselineRating(
   uma: Uma,
   meeting: ChampionMeeting,
   scenario: Scenario
 ): RatingResult {
-  // approximate "fully trained" stats from baseStats + growthRates
   const trained: Stats = {
     speed: 600 + uma.baseStats.speed * 4 + uma.growthRates.speed * 6,
     stamina: 600 + uma.baseStats.stamina * 3 + uma.growthRates.stamina * 6,
@@ -163,7 +215,7 @@ export function estimateBaselineRating(
     guts: 400 + uma.baseStats.guts * 2 + uma.growthRates.guts * 4,
     wit: 400 + uma.baseStats.wit * 2 + uma.growthRates.wit * 4,
   };
-  const skills = [uma.uniqueSkillId, ...uma.awakeningSkillIds];
+  const skills = [uma.uniqueSkillId, ...uma.awakeningSkillIds].filter(Boolean);
   const build: UmaBuild = {
     umaId: uma.id,
     meetingId: meeting.id,
@@ -186,9 +238,6 @@ export function aggregateOwnedSkills(
   ids.add(uma.uniqueSkillId);
   for (const s of uma.awakeningSkillIds) ids.add(s);
   for (const s of extraSkillIds) ids.add(s);
-  // Cards expose their teachable skills; we don't auto-add them
-  // (the user has to learn them in training) but we surface them for
-  // the recommender to pick from.
   void cardIds;
   return [...ids].map((id) => skillById.get(id)!).filter(Boolean);
 }
