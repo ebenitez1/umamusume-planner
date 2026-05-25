@@ -273,13 +273,29 @@ function witActivationProb(wit: number): number {
   return Math.max(100 - 9000 / wit, 20) / 100;
 }
 
+// UmaTools tag → our phase name. Skills tagged `l_2` (final leg) etc.
+// should only check their conditions when the uma is in that phase —
+// otherwise `phase_firsthalf_random==2` etc. can match during the wrong
+// phase and fire the skill way too early.
+const PHASE_NAMES = ["opening", "middle", "final", "spurt"] as const;
+
 export function tickSkills(state: RaceSimState): void {
   for (const uma of state.umas) {
     if (uma.finished) continue;
     const ctx = buildContext(uma, state);
+    const currentPhaseName = PHASE_NAMES[
+      currentPhase(uma.position, state.course.distance)
+    ];
 
     for (const skill of uma.skills) {
       const trigger = skill.sim?.trigger;
+
+      // Phase gate from the skill's `type` tags (l_0..l_3 mapped to
+      // opening/middle/final/spurt during transform). If the skill is
+      // tagged for specific phases, don't check it outside them.
+      if (skill.tags?.phase?.length) {
+        if (!skill.tags.phase.includes(currentPhaseName)) continue;
+      }
       // For player only: evaluate condition every tick so we can report
       // "skill could have fired N times but was on cooldown" diagnostics.
       // Opponents skip the diagnostic to keep the sim fast.
