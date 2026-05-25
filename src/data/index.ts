@@ -183,12 +183,30 @@ const transformedRaces = allRaces.map((r) =>
   transformRace(r, courseGeometryById[String(r.course_id)])
 );
 
+// Enrich each featured meeting with course geometry from a matching race
+// (by track + distance + surface). The hand-curated featured list was
+// authored before course geometry existed; without this lookup the
+// RaceTrack viz for CM1-14 would render with no corners or slopes.
+function findGeometryFor(m: ChampionMeeting) {
+  const match = transformedRaces.find(
+    (r) =>
+      r.track === m.track &&
+      r.distanceMeters === m.distanceMeters &&
+      r.surface === m.surface &&
+      r.geometry
+  );
+  return match?.geometry;
+}
+const enrichedFeatured = featuredMeetings.map((m) =>
+  m.geometry ? m : { ...m, geometry: findGeometryFor(m) }
+);
+
 export const championMeetings: ChampionMeeting[] = [
   // Featured / hand-curated meetings render first.
-  ...featuredMeetings,
+  ...enrichedFeatured,
   // Then the rest of the G1/G2 game races, deduped by id-collision avoidance
   // (we prefix UmaTools race IDs since the namespaces differ).
-  ...transformedRaces.filter((r) => !featuredMeetings.some((f) => f.name === r.name)),
+  ...transformedRaces.filter((r) => !enrichedFeatured.some((f) => f.name === r.name)),
 ];
 
 export const meetingById = new Map(championMeetings.map((m) => [m.id, m]));
