@@ -53,11 +53,25 @@ function rollOrLookup(bucket: Record<number, number>, key: number): number {
   return bucket[key];
 }
 
+// Approximate corner position by distance fraction (0..1). Most courses
+// have 3-4 corners; we model 3 (early, mid, final). Returns 1..3 inside
+// a corner, 0 on a straight. Final corner uses the course-supplied
+// finalCornerStart / finalStraightStart for accuracy.
+function cornerAt(position: number, course: { distance: number; finalCornerStart: number; finalStraightStart: number }): number {
+  if (position >= course.finalCornerStart && position < course.finalStraightStart) return 3;
+  const frac = position / course.distance;
+  if (frac >= 0.10 && frac < 0.22) return 1;
+  if (frac >= 0.38 && frac < 0.50) return 2;
+  return 0;
+}
+
 // Compute the Context dict for one uma at the current tick.
 export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
   const phase = currentPhase(uma.position, state.course.distance);
   const distRate = (uma.position / state.course.distance) * 100;       // 0..100
   const remain = state.course.distance - uma.position;
+  const corner = cornerAt(uma.position, state.course);
+  const onStraight = corner === 0;
   // Note: orderRate is intentionally unused in single-uma mode; the
   // context below forces order_rate = 1 (favorable) per FORMULAS.md.
 
@@ -109,6 +123,11 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
     phase_firsthalf_random:     distRate < 50 ? rollOrLookup(uma.randomRolls.phaseFirstHalf, phase) : 0,
     phase_laterhalf_random:     distRate >= 50 ? rollOrLookup(uma.randomRolls.phaseLaterHalf, phase) : 0,
     phase_firstquarter_random:  distRate < 25 ? rollOrLookup(uma.randomRolls.phaseFirstQuarter, phase) : 0,
+    all_corner_random:          uma.randomRolls.allCorner,
+    straight_random:            uma.randomRolls.straight,
+    corner_random:              corner > 0 ? rollOrLookup(uma.randomRolls.corner, corner) : 0,
+    phase_corner_random:        corner > 0 ? rollOrLookup(uma.randomRolls.corner, phase * 10 + corner) : 0,
+    is_finalcorner_random:      corner === 3 ? uma.randomRolls.allCorner : 0,
 
     // Position deltas (bashin lengths).
     distance_diff_top: bashinDiffTop,
@@ -119,9 +138,11 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
 
     change_order_onetime: uma.changeOrderCount,
 
-    // Still-deferred variables — return 0 explicitly so conditions like
-    // `==0` still match. Console logs unknown vars once for visibility.
-    corner: 0,
+    // Course state.
+    corner,
+    on_straight: onStraight ? 1 : 0,
+
+    // Still-deferred variables.
     slope: 0,
     overtake_target_time: 0,
     blocked_side_continuetime: 0,
@@ -136,13 +157,18 @@ export function buildContext(uma: UmaSimState, state: RaceSimState): Context {
 function applyEffect(uma: UmaSimState, skill: Skill, state: RaceSimState): void {
   const sim = skill.sim;
   if (!sim || !sim.effectKind || sim.effectValue === undefined) {
-    // No sim metadata — just log activation, no state change.
+    // No sim metadata — treat as a passive: log it once, then lock the
+    // skill out for the rest of the race so it doesn't loop. (Was a bug:
+    // "Pace Chaser Savvy" fired 1163× because we returned without
+    // setting cooldown.)
     uma.activationLog.push({
       tick: state.tick,
       timeS: state.timeS,
       skillId: skill.id,
       skillName: skill.name,
     });
+    uma.cooldowns.set(skill.id, 99999);   // effectively infinite
+    uma.activatedSkillIds.add(skill.id);
     return;
   }
 
