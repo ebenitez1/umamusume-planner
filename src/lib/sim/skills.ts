@@ -223,10 +223,13 @@ export function tickSkills(state: RaceSimState): void {
         uma.skillDiagnostics.set(skill.id, diag);
       }
 
-      // Already on cooldown → can't fire even if condition is true.
+      // In real Umamusume, nearly every skill activates AT MOST ONCE
+      // per race (the cooldown system is only used by a small handful
+      // of special skills). Default to fire-once for all rarities.
+      if (uma.activatedSkillIds.has(skill.id)) continue;
+      // Cooldown still tracked for future use (some passives use it
+      // as an infinite lock — see applyEffect).
       if (uma.cooldowns.has(skill.id)) continue;
-      // Unique skills fire at most once per race.
-      if (skill.rarity === "unique" && uma.activatedSkillIds.has(skill.id)) continue;
 
       // Passive skills (no trigger) fire once at race start.
       if (!trigger) {
