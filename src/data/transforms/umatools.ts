@@ -325,12 +325,12 @@ function preferredStyleFrom(apt: RawUma["UmaAptitudes"]): Style {
 // Skill transform
 // -----------------------------------------------------------------------------
 export function transformSkill(raw: RawSkill): Skill {
-  // Prefer Global EN (enname/endesc) over JP-translated (name_en/desc_en).
-  // After the slim step, only name_en/desc_en survive — but they hold the
-  // Global EN value because the slimmer flipped the priority. Belt-and-
-  // suspenders by preferring enname here too in case raw shape changes.
-  const name = raw.enname || raw.name_en || raw.jpname || `Skill ${raw.id}`;
-  const description = raw.endesc || raw.desc_en || raw.jpdesc || "";
+  // After fetch-time slimming, raw.name_en holds the Global game text
+  // (UmaTools' `name_en` field — verified against kachi-dev's authoritative
+  // Global dump). data/index.ts may additionally override with kachi-dev's
+  // skillnames.json for the 462 skills it covers.
+  const name = raw.name_en || raw.enname || raw.jpname || `Skill ${raw.id}`;
+  const description = raw.desc_en || raw.endesc || raw.jpdesc || "";
   const { category, tags } = tagsFor(raw.type || []);
   const rarity = SKILL_RARITY_MAP[raw.rarity] ?? "normal";
   const ratingPoints = ratingPointsFor(raw, category);

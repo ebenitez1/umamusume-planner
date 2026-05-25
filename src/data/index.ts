@@ -15,6 +15,7 @@ import umatoolsUmas from "./generated/umatools/uma_data.json";
 import umatoolsSkills from "./generated/umatools/skills_all.json";
 import umatoolsSupports from "./generated/umatools/support_hints.json";
 import umatoolsRaces from "./generated/umatools/races.json";
+import kachiSkillnames from "./generated/umatools/kachi_skillnames.json";
 
 import scenariosRaw from "./gameplay/scenarios.json";
 import featuredMeetingsRaw from "./gameplay/champion-meetings.json";
@@ -55,7 +56,16 @@ const rawSkills = umatoolsSkills as unknown as RawSkill[];
 // Build outfit_id → owned/learnable skill IDs once, used by uma transform.
 const skillIndex = buildSkillIndex(rawSkills);
 
-export const skills: Skill[] = rawSkills.map(transformSkill);
+// kachi-dev's Global-server skillname dump — authoritative for the 462 skills
+// it covers. We override transformed Skill.name where present.
+const kachiNames = kachiSkillnames as Record<string, string>;
+
+export const skills: Skill[] = rawSkills.map((raw) => {
+  const transformed = transformSkill(raw);
+  const kachi = kachiNames[String(raw.id)];
+  if (kachi) transformed.name = kachi;
+  return transformed;
+});
 export const skillById = new Map(skills.map((s) => [s.id, s]));
 
 // ---------------------------------------------------------------------------
