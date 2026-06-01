@@ -427,6 +427,13 @@
     "title": "[Willow​-​Green Evening]"
   },
   {
+    "chara_game_id": 1025,
+    "chara_web_id": 5100,
+    "gametora": "102503-manhattan-cafe",
+    "id": 102503,
+    "title": "[幽玄薔薇]"
+  },
+  {
     "chara_game_id": 1026,
     "chara_web_id": 5111,
     "gametora": "102601-mihono-bourbon",
@@ -1643,6 +1650,13 @@
     "gametora": "111601-gentildonna",
     "id": 111601,
     "title": "[Regina dei Fiori]"
+  },
+  {
+    "chara_game_id": 1116,
+    "chara_web_id": 10337,
+    "gametora": "111602-gentildonna",
+    "id": 111602,
+    "title": "[La dama perfetta]"
   },
   {
     "chara_game_id": 1117,

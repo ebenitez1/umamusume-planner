@@ -5358,5 +5358,35 @@
     "rarity_string": "SSR",
     "type": "Stamina",
     "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30301,
+    "chara_id": 1131,
+    "gametora": "30301-gran-alegria",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Power",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_02.png"
+  },
+  {
+    "id": 30302,
+    "chara_id": 1067,
+    "gametora": "30302-satono-diamond",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Speed",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_00.png"
+  },
+  {
+    "id": 30303,
+    "chara_id": 1128,
+    "gametora": "30303-blast-onepiece",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
   }
 ]
