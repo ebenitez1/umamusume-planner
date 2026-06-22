@@ -1125,6 +1125,15 @@
     "thumb_img": "https://images.microcms-assets.io/assets/973fc097984b400db8729642ddff5938/15937c6439c2407c845b8fe8bc9e1819/tapdancecity_list.png"
   },
   {
+    "game_id": null,
+    "name_en": "Titleholder",
+    "name_jp": "タイトルホルダー",
+    "preferred_url": null,
+    "color_main": "#4ea547",
+    "color_sub": "#ebe367",
+    "thumb_img": "https://images.microcms-assets.io/assets/973fc097984b400db8729642ddff5938/136a29af837e451e963bbe91880dbfb1/titleholder_list.png"
+  },
+  {
     "game_id": 1003,
     "name_en": "Tokai Teio",
     "name_jp": "トウカイテイオー",
