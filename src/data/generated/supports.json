@@ -5388,5 +5388,25 @@
     "rarity_string": "SSR",
     "type": "Stamina",
     "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30304,
+    "chara_id": 1058,
+    "gametora": "30304-meisho-doto",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Stamina",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_01.png"
+  },
+  {
+    "id": 30305,
+    "chara_id": 9001,
+    "gametora": "30305-tazuna-hayakawa",
+    "title_en": null,
+    "rarity": 3,
+    "rarity_string": "SSR",
+    "type": "Friend",
+    "type_icon_url": "https://gametora.com/images/umamusume/icons/utx_ico_obtain_05.png"
   }
 ]

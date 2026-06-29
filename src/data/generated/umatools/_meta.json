@@ -3,7 +3,7 @@
   "sha": "a024c11ea47d53ad38b5ade866de67708f37bc9e",
   "kachi_dev_source": "kachi-dev/uma-tools/umalator-global",
   "kachi_dev_sha": "main",
-  "fetched_at": "2026-06-22T11:38:01.588Z",
+  "fetched_at": "2026-06-29T10:25:31.893Z",
   "files": [
     "uma_data.json",
     "skills_all.json",
