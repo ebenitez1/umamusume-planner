@@ -1,0 +1,214 @@
+/* ==========================================================================
+   Rating Calculator module — right-rail panel on the Optimizer tab.
+   Uses ONLY the theme variables from src/index.css.
+   ========================================================================== */
+
+.rating-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: sticky;
+  top: 16px;
+}
+
+/* ---- big tier badge + total ---- */
+
+.rating-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 12px 14px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.rating-tier-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  padding: 8px 20px;
+  border-radius: 12px;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  color: var(--gold);
+  border: 2px solid var(--gold);
+  background: rgba(251, 191, 36, 0.08);
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.35);
+}
+
+/* U-tier ladder (UG..US9, LG) gets the Uma pink treatment */
+.rating-tier-badge.u-tier {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: rgba(236, 72, 153, 0.08);
+  text-shadow: 0 0 12px rgba(236, 72, 153, 0.4);
+}
+
+.rating-total {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.rating-total-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+/* ---- points-to-next progress ---- */
+
+.rating-next {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.rating-next-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.rating-next-row strong {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.rating-progress {
+  height: 7px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.rating-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--gold));
+  transition: width 0.25s ease-out;
+}
+
+/* ---- breakdown ---- */
+
+.rating-breakdown {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.rating-breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 10px;
+  font-size: 13px;
+  background: var(--panel-2);
+}
+
+.rating-breakdown-row + .rating-breakdown-row {
+  border-top: 1px solid var(--border);
+}
+
+.rating-breakdown-row .rb-label {
+  color: var(--muted);
+}
+
+.rating-breakdown-row .rb-value {
+  font-weight: 600;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- skill score source ---- */
+
+.rating-skill-source {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rating-skill-source .badge.from-optimizer {
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+}
+
+.rating-skill-source .input {
+  width: 100%;
+}
+
+.rating-skill-hint {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ---- read-only stat echoes ---- */
+
+.rating-stats-echo {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+}
+
+.rating-stat-echo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 2px;
+  background: var(--panel-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.rating-stat-echo .rs-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.rating-stat-echo .rs-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.rating-meta-echo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.rating-meta-echo .rm-star {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+.rating-meta-echo .rm-unique {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.rating-echo-note {
+  font-size: 10px;
+  color: var(--muted);
+  text-align: center;
+}

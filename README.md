@@ -1,112 +1,89 @@
-# Umamusume Build Planner
+# Umamusume Planner
 
-A web tool for planning Umamusume Pretty Derby builds. Pick a uma, the
-Champion Meeting you're targeting, your training scenario, and your support
-cards — get skill recommendations, a rating estimate, and uma recommendations
-for the meeting.
+A unified, locally-hosted planning tool for **Uma Musume: Pretty Derby (Global)** that merges two community tools into one web app:
 
-Live (after you deploy): `https://<your-github-username>.github.io/umamusume-planner/`
+- **Umalator Global** ([kachi-dev.github.io/uma-tools/umalator-global](https://kachi-dev.github.io/uma-tools/umalator-global/)) — race simulation, stat thresholds, outcome probabilities.
+- **UmaTools Skill Optimizer** ([daftuyda.moe/optimizer](https://daftuyda.moe/optimizer)) — SP-budget skill optimization, rating projection, skill import, build management.
 
-## Features (MVP)
+Everything runs client-side. No backend, no runtime fetches — state persists to localStorage, and builds can be exported as shareable URLs.
 
-- **Uma picker** with the full Global EN roster of 169 characters from
-  [umapyoi.net](https://umapyoi.net) — playable umas (with curated stats /
-  aptitudes / unique skill / awakening skills) grouped above catalog-only umas.
-- **Champion Meeting picker** with track / surface / distance and a meta
-  notes blurb (Tokyo 2400 turf, Nakayama 2500 turf, etc.).
-- **Scenario picker** with stat multipliers and favored skills (URA, Aoharu,
-  MANT, Grand Live, Grand Masters, U.A.F., L'Arc).
-- **Support card deck** (up to 6) — picks from the full 536-card Global
-  roster, grouped by type + rarity, with "(no skills)" flag on cards we
-  haven't curated yet.
-- **Stat inputs** with bars (Speed / Stamina / Power / Guts / Wit).
-- **Running style** selector (Front Runner / Pace Chaser / Late Surger / End Closer).
-- **Rating** with letter grade (G → UG1), stat / skill / aptitude /
-  scenario breakdown, and warnings (e.g. "stamina too low for Long").
-- **Skill recommendations** grouped by Core / Strong / Nice-to-have, each
-  with explanations and a checkbox to add to your build.
-- **Uma recommendations** — top 5 umas ranked for the chosen meeting +
-  scenario, plus meta running styles.
+## Feature map (by tab)
 
-## Data layout
+### Skill Optimizer (default tab)
+- SP budget input with **Fast Learner** toggle (−10% cost) and **Official EN Skills Only** filter.
+- Optimize-for selector: `* Rating`, `Team Trials (Consistent)`, `Trainer Aptitude Test`.
+- **Race Configuration** panel: aptitude grade pickers (S–G) for Track (Turf/Dirt), Distance (Sprint/Mile/Medium/Long), and Strategy (Front/Pace/Late/End).
+- **Skill Scoring Weights**: Consistency % vs. Cost Efficiency % sliders (always sum to 100; default 60/40).
+- **Ideal Skill Builder**: aptitude filter checkboxes + Generate Build.
+- **Skills to Buy** panel: ranked list with SV, expected activations, SV/SP, and effective cost per skill.
+- Summary stats: Best Score, Used/Total/Remaining Points, Consistency %, Expected Value, Total SV, Expected Activations, SV per SP, Skill Density, Est. Activation Score, Aptitude Test Score.
+- **Explain Build**: consistency strengths, risks & warnings, optimizer warnings.
+- Skill entry: manual name + cost (type auto-detected), JSON import, **screenshot OCR** (Tesseract.js) with a Detected Skills review modal, and screen-capture import.
+- **Skill Browser** modal: filter by color/type, multi-select, Add Selected / Add All.
 
-```
-src/data/
-├── generated/                # umapyoi.net catalog — auto-refreshed weekly
-│   ├── characters.json       #   169 umas (English + JP names, IDs, thumbs)
-│   ├── supports.json         #   536 support cards (type, rarity, GameTora slug)
-│   └── outfits.json          #   254 outfits
-├── gameplay/                 # hand-curated, keyed by API IDs
-│   ├── uma-stats.json        #   stats, aptitudes, unique-skill + awakenings
-│   ├── card-skills.json      #   taught skills per support card
-│   ├── skills.json           #   skill catalog (descriptions, rating points, sim metadata)
-│   ├── scenarios.json        #   URA, Aoharu, MANT, Grand Live, Grand Masters, U.A.F., L'Arc
-│   └── champion-meetings.json#   Japan Cup, Arima Kinen, Tenno Sho Spring, etc.
-└── index.ts                  # merges catalog + gameplay, exports typed arrays
-```
+### Rating Calculator (right-side rail on the Optimizer tab)
+- Stat inputs (Speed / Stamina / Power / Guts / Wisdom), ★1–★5 star level, unique skill level Lv1–Lv6.
+- Live projected rating with tier badge (G through LG) and points-to-next-tier.
+- Breakdown: Stats Score + Skill Score (auto-populated from the optimizer output) + Unique Bonus.
+- Uses the exact in-game "umakonga" stat lookup table and verbatim tier thresholds — see [PIPELINE.md](PIPELINE.md).
 
-Umas without a gameplay overlay are marked `unplayable: true` and surface
-in the picker under "Catalog only" — you can see who exists but they
-won't generate meaningful recommendations until you fill in their
-stats/aptitudes.
+### Race Simulator
+- Stat form auto-synced with the shared Uma header (same stats everywhere in the app).
+- Race selection: surface, distance class, strategy, field size.
+- Skill list pulled from the optimizer's current build or entered manually.
+- Monte Carlo simulation: win %, top-3 %, placement distribution chart (Recharts), stamina margin at finish, stat-threshold warnings, recommended stat targets.
+- Comparison mode: simulate multiple builds side by side.
+- Wit-based skill activation rolls, per-phase strategy velocity coefficients, and HP-pool math ported from kachi-dev's RaceSolver — see [PIPELINE.md](PIPELINE.md).
 
-## Updating data
+### My Builds
+- Save, load, update, and delete builds (localStorage).
+- Shareable URL encoding (`#build=…`, lz-string compressed) — opening a share link offers to restore the build.
+- A "Current Build: [name]" indicator appears when a saved build is loaded.
 
-- **Manual refresh:** `npm run fetch:data` pulls fresh data from
-  umapyoi.net into `src/data/generated/`.
-- **Automatic refresh:** `.github/workflows/update-data.yml` runs every
-  Monday at 06:00 UTC, pulls fresh data, and commits any changes — so
-  Global server additions appear without manual work.
+### Cross-cutting
+- Persistent Uma stat header on every tab, backed by one shared Zustand store.
+- Dark navy / pink / gold Uma Musume theme, plain CSS (no Tailwind).
+- Toast notifications; keyboard shortcuts (Ctrl+S save build, Ctrl+O open builds, Ctrl+R run simulation); all modals close on Escape and backdrop click.
 
-## Roadmap
+## Setup
 
-- Race simulator (tick-by-tick, HP & stamina drain, skill triggers).
-- Source a skills catalog with effects from elsewhere (umapyoi has no
-  skills endpoint) — likely a GameTora scrape using the `gametora` slug
-  on each support card as the join key.
-- Add gameplay overlays for more umas — current playable roster is the
-  initial Global launch heroes (Special Week → El Condor Pasa).
-- Track preview / minimap with corner & straight visualisation.
-- Per-skill activation probability calc and breakeven stat suggestions.
-- Save / share builds via URL hash.
+Requires **Node 20+**.
 
-## Local dev
-
-```bash
+```sh
 npm install
-npm run dev
+npm run dev        # Vite dev server → http://localhost:5173
+npm run build      # type-check (tsc -b) + production build → dist/
+npm run preview    # serve the production build locally
 ```
 
-Open the URL it prints (usually <http://localhost:5173>).
+Because the Vite base path defaults to `./` (relative URLs), the built app also works when you **open `dist/index.html` directly from disk** (`file://`) — no server needed.
 
-## Build
+Other scripts:
 
-```bash
-npm run build
-npm run preview  # to view the production build locally
+```sh
+npm run lint              # ESLint
+npm run generate:skills   # regenerate src/data/skills.ts from daftuyda's DB
 ```
 
-## Deploy to GitHub Pages
+## GitHub Pages deployment
 
-1. Push this repo to GitHub.
-2. Settings → Pages → "Build and deployment" → Source: **GitHub Actions**.
-3. Edit `.github/workflows/deploy.yml` — set `VITE_BASE_PATH` to
-   `/<your-repo-name>/` (already defaulted to `/umamusume-planner/`).
-4. Push to `main`. The workflow builds and deploys automatically.
+`.github/workflows/deploy.yml` builds and deploys to GitHub Pages on every push to `main` (and via manual dispatch). Notes:
 
-If you use a custom domain or a `username.github.io` repo, set
-`VITE_BASE_PATH: /` instead.
+- The workflow sets `VITE_BASE_PATH: /umamusume-planner/` for the build — required for project pages hosted at `https://<user>.github.io/umamusume-planner/`. If you rename the repo, update this value; for a `username.github.io` root repo or a custom domain, set it to `/`.
+- `actions/configure-pages@v5` runs with `enablement: true`, so the Pages site is auto-created on first run — no manual repository-settings step.
+- Local builds (no `VITE_BASE_PATH` env var) fall back to `./`, keeping `file://` usage working.
 
-## Data structure
+## What was cloned vs. extended
 
-All game data lives in `src/data/*.json` with TypeScript types in
-`src/types/index.ts`. The shape mirrors GameTora's so a scraper can drop
-the JSON in directly. See `src/lib/rating.ts` for the heuristic rating
-formula (`computeStatScore`, `aptitudeMultiplier`, `skillScore`,
-`scenarioBonus`, `gradeFor`) — these are calibrated against community
-numbers and meant to be tuned as we collect more samples.
+| Source | Cloned | Extended |
+|---|---|---|
+| **UmaTools** ([daftuyda.moe](https://daftuyda.moe/optimizer), [github.com/daftuyda/UmaTools](https://github.com/daftuyda/UmaTools)) | Optimizer scoring model (Team Trials weights, consistency/cost-efficiency composite), rating stat table + tier thresholds + unique bonus (`rating-shared.js`, `skill-scorer.js`), skill database (`skills_core.json` / `skills_all.json`), screenshot OCR workflow | Unified store shared with the simulator, Ideal Skill Builder aptitude filters, Explain Build panel, build save/share integration |
+| **Umalator / uma-tools** ([kachi-dev/uma-tools](https://github.com/kachi-dev/uma-tools)) | Race math from `RaceSolver.ts`: Wit activation roll, guts min-speed, base speed, strategy velocity/HP coefficients, phase model | Monte Carlo multi-run aggregation, build comparison mode, integration with optimizer skill lists |
+| **GameTora** ([gametora.com](https://gametora.com)) | Reference for venue geometry / course data conventions | — |
+| **umapyoi.net** ([umapyoi.net](https://umapyoi.net)) | Reference for character/skill data cross-checks | — |
+
+Huge thanks to daftuyda, kachi-dev, GameTora, and umapyoi.net — this project would not exist without their public work.
 
 ## Disclaimer
 
-Fan project. Not affiliated with Cygames, Inc. or Umamusume Pretty Derby.
-Game data sourced from publicly available community resources.
+This is an unofficial **fan project**. It is not affiliated with, endorsed by, or connected to Cygames, Inc. or any rights holders of *Uma Musume: Pretty Derby*. All game names, data, and related assets are the property of their respective owners. This tool is provided for personal planning use only.
