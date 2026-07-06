@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"C:\\\\Users\\\\deity\\\\Documents\\\\ai_assistant\\\\umamusume-planner\" && cp \"C:\\\\Users\\\\deity\\\\Downloads\\\\umamusume-planner-fable5-prompt.md\" FABLE5_PROMPT.md && ls FABLE5_PROMPT.md)",
+      "Bash(curl -s -A \"Mozilla/5.0\" \"https://daftuyda.moe/assets/skills_core.json\" -o .tmp-skills-core.json -w \"HTTP %{http_code} %{size_download}b\\\\n\")",
+      "Bash(node -e ' *)",
+      "Bash(rm .tmp-skills-core.json)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "PowerShell(npm install)",
+      "PowerShell($d = \"C:\\\\Users\\\\deity\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-deity-Documents-ai-assistant-umamusume-planner\\\\4fd01df2-72c4-4210-bf3f-666114eb0aa9\\\\scratchpad\"; New-Item -ItemType Directory -Force $d | Out-Null; Invoke-WebRequest -Uri 'https://daftuyda.moe/assets/skills_core.json' -Headers @{'User-Agent'='uma-planner-build'} -OutFile \"$d\\\\skills_core.json\"; Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/daftuyda/UmaTools/main/assets/skills_all.json' -Headers @{'User-Agent'='uma-planner-build'} -OutFile \"$d\\\\skills_all.json\"; ls $d)",
+      "PowerShell($d = \"C:\\\\Users\\\\deity\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-deity-Documents-ai-assistant-umamusume-planner\\\\4fd01df2-72c4-4210-bf3f-666114eb0aa9\\\\scratchpad\")",
+      "PowerShell(node scripts\\\\generate-skills.mjs)",
+      "PowerShell(npx tsc -b --force)",
+      "PowerShell(npm run build)",
+      "Bash(npx tsc *)",
+      "Bash(awk 'length\\($0\\) < 3000' src/data/skills.ts)",
+      "Bash(grep -o 'export const SKILLS: SkillEntry\\\\[\\\\] = JSON.parse\\(.\\\\{0,1500\\\\}' \"C:/Users/deity/Documents/ai_assistant/umamusume-planner/src/data/skills.ts\")",
+      "PowerShell(npx tsc --noEmit)",
+      "PowerShell(npx tsc --noEmit 2>$null)",
+      "PowerShell(if \\(-not $?\\) { \"exit nonzero\" })",
+      "Bash(echo \"=== EXIT: $? ===\")",
+      "Bash(echo \"=== tsc EXIT: $? ===\")",
+      "Bash(git fetch *)",
+      "Bash(git rebase *)",
+      "Bash(git stash *)",
+      "Bash(awk '{print $2}')",
+      "Bash(xargs -r git rm -f)",
+      "Bash(GIT_EDITOR=true git rebase --continue)"
+    ]
+  }
+}

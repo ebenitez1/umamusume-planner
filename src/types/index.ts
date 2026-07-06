@@ -1,174 +1,198 @@
-export type StatKey = "speed" | "stamina" | "power" | "guts" | "wit";
+/**
+ * Shared type contract for Uma Planner v2.
+ * This file is FROZEN — module agents consume these names/shapes as-is.
+ * Any additions must be documented in ARCHITECTURE.md.
+ */
 
-export type Stats = Record<StatKey, number>;
+/** Aptitude letter grades, best to worst. */
+export type AptitudeGrade = 'S' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
 
-export type AptitudeGrade = "S" | "A" | "B" | "C" | "D" | "E" | "F" | "G";
+export type Surface = 'turf' | 'dirt';
 
-export type Surface = "turf" | "dirt";
-export type Distance = "sprint" | "mile" | "medium" | "long";
-export type Style = "runner" | "early" | "late" | "end";
+export type DistanceClass = 'sprint' | 'mile' | 'medium' | 'long';
 
-export interface Aptitudes {
-  surface: Record<Surface, AptitudeGrade>;
-  distance: Record<Distance, AptitudeGrade>;
-  style: Record<Style, AptitudeGrade>;
+/** Running style: Front Runner / Pace Chaser / Late Surger / End Closer. */
+export type Strategy = 'front' | 'pace' | 'late' | 'end';
+
+/** Race phases (opening 0–1/6, middle 1/6–2/3, final 2/3–5/6, spurt 5/6–1). */
+export type RacePhase = 'opening' | 'middle' | 'final' | 'spurt';
+
+/** Terrain features referenced by skill activation conditions. */
+export type TerrainTag = 'corner' | 'straight' | 'slope';
+
+/** The five core stats. */
+export interface UmaStats {
+  speed: number;
+  stamina: number;
+  power: number;
+  guts: number;
+  wisdom: number;
 }
 
-export type SkillRarity = "normal" | "rare" | "unique";
-export type SkillCategory =
-  | "speed"
-  | "acceleration"
-  | "recovery"
-  | "passive"
-  | "debuff"
-  | "vision"
-  | "positional"
-  | "heal";
+export type StatKey = keyof UmaStats;
 
-export interface Skill {
-  id: string;
-  name: string;
-  rarity: SkillRarity;
-  category: SkillCategory;
-  description: string;
-  // numeric icon ID — pair with skillIconUrl() to get a CDN image
-  iconid?: number;
-  // numeric "rating points" contributed when owned (community heuristic)
-  ratingPoints: number;
-  // optional sim metadata — used by the future race simulator
-  sim?: {
-    trigger?: string;       // free-form key e.g. "last_leg && in_front"
-    effectKind?: "speed" | "accel" | "heal" | "buff" | "debuff";
-    effectValue?: number;   // e.g. +0.35 (speed)
-    durationS?: number;     // seconds
-    cooldownS?: number;
-  };
-  // contextual tags used by the recommender
-  tags?: {
-    styles?: Style[];        // running styles that benefit
-    distances?: Distance[];  // distances that benefit
-    surfaces?: Surface[];
-    phase?: ("opening" | "middle" | "final" | "spurt")[];
-    terrain?: ("corner" | "straight" | "slope")[];  // course-feature gating
-  };
+/** The trained uma being planned: stats + rarity + unique skill level. */
+export interface UmaConfig {
+  stats: UmaStats;
+  starLevel: 1 | 2 | 3 | 4 | 5;
+  uniqueLevel: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
-export interface Uma {
-  id: string;                // string form of game_id, e.g. "1001"
-  gameId: number;            // umapyoi game_id
-  name: string;              // English name
-  nameJp?: string;
-  rarity: 1 | 2 | 3;         // star rating
-  preferredStyle: Style;
-  baseStats: Stats;          // at limit break, fully bonded — game baseline
-  growthRates: Stats;        // % bonus per training, e.g. { speed: 10, ... }
-  aptitudes: Aptitudes;
-  uniqueSkillId: string;
-  awakeningSkillIds: string[];
-  // catalog metadata from umapyoi
-  thumbImg?: string;
-  colorMain?: string;
-  preferredUrl?: string;
-  // true when we have no gameplay overlay yet (stats/aptitudes are defaults)
-  unplayable?: boolean;
+/** Aptitude grades for track surface, distance class, and strategy. */
+export interface AptitudeSet {
+  track: Record<Surface, AptitudeGrade>;
+  distance: Record<DistanceClass, AptitudeGrade>;
+  strategy: Record<Strategy, AptitudeGrade>;
 }
 
-export type CardType = "speed" | "stamina" | "power" | "guts" | "wit" | "friend";
-export type CardRarity = "R" | "SR" | "SSR";
-
-export interface SupportCard {
-  id: string;                  // string form of umapyoi id, e.g. "30001"
-  apiId: number;               // umapyoi id
-  name: string;                // English title with character prefix
-  title?: string;              // just the bracketed title from API
-  type: CardType;
-  rarity: CardRarity;
-  charaGameId?: number;        // owning character's game_id
-  charaName?: string;          // English name of owning character
-  gametoraSlug?: string;       // join key to GameTora
-  iconUrl?: string;
-  // gameplay overlay — empty array if we don't have curated data yet
-  taughtSkillIds: string[];
-  trainingBonusPct: number;
-  friendshipBonusPct: number;
-  hasGameplay: boolean;        // false when no overlay; UI can dim it
-}
-
-export interface Scenario {
-  id: string;
-  name: string;
-  description: string;
-  // multipliers applied during recommender/rating heuristics
-  statMultipliers?: Partial<Record<StatKey, number>>;
-  // skills strongly favored in this scenario
-  favoredSkillIds?: string[];
-  // free-form notes for the UI
-  notes?: string;
-}
-
-export interface ChampionMeeting {
-  id: string;
-  name: string;
-  // Global Champion Meeting number, e.g. 1 for CM1. Optional — only set
-  // for featured meetings that have actually been a Champion Meeting.
-  cmNumber?: number;
-  // race shape
-  track: string;             // venue name e.g. "Tokyo Racecourse"
-  trackId?: number;          // gametora venue id (1xxxx) — for the icon CDN
+/** The race being planned/simulated. */
+export interface RaceConfig {
   surface: Surface;
-  distance: Distance;
-  distanceMeters: number;    // exact m
-  // hint for the recommender: which styles historically dominate
-  metaStyles?: Style[];
-  // notable course traits (final straight, slopes, corners)
-  notes?: string;
-  // Full course geometry (corners + slopes), populated from kachi-dev's
-  // course_data.json when the race's course_id is in their dataset.
-  geometry?: CourseGeometry;
+  distanceClass: DistanceClass;
+  strategy: Strategy;
+  /** Number of runners in the field (including the player's uma). */
+  fieldSize: number;
 }
 
-export interface CourseGeometry {
-  /** All corner regions on the course, ordered by start position. */
-  corners: Array<{ start: number; length: number }>;
-  /** Slope sections. Positive `slope` = uphill, negative = downhill. */
-  slopes: Array<{ start: number; length: number; slope: number }>;
-  /** Straight sections (between corners). */
-  straights: Array<{ start: number; end: number }>;
+/** Skill rarity color as shown in-game. */
+export type SkillColor = 'white' | 'gold' | 'pink' | 'green' | 'blue' | 'red';
+
+export type SkillType =
+  | 'speed'
+  | 'stamina'
+  | 'power'
+  | 'guts'
+  | 'wisdom'
+  | 'recovery'
+  | 'passive'
+  | 'debuff'
+  | 'unique';
+
+/** Aptitude/condition tags decoded from the skill database's type tags. */
+export interface SkillAptitudeTags {
+  surface?: Surface[];
+  distance?: DistanceClass[];
+  strategy?: Strategy[];
+  phase?: RacePhase[];
+  terrain?: TerrainTag[];
 }
 
-export interface UmaBuild {
-  umaId: string;
-  meetingId: string;
-  scenarioId: string;
-  cardIds: string[];          // up to 6 in normal training
-  stats: Stats;
-  aptitudes: Aptitudes;       // copied/overridden from uma
-  skillIds: string[];         // skills the uma has learned
-  preferredStyle: Style;
+/** One skill in the static database (src/data/skills.ts, generated). */
+export interface SkillEntry {
+  id: number;
+  name: string;
+  description?: string;
+  /** Base SP cost (hint level 0). UI/state may override per-skill. */
+  spCost: number;
+  type: SkillType;
+  color: SkillColor;
+  /** Base skill value — activation worth used by the optimizer. */
+  sv: number;
+  /** Heuristic expected activations per race (0..1 for once-per-race skills). */
+  expectedActivations: number;
+  /** Raw activation condition string from the game data, if known. */
+  conditionRaw?: string;
+  aptitudeTags: SkillAptitudeTags;
+  /** False for inherent uniques (rarity 6) that cannot be bought with SP. */
+  purchasable: boolean;
+  /**
+   * True when the skill exists in the Global (EN) client — i.e. the source
+   * data carries official Global text. Drives the "Official EN Skills Only"
+   * toggle. (Documented addition to the frozen contract; see ARCHITECTURE.md.)
+   */
+  official: boolean;
 }
 
+/** A skill after optimizer scoring. */
+export interface RankedSkill {
+  skill: SkillEntry;
+  /** Final composite score (weighted consistency + cost efficiency). */
+  score: number;
+  /** 0..1 — how reliably the skill activates given the race config. */
+  consistency: number;
+  /** 0..1 normalized SV-per-SP measure. */
+  costEfficiency: number;
+  /** Raw sv / effectiveCost. */
+  svPerSp: number;
+  /** SP cost after overrides and Fast Learner discount. */
+  effectiveCost: number;
+}
+
+/** Aggregate numbers shown in the optimizer's Summary panel. */
+export interface OptimizerSummary {
+  bestScore: number;
+  usedPoints: number;
+  totalPoints: number;
+  remaining: number;
+  consistencyPct: number;
+  expectedValue: number;
+  totalSv: number;
+  expectedActivations: number;
+  svPerSp: number;
+  skillDensity: number;
+  estActivationScore: number;
+  aptitudeTestScore: number;
+}
+
+export interface OptimizerResult {
+  /** Every candidate skill, ranked best-first. */
+  ranked: RankedSkill[];
+  /** The chosen subset that fits the SP budget. */
+  picked: RankedSkill[];
+  summary: OptimizerSummary;
+  explain: {
+    strengths: string[];
+    risks: string[];
+    warnings: string[];
+  };
+}
+
+/** A saved build snapshot (persisted to localStorage; shareable via URL). */
+export interface Build {
+  id: string;
+  name: string;
+  createdAt: number;
+  uma: UmaConfig;
+  aptitudes: AptitudeSet;
+  race: RaceConfig;
+  skillIds: number[];
+  costOverrides: Record<number, number>;
+  spBudget: number;
+}
+
+/** Output of the rating calculator. */
 export interface RatingResult {
   total: number;
-  grade: string;
+  tier: string;
+  toNextTier: number;
+  nextTier: string;
   breakdown: {
-    statScore: number;
-    skillScore: number;
-    aptitudeBonus: number;
-    scenarioBonus: number;
+    stats: number;
+    skills: number;
+    unique: number;
   };
-  notes: string[];
 }
 
-export interface SkillRecommendation {
-  skill: Skill;
-  priority: "core" | "strong" | "nice-to-have" | "avoid";
-  reasons: string[];
-  source?: { fromCardId?: string; fromUmaId?: string; manual?: boolean };
+/** Output of one Monte Carlo simulation batch. */
+export interface SimulationOutcome {
+  winPct: number;
+  top3Pct: number;
+  meanFinishS: number;
+  /** Index i = probability (0..1) of finishing in place i+1; length = fieldSize. */
+  placementDistribution: number[];
+  /** HP remaining at the finish line as a % of the pool (negative = gassed out). */
+  staminaMarginPct: number;
+  warnings: string[];
+  recommendations: string[];
 }
 
-export interface UmaRecommendation {
-  uma: Uma;
-  style: Style;
-  rationale: string[];
-  expectedGrade: string;
+/** Toast notification (uiSlice). */
+export type ToastKind = 'info' | 'success' | 'error';
+
+export interface Toast {
+  id: number;
+  message: string;
+  kind: ToastKind;
 }
+
+export type TabId = 'simulator' | 'optimizer' | 'builds';
