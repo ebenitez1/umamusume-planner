@@ -12,6 +12,13 @@ export interface UiSlice {
   /** Shared "Save Build" modal open state (Ctrl+S targets this). */
   saveModalOpen: boolean;
   setSaveModalOpen: (open: boolean) => void;
+  /**
+   * Monotonic counter bumped to request a simulation run from anywhere
+   * (Ctrl+R). RaceSimulator subscribes and runs when it changes. Never
+   * persisted (UI state is excluded from the persist partialize).
+   */
+  simRunNonce: number;
+  requestSimRun: () => void;
 }
 
 let nextToastId = 1;
@@ -33,4 +40,6 @@ export const createUiSlice: StateCreator<
     set((state) => ({ toasts: state.toasts.filter((t) => t.id !== id) })),
   saveModalOpen: false,
   setSaveModalOpen: (saveModalOpen) => set({ saveModalOpen }),
+  simRunNonce: 0,
+  requestSimRun: () => set((state) => ({ simRunNonce: state.simRunNonce + 1 })),
 });
